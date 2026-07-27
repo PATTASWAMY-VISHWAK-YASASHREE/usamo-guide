@@ -24,13 +24,14 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import { promisify } from 'node:util';
+import { fileURLToPath } from 'node:url';
 
 const require = createRequire(import.meta.url);
 const { extractFigureBlocks } = require('../src/utils/problemFigures.js');
 
 const execFileAsync = promisify(execFile);
 
-const ROOT = path.resolve(path.dirname(new URL(import.meta.url).pathname), '..');
+const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const CONTENT_DIR = path.join(ROOT, 'content');
 const OUT_DIR = path.join(ROOT, 'static', 'generated', 'figures');
 const ASY_MODULES_DIR = path.join(ROOT, 'asy');
