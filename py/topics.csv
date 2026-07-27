@@ -1,0 +1,101 @@
+Topic,Description
+Cyclic quadrilaterals,Angle and side relations in quadrilaterals inscribed in a circle.
+Triangle centers,"Properties of the centroid, incenter, circumcenter, orthocenter, and related points."
+Angle Chasing,Using angle relations and straight-line facts to deduce structure.
+Tangents,Relations involving tangent lines to circles and contact points.
+Triangle trigonometry,Sine and cosine laws plus trig identities in triangle problems.
+Distance chasing,Using lengths and distances through geometric constructions.
+Homothety,Scaling transformations and similarity of geometric figures.
+Constructions and loci,Geometric constructions and sets of points satisfying conditions.
+Sums and products,Algebraic manipulation of sums and products of quantities.
+Radical axis theorem,Circle relations involving common chords and power of a point.
+Trigonometry,General trigonometric identities and equations.
+Polynomial operations,Manipulating and factoring polynomials.
+Roots of unity,Complex roots of unity and cyclic symmetry.
+Area,Area formulas and area-based arguments.
+Complex numbers,Using complex numbers in algebra and geometry.
+Functional Equations,Determining functions from equations and symmetries.
+Rotation,Transformations by rotation and angular symmetry.
+Triangles,Core triangle geometry and side-angle relationships.
+Telescoping Series,Series that cancel term by term.
+Recurrence relations,Sequences defined by recursive rules.
+Factorization techniques,Breaking expressions into factors.
+Vieta's formulas,Relations among roots and coefficients.
+Greatest common divisors (gcd),Divisibility and gcd-based arguments.
+Circles,General properties of circles and arcs.
+Complex numbers in geometry,Complex plane methods for geometric problems.
+Induction / smoothing,Proof by induction and smoothing arguments.
+Combinatorics,Counting and arrangement methods.
+Modular Arithmetic,Arithmetic with congruences modulo n.
+Cartesian coordinates,Coordinate geometry with axes and equations.
+Percentages,Ratio and percentage reasoning.
+Quadrilaterals,General properties of quadrilaterals.
+QM-AM-GM-HM / Power Mean,Mean inequalities and power mean techniques.
+Counting two ways,Counting the same set by two different methods.
+Prime numbers,Properties of primes and divisibility.
+Generating functions,Using formal series to encode combinatorial data.
+Spiral similarity,Composition of rotation and scaling.
+Cauchy-Schwarz,An inequality bounding sums of products.
+"Coloring schemes, extremal arguments",Coloring and extremal case analysis.
+Optimization in geometry,Maximizing or minimizing geometric quantities.
+Invariants / monovariants,Properties preserved or changed in steps.
+Inversion,Circle inversion and transformed figures.
+Miquel point,A common point of circles in a complete quadrilateral.
+Rates,Motion and changing quantities.
+Symmetric functions,Expressions unchanged under permutations.
+Chinese remainder theorem,Solving congruences simultaneously.
+Ratios,Ratio and proportion reasoning.
+Multiplicative order,Order of elements modulo n.
+Fermat / Euler / Wilson theorems,Classic number theory theorems.
+Fractions,Rational expressions and fraction manipulation.
+Quadratic residues,Squares modulo primes and related properties.
+φ (Euler's totient),Counting numbers coprime to n.
+Expected values,Average outcomes in probabilistic settings.
+Graph Theory,"Graphs, paths, and connectivity."
+"Isogonal/isotomic conjugates, barycentric coordinates",Advanced triangle center techniques.
+Other,Miscellaneous or less common approaches.
+"Techniques: modulo, size analysis, order analysis, inequalities",A mixed toolkit of analytic techniques.
+Logic,Deductive and logical reasoning.
+Linear and quadratic inequalities,Solving and comparing linear and quadratic expressions.
+Vectors,Vector methods and dot or cross products.
+3D Geometry,Geometry in three dimensions.
+Geometry,General geometric reasoning.
+Permutations,Arrangements and orderings.
+Optimization,General optimization and extremal arguments.
+"Polar triangles, harmonic conjugates",Advanced projective and triangle notions.
+"Brocard point, symmedians",Special triangle points and lines.
+Proportions,Proportion and scaling methods.
+Casework,Breaking a problem into separate cases.
+Jensen / smoothing,Convexity and smoothing arguments.
+Perimeter,Perimeter-based relations.
+Trigonometric functions,Properties of trigonometric functions.
+Averages,Mean-based reasoning.
+Pigeonhole principle,Using counting to force repetition.
+Concurrency and Collinearity,Lines meeting at common points or lying on one line.
+Polynomials mod p,Polynomial arithmetic over finite fields.
+Quadratic functions,Parabolas and quadratic behavior.
+Algebraic properties of binomial coefficients,Binomial coefficient identities and divisibility.
+Inscribed/circumscribed quadrilaterals,Cyclic and tangential quadrilateral properties.
+Integers,Integer arithmetic and divisibility.
+Menelaus' theorem,Collinearity in triangles via Menelaus.
+"Polynomial interpolation: Newton, Lagrange",Recovering polynomials from values.
+Quadrilaterals with perpendicular diagonals,Special quadrilateral angle and area properties.
+Translation,Shifting figures in the plane.
+Triangle inequalities,Bounds on sides and sums in triangles.
+Combinations,Choosing subsets and groups.
+Counting,Basic combinatorial counting.
+Games / greedy algorithms,Game theory and greedy strategy.
+"Recursion, bijection",Recursive definitions and one-to-one correspondences.
+Algebra,General algebraic manipulation.
+"Irreducibility: Rational Root Theorem, Gauss's Lemma, Eisenstein",Proving polynomials are irreducible.
+Probability,Probability and random events.
+Statistics,Data analysis and distributions.
+Polynomials,Polynomial identities and roots.
+Surface Area,Area of surfaces in three dimensions.
+Enumeration with symmetry,Counting via symmetry reductions.
+Infinite descent / root flipping,Contradiction and descent arguments.
+Pythagorean Theorem,Right triangle side relations.
+Simson line,A pedal line from a point on the circumcircle.
+Spatial Reasoning,Reasoning about objects in three dimensions.
+Squares,Square numbers and square geometry.
+Inclusion-exclusion,Counting by inclusion-exclusion.

@@ -91,6 +91,14 @@ export type UserData = {
     problemProgress: ProblemProgress;
   }[];
   userProgressOnResources: Record<string, ResourceProgress>;
+  problemTaggingStats: {
+    problemsTagged: number;
+    taggedProblemIds: string[];
+  };
+  problemDifficultyStats: {
+    problemsRated: number;
+    ratedProblemIds: string[];
+  };
 };
 
 // What's exposed in the context
@@ -134,6 +142,14 @@ export const assignDefaultsToUserData = (data: object): UserData => {
     userProgressOnProblems: {},
     userProgressOnProblemsActivity: [],
     userProgressOnResources: {},
+    problemTaggingStats: {
+      problemsTagged: 0,
+      taggedProblemIds: [],
+    },
+    problemDifficultyStats: {
+      problemsRated: 0,
+      ratedProblemIds: [],
+    },
     ...rest,
   };
 };

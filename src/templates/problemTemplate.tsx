@@ -8,6 +8,12 @@ import SEO from '../components/seo';
 import TopNavigationBar from '../components/TopNavigationBar/TopNavigationBar';
 import { ConfettiProvider } from '../context/ConfettiContext';
 import {
+  useCurrentUser,
+  useIsUserDataLoaded,
+  useUpdateUserData,
+} from '../context/UserDataContext/UserDataContext';
+import { supabase } from '../lib/supabaseClient';
+import {
   probSources,
   ProblemDifficulty,
   ProblemInfo,
@@ -114,21 +120,180 @@ const VANILLA = '#F4EDEA';
 const TEXT_SECONDARY = 'rgba(244, 237, 234, 0.74)';
 const MAUVE = '#F0C2FF';
 const PURPLE = '#70428A';
-const BORDER = 'rgba(240, 194, 255, 0.20)';
 const BORDER_STRONG = 'rgba(240, 194, 255, 0.30)';
+const DIFFICULTY_SCALE_TEXT = `Scale
+
+0.5: Easiest math competition problems, often solvable even for early middle school students without experience.
+
+1: Problems strictly for beginners, often at a moderate middle school level.
+
+1.5: Problems for stronger beginner students, on the level of the middling problems in most middle school contests.
+
+2: For motivated beginners, harder questions from the previous categories.
+
+2.5: More advanced beginner problems, hardest questions from previous categories.
+
+3: Early intermediate problems that require more creative thinking.
+
+3.5: Tougher early intermediate problems that consistently stretch into higher-level creative thinking or conceptual knowledge.
+
+4: Intermediate-level problems.
+
+4.5: Upper intermediate problems approaching the upper bound for non-invitational sprint math competitions.
+
+5: More difficult AIME problems or simple proof-based Olympiad-style problems.
+
+6: High-level AIME-styled questions or introductory Olympiad-level questions.
+
+7: Tougher Olympiad-level questions, may require more technical knowledge.
+
+8: High-level Olympiad-level questions.
+
+9: Expert Olympiad-level questions.
+
+9.5: The hardest problems appearing on Olympiads which the strongest students could reasonably solve.
+
+10: Historically notorious problems, generally unsuitable for even very hard competitions because they are exceedingly tedious, long, and difficult.`;
+const DIFFICULTY_OPTIONS = Array.from({ length: 20 }, (_, index) =>
+  Number((index / 2 + 0.5).toFixed(1))
+);
 
 export default function ProblemTemplate(
   props: PageProps<ProblemTemplateData, { uniqueId: string }>
 ): JSX.Element {
   const node = props.data.allProblemInfo.nodes[0];
+  const problem = node ? templateNodeToProblemInfo(node) : null;
   const [solutionOpen, setSolutionOpen] = React.useState(false);
   const [integerInput, setIntegerInput] = React.useState('');
   const [mcqIndex, setMcqIndex] = React.useState<number | null>(null);
   const [checkResult, setCheckResult] = React.useState<
     'idle' | 'correct' | 'incorrect'
   >('idle');
+  const [approvedTags, setApprovedTags] = React.useState<string[]>([]);
+  const [tagInput, setTagInput] = React.useState('');
+  const [tagSubmissionMessage, setTagSubmissionMessage] = React.useState<
+    string | null
+  >(null);
+  const [isSubmittingTags, setIsSubmittingTags] = React.useState(false);
+  const [difficultyAverage, setDifficultyAverage] = React.useState<number | null>(
+    null
+  );
+  const [difficultyVoteCount, setDifficultyVoteCount] = React.useState(0);
+  const [difficultyValue, setDifficultyValue] = React.useState('5');
+  const [difficultyMessage, setDifficultyMessage] = React.useState<string | null>(
+    null
+  );
+  const [isSubmittingDifficulty, setIsSubmittingDifficulty] = React.useState(false);
+  const currentUser = useCurrentUser();
+  const isUserDataLoaded = useIsUserDataLoaded();
+  const updateUserData = useUpdateUserData();
 
-  if (!node) {
+  const recordUserContribution = React.useCallback(
+    (kind: 'tag' | 'difficulty') => {
+      if (!problem?.uniqueId || !isUserDataLoaded || !currentUser) return;
+
+      updateUserData(prevUserData => {
+        if (kind === 'tag') {
+          const taggedProblemIds = prevUserData.problemTaggingStats.taggedProblemIds;
+          if (taggedProblemIds.includes(problem.uniqueId)) {
+            return { localStorageUpdate: {}, remoteUpdate: {} };
+          }
+
+          const updates = {
+            problemsTagged: prevUserData.problemTaggingStats.problemsTagged + 1,
+            taggedProblemIds: [...taggedProblemIds, problem.uniqueId],
+          };
+
+          return {
+            localStorageUpdate: { problemTaggingStats: updates },
+            remoteUpdate: { problemTaggingStats: updates },
+          };
+        }
+
+        const ratedProblemIds = prevUserData.problemDifficultyStats.ratedProblemIds;
+        if (ratedProblemIds.includes(problem.uniqueId)) {
+          return { localStorageUpdate: {}, remoteUpdate: {} };
+        }
+
+        const updates = {
+          problemsRated: prevUserData.problemDifficultyStats.problemsRated + 1,
+          ratedProblemIds: [...ratedProblemIds, problem.uniqueId],
+        };
+
+        return {
+          localStorageUpdate: { problemDifficultyStats: updates },
+          remoteUpdate: { problemDifficultyStats: updates },
+        };
+      });
+    },
+    [currentUser, isUserDataLoaded, problem?.uniqueId, updateUserData]
+  );
+
+  const visibleTags = React.useMemo(() => {
+    if (!problem) return [];
+    const tags = new Set<string>(problem.tags);
+    approvedTags.forEach(tag => tags.add(tag));
+    return Array.from(tags);
+  }, [approvedTags, problem]);
+
+  React.useEffect(() => {
+    if (!problem?.uniqueId) return;
+
+    let isActive = true;
+
+    const loadApprovedTags = async () => {
+      const { data, error } = await supabase
+        .from('problem_tag_approvals')
+        .select('tag')
+        .eq('problem_id', problem.uniqueId);
+
+      if (!isActive) return;
+      if (error) {
+        console.error('Failed to load approved problem tags', error);
+        return;
+      }
+
+      setApprovedTags((data ?? []).map(row => row.tag).filter(Boolean));
+    };
+
+    void loadApprovedTags();
+
+    const loadDifficultyRatings = async () => {
+      const { data, error } = await supabase
+        .from('problem_difficulty_ratings')
+        .select('rating')
+        .eq('problem_id', problem.uniqueId);
+
+      if (!isActive) return;
+      if (error) {
+        console.error('Failed to load community difficulty ratings', error);
+        return;
+      }
+
+      const ratings = (data ?? [])
+        .map(row => Number(row.rating))
+        .filter(value => !Number.isNaN(value));
+
+      if (ratings.length === 0) {
+        setDifficultyAverage(null);
+        setDifficultyVoteCount(0);
+        return;
+      }
+
+      const average = ratings.reduce((sum, value) => sum + value, 0) / ratings.length;
+      setDifficultyAverage(Number(average.toFixed(1)));
+      setDifficultyVoteCount(ratings.length);
+    };
+
+    void loadApprovedTags();
+    void loadDifficultyRatings();
+
+    return () => {
+      isActive = false;
+    };
+  }, [problem?.uniqueId]);
+
+  if (!node || !problem) {
     return (
       <Layout>
         <SEO title="Problem not found" image={null} pathname={props.path} />
@@ -145,10 +310,163 @@ export default function ProblemTemplate(
     );
   }
 
-  const problem = templateNodeToProblemInfo(node);
   const sourceTooltip =
     node.sourceDescription ||
     (probSources[node.source as keyof typeof probSources]?.[1] ?? null);
+
+  const handleTagSubmission = async (event: React.FormEvent) => {
+    event.preventDefault();
+
+    if (!problem?.uniqueId) return;
+
+    const tagsToSuggest = tagInput
+      .split(',')
+      .map(tag => tag.trim().toLowerCase())
+      .filter(Boolean);
+
+    if (tagsToSuggest.length === 0) {
+      setTagSubmissionMessage('Please enter at least one tag.');
+      return;
+    }
+
+    setIsSubmittingTags(true);
+    setTagSubmissionMessage(null);
+
+    try {
+      const {
+        data: { user },
+      } = await supabase.auth.getUser();
+
+      const { error: insertError } = await supabase
+        .from('problem_tag_suggestions')
+        .insert(
+          tagsToSuggest.map(tag => ({
+            problem_id: problem.uniqueId,
+            tag,
+            user_id: user?.id ?? null,
+          }))
+        );
+
+      if (insertError) throw insertError;
+      recordUserContribution('tag');
+
+      const { data: suggestionRows, error: readError } = await supabase
+        .from('problem_tag_suggestions')
+        .select('tag')
+        .eq('problem_id', problem.uniqueId);
+
+      if (readError) throw readError;
+
+      const counts = new Map<string, number>();
+      for (const row of suggestionRows ?? []) {
+        const tag = row.tag?.trim().toLowerCase();
+        if (!tag) continue;
+        counts.set(tag, (counts.get(tag) ?? 0) + 1);
+      }
+
+      const newlyApproved: string[] = [];
+      for (const [tag, count] of counts.entries()) {
+        if (count <= 5) continue;
+
+        const { error: approvalError } = await supabase
+          .from('problem_tag_approvals')
+          .upsert(
+            { problem_id: problem.uniqueId, tag },
+            { onConflict: 'problem_id,tag' }
+          );
+
+        if (!approvalError) {
+          newlyApproved.push(tag);
+        }
+      }
+
+      const { data: approvalRows, error: approvalReadError } = await supabase
+        .from('problem_tag_approvals')
+        .select('tag')
+        .eq('problem_id', problem.uniqueId);
+
+      if (approvalReadError) throw approvalReadError;
+
+      setApprovedTags(
+        (approvalRows ?? []).map(row => row.tag).filter(Boolean)
+      );
+      setTagInput('');
+
+      if (newlyApproved.length > 0) {
+        setTagSubmissionMessage(
+          `Thanks! Your suggestions were recorded and ${newlyApproved.join(', ')} ${newlyApproved.length === 1 ? 'is' : 'are'} now approved.`
+        );
+      } else {
+        setTagSubmissionMessage('Thanks! Your suggestions were recorded.');
+      }
+    } catch (error) {
+      console.error('Failed to save problem tag suggestions', error);
+      setTagSubmissionMessage(
+        'We could not save your tag suggestions right now. Please try again later.'
+      );
+    } finally {
+      setIsSubmittingTags(false);
+    }
+  };
+
+  const handleDifficultySubmit = async (event: React.FormEvent) => {
+    event.preventDefault();
+
+    if (!problem?.uniqueId) return;
+
+    const rating = Number(difficultyValue);
+    if (Number.isNaN(rating)) {
+      setDifficultyMessage('Please choose a valid difficulty.');
+      return;
+    }
+
+    setIsSubmittingDifficulty(true);
+    setDifficultyMessage(null);
+
+    try {
+      const {
+        data: { user },
+      } = await supabase.auth.getUser();
+
+      const { error } = await supabase.from('problem_difficulty_ratings').upsert(
+        {
+          problem_id: problem.uniqueId,
+          user_id: user?.id ?? null,
+          rating,
+        },
+        { onConflict: 'problem_id,user_id' }
+      );
+
+      if (error) throw error;
+      recordUserContribution('difficulty');
+
+      const { data: ratingRows, error: readError } = await supabase
+        .from('problem_difficulty_ratings')
+        .select('rating')
+        .eq('problem_id', problem.uniqueId);
+
+      if (readError) throw readError;
+
+      const ratings = (ratingRows ?? [])
+        .map(row => Number(row.rating))
+        .filter(value => !Number.isNaN(value));
+
+      if (ratings.length > 0) {
+        const average = ratings.reduce((sum, value) => sum + value, 0) / ratings.length;
+        setDifficultyAverage(Number(average.toFixed(1)));
+        setDifficultyVoteCount(ratings.length);
+      }
+
+      setDifficultyMessage('Thanks! Your difficulty rating has been recorded.');
+    } catch (error) {
+      console.error('Failed to save community difficulty rating', error);
+      setDifficultyMessage(
+        'We could not save your rating right now. Please try again later.'
+      );
+    } finally {
+      setIsSubmittingDifficulty(false);
+    }
+  };
 
   const runCheck = () => {
     if (problem.interaction.type === 'integer') {
@@ -272,8 +590,152 @@ export default function ProblemTemplate(
                 <ProblemStatusCheckbox problem={problem} size="large" />
               </ConfettiProvider>
             </div>
+            <div className="mt-5 rounded-2xl border px-4 py-4 shadow-lg"
+              style={{
+                border: `1px solid ${BORDER_STRONG}`,
+                background: 'rgba(14, 11, 31, 0.72)',
+              }}
+            >
+              <div className="flex flex-wrap items-center gap-3">
+                <span className="text-sm font-semibold" style={{ color: VANILLA }}>
+                  Community difficulty
+                </span>
+                <span className="rounded-full px-3 py-1 text-sm font-medium" style={{ color: MAUVE }}>
+                  {difficultyAverage === null
+                    ? 'No ratings yet'
+                    : `${difficultyAverage.toFixed(1)} / 10`}
+                </span>
+                <span className="text-sm" style={{ color: TEXT_SECONDARY }}>
+                  {difficultyVoteCount === 0
+                    ? 'Be the first to rate this problem.'
+                    : `${difficultyVoteCount} ${difficultyVoteCount === 1 ? 'vote' : 'votes'}`}
+                </span>
+              </div>
+              <form className="mt-4 flex flex-wrap items-center gap-3" onSubmit={handleDifficultySubmit}>
+                <label className="text-sm font-medium" style={{ color: TEXT_SECONDARY }}>
+                  Your rating
+                </label>
+                <select
+                  value={difficultyValue}
+                  onChange={event => setDifficultyValue(event.target.value)}
+                  className="rounded-md px-3 py-2 text-sm"
+                  style={{
+                    borderColor: BORDER_STRONG,
+                    background: 'rgba(14, 11, 31, 0.72)',
+                    color: VANILLA,
+                  }}
+                >
+                  {DIFFICULTY_OPTIONS.map(option => (
+                    <option key={option} value={option} style={{ color: '#0A0818' }}>
+                      {option.toFixed(1)}
+                    </option>
+                  ))}
+                </select>
+                <button
+                  type="submit"
+                  disabled={isSubmittingDifficulty}
+                  className="rounded-full px-4 py-2 text-sm font-semibold transition hover:opacity-95 disabled:cursor-not-allowed disabled:opacity-70"
+                  style={{
+                    border: `1px solid ${BORDER_STRONG}`,
+                    background: 'linear-gradient(135deg, #5A2F87 0%, #C58BFF 100%)',
+                    color: VANILLA,
+                  }}
+                >
+                  {isSubmittingDifficulty ? 'Saving…' : 'Submit rating'}
+                </button>
+              </form>
+              {difficultyMessage ? (
+                <p className="mt-3 text-sm" style={{ color: MAUVE }}>
+                  {difficultyMessage}
+                </p>
+              ) : null}
+              <details className="mt-4">
+                <summary
+                  className="cursor-pointer text-sm font-medium"
+                  style={{ color: MAUVE }}
+                >
+                  Understand the scale
+                </summary>
+                <div className="mt-3 whitespace-pre-wrap text-sm leading-6" style={{ color: TEXT_SECONDARY }}>
+                  {DIFFICULTY_SCALE_TEXT}
+                </div>
+              </details>
+            </div>
             </div>
           </header>
+
+          {visibleTags.length > 0 ? (
+            <section className="mb-8" aria-label="Problem tags">
+              <div className="flex flex-wrap gap-2">
+                {visibleTags.map(tag => (
+                  <span
+                    key={tag}
+                    className="rounded-full px-3 py-1 text-sm font-medium"
+                    style={{
+                      border: `1px solid ${BORDER_STRONG}`,
+                      background: 'rgba(14, 11, 31, 0.72)',
+                      color: MAUVE,
+                    }}
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </section>
+          ) : null}
+
+          {visibleTags.length === 0 ? (
+            <section className="mb-10 rounded-2xl p-5 shadow-lg" style={{
+              border: '1px solid rgba(229, 194, 255, 0.12)',
+              background: 'linear-gradient(180deg, rgba(54, 37, 72, 0.9) 0%, rgba(31, 22, 42, 0.94) 100%)',
+            }} aria-label="Suggest tags">
+              <h2 className="text-lg font-semibold" style={{ color: VANILLA }}>
+                Suggest tags for this problem
+              </h2>
+              <p className="mt-2 text-sm" style={{ color: TEXT_SECONDARY }}>
+                This problem does not have any tags yet. Add a few useful tags and
+                once enough people agree, they will be added here automatically.
+              </p>
+              <form className="mt-4" onSubmit={handleTagSubmission}>
+                <label className="mb-2 block text-sm font-medium" style={{ color: TEXT_SECONDARY }}>
+                  Suggested tags
+                </label>
+                <input
+                  type="text"
+                  value={tagInput}
+                  onChange={event => setTagInput(event.target.value)}
+                  placeholder="algebra, combinatorics"
+                  className="ui-input w-full rounded-md px-3 py-2"
+                  style={{
+                    borderColor: BORDER_STRONG,
+                    background: 'rgba(14, 11, 31, 0.72)',
+                    color: VANILLA,
+                  }}
+                />
+                <div className="mt-4 flex flex-wrap items-center gap-3">
+                  <button
+                    type="submit"
+                    disabled={isSubmittingTags}
+                    className="purple-motion-effect inline-flex items-center justify-center rounded-full px-5 py-2 font-mono text-sm font-bold leading-tight disabled:cursor-not-allowed disabled:opacity-70"
+                    style={{
+                      border: '1px solid rgba(240, 194, 255, 0.34)',
+                      background: 'linear-gradient(135deg, #5A2F87 0%, #C58BFF 100%)',
+                      '--pme-color': '#F4EDEA',
+                      '--pme-hover-color': '#201C36',
+                      '--pme-wipe-bg': '#F0C2FF',
+                    } as React.CSSProperties}
+                  >
+                    {isSubmittingTags ? 'Submitting…' : 'Submit tags'}
+                  </button>
+                </div>
+                {tagSubmissionMessage ? (
+                  <p className="mt-3 text-sm" style={{ color: MAUVE }}>
+                    {tagSubmissionMessage}
+                  </p>
+                ) : null}
+              </form>
+            </section>
+          ) : null}
 
           <section className="mb-10" aria-labelledby="problem-statement">
             <h2

@@ -1,0 +1,997 @@
+---
+id: complex-polar-form
+title: Polar Form and De Moivre's Theorem
+author: Neal Shandilya
+description: A training module on polar form, rotations, De Moivre's theorem, and complex bashing techniques.
+prerequisites: [complex-basics]
+---
+
+# Polar Form and De Moivre's Theorem
+
+## 1. Motivation
+
+Rectangular form is powerful but clumsy for multiplication. Compare:
+
+$$\left(\frac{\sqrt{3}}{2}+\frac{1}{2}i\right)^{12}$$
+
+Expanding this directly requires twelve rounds of FOIL. In polar form, it is $\left(e^{i\pi/6}\right)^{12} = e^{2\pi i} = 1$. Done in one line.
+
+The central insight: **multiplication in polar form is rotation and scaling.**
+
+<FigureBox
+  image={
+    <svg width="400" height="308" viewBox="0 0 400 308" xmlns="http://www.w3.org/2000/svg">
+      <rect width="400" height="308" fill="white" />
+      <defs>
+        <marker id="ax" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+          <path d="M0,0 L0,6 L8,3 z" fill="#444" />
+        </marker>
+        <marker id="rv" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+          <path d="M0,0 L0,6 L8,3 z" fill="#1a5276" />
+        </marker>
+      </defs>
+
+      <text x="200" y="16" textAnchor="middle" fontFamily="Georgia, 'Times New Roman', serif" fontSize="12" fontWeight="bold" fill="#222">The Complex Plane in Polar Coordinates</text>
+
+      <line x1="30" y1="215" x2="375" y2="215" stroke="#444" strokeWidth="1.2" markerEnd="url(#ax)" />
+      <line x1="120" y1="265" x2="120" y2="30" stroke="#444" strokeWidth="1.2" markerEnd="url(#ax)" />
+      <text x="379" y="219" fontFamily="Georgia, serif" fontSize="12" fill="#444" fontStyle="italic">Re</text>
+      <text x="124" y="27" fontFamily="Georgia, serif" fontSize="12" fill="#444" fontStyle="italic">Im</text>
+      <text x="115" y="229" textAnchor="end" fontFamily="Georgia, serif" fontSize="11" fill="#888">O</text>
+
+      <line x1="234" y1="126" x2="234" y2="215" stroke="#aaa" strokeWidth="1" strokeDasharray="4,3" />
+      <line x1="120" y1="126" x2="234" y2="126" stroke="#aaa" strokeWidth="1" strokeDasharray="4,3" />
+
+      <line x1="120" y1="215" x2="224" y2="134" stroke="#1a5276" strokeWidth="2" markerEnd="url(#rv)" />
+      <circle cx="234" cy="126" r="3.5" fill="#1a5276" />
+
+      <path d="M 164,215 A 44,44 0 0,0 155,188" fill="none" stroke="#c0392b" strokeWidth="1.5" />
+
+      <text x="246" y="117" fontFamily="Georgia, serif" fontSize="12" fill="#1a5276" fontStyle="italic">z = a + bi</text>
+
+      <text x="161" y="160" textAnchor="middle"
+        fontFamily="Georgia, serif" fontSize="12" fill="#1a5276" fontStyle="italic"
+        transform="rotate(-38, 161, 160)">r = |z|</text>
+
+      <text x="174" y="203" fontFamily="Georgia, serif" fontSize="13" fill="#c0392b" fontStyle="italic">θ</text>
+
+      <line x1="120" y1="220" x2="120" y2="226" stroke="#999" strokeWidth="0.8" />
+      <line x1="234" y1="220" x2="234" y2="226" stroke="#999" strokeWidth="0.8" />
+      <line x1="120" y1="223" x2="234" y2="223" stroke="#999" strokeWidth="0.8" />
+      <text x="177" y="237" textAnchor="middle" fontFamily="Georgia, serif" fontSize="11" fill="#666" fontStyle="italic">a = Re(z)</text>
+
+      <line x1="115" y1="126" x2="109" y2="126" stroke="#999" strokeWidth="0.8" />
+      <line x1="115" y1="215" x2="109" y2="215" stroke="#999" strokeWidth="0.8" />
+      <line x1="112" y1="126" x2="112" y2="215" stroke="#999" strokeWidth="0.8" />
+      <text x="100" y="171" textAnchor="middle" fontFamily="Georgia, serif" fontSize="11" fill="#666" fontStyle="italic" transform="rotate(-90 100 171)">b = Im(z)</text>
+
+      <line x1="20" y1="253" x2="380" y2="253" stroke="#ddd" strokeWidth="0.8" />
+      <text x="200" y="267" textAnchor="middle" fontFamily="Georgia, serif" fontSize="10" fill="#555">r = √(a² + b²) = |z|</text>
+      <text x="200" y="281" textAnchor="middle" fontFamily="Georgia, serif" fontSize="10" fill="#555">θ = arg(z) = arctan(b/a)</text>
+      <text x="200" y="295" textAnchor="middle" fontFamily="Georgia, serif" fontSize="10" fill="#555">z = re^(iθ)   (exponential / polar form)</text>
+    </svg>
+  }
+  alt="Complex plane showing modulus r and argument theta for a point z"
+  title="The Complex Plane in Polar Coordinates"
+>
+  A point $z = a + bi$ sits at distance $r = |z|$ from the origin. The angle from the positive real axis, measured counterclockwise, is $\theta = \arg(z)$. These two quantities, the modulus and argument, completely determine $z$.
+</FigureBox>
+
+---
+
+## 2. Polar Form
+
+For any nonzero $z = a + bi$, define:
+
+$$|z| = r = \sqrt{a^2 + b^2}, \qquad \arg(z) = \theta \text{ where } \tan\theta = \frac{b}{a}$$
+
+The **principal argument** $\text{Arg}(z) \in (-\pi, \pi]$ is the canonical choice. The full argument is $\theta + 2\pi k$ for any integer $k$.
+
+Two equivalent notations for polar form:
+
+$$z = r(\cos\theta + i\sin\theta) \qquad \text{(trigonometric form)}$$
+
+$$z = re^{i\theta} \qquad \text{(exponential form, via Euler's formula)}$$
+
+**Euler's formula:** $e^{i\theta} = \cos\theta + i\sin\theta$. This follows from the Taylor series of $e^x$, $\cos x$, and $\sin x$.
+
+**Worked conversions.**
+
+| Rectangular | $r$ | $\theta$ | Polar |
+|---|---|---|---|
+| $1 + i$ | $\sqrt{2}$ | $\pi/4$ | $\sqrt{2}\,e^{i\pi/4}$ |
+| $-1 + \sqrt{3}i$ | $2$ | $2\pi/3$ | $2e^{2i\pi/3}$ |
+| $-i$ | $1$ | $-\pi/2$ | $e^{-i\pi/2}$ |
+| $-3$ | $3$ | $\pi$ | $3e^{i\pi}$ |
+
+---
+
+## 3. Geometry of Multiplication
+
+For $z_1 = r_1 e^{i\alpha}$ and $z_2 = r_2 e^{i\beta}$:
+
+$$z_1 z_2 = r_1 r_2\, e^{i(\alpha + \beta)}$$
+
+**Magnitudes multiply. Arguments add.**
+
+<FigureBox image={<svg width="490" height="300" viewBox="0 0 490 300" xmlns="http://www.w3.org/2000/svg">
+    <rect width="490" height="300" fill="white"/>
+    <defs>
+      <marker id="ax" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+        <path d="M0,0 L0,6 L8,3 z" fill="#444"/>
+      </marker>
+      <marker id="r1" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+        <path d="M0,0 L0,6 L8,3 z" fill="#1a5276"/>
+      </marker>
+      <marker id="r2" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+        <path d="M0,0 L0,6 L8,3 z" fill="#27ae60"/>
+      </marker>
+      <marker id="r3" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+        <path d="M0,0 L0,6 L8,3 z" fill="#c0392b"/>
+      </marker>
+    </defs>
+
+    <text x="245" y="16" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" font-weight="bold" fill="#222">Multiplication as Rotation and Scaling</text>
+
+    <!-- Origin O=(125,225), scale 68px/unit -->
+    <line x1="28" y1="225" x2="440" y2="225" stroke="#444" stroke-width="1.2" marker-end="url(#ax)"/>
+    <line x1="125" y1="272" x2="125" y2="30" stroke="#444" stroke-width="1.2" marker-end="url(#ax)"/>
+    <text x="444" y="229" font-family="Georgia, serif" font-size="12" fill="#444" font-style="italic">Re</text>
+    <text x="129" y="27" font-family="Georgia, serif" font-size="12" fill="#444" font-style="italic">Im</text>
+    <text x="119" y="239" text-anchor="end" font-family="Georgia, serif" font-size="11" fill="#888">O</text>
+
+    <!-- z1: angle alpha=22 deg, r1=1.65. cos22=0.927, sin22=0.375 -->
+    <!-- x=125+1.65*68*0.927=125+104.0=229, y=225-1.65*68*0.375=225-42.1=183 -->
+    <line x1="125" y1="225" x2="224" y2="186" stroke="#1a5276" stroke-width="2" marker-end="url(#r1)"/>
+    <circle cx="229" cy="183" r="3.5" fill="#1a5276"/>
+    <!-- z1 label: upper-right of point, well clear -->
+    <text x="237" y="179" font-family="Georgia, serif" font-size="12" fill="#1a5276" font-style="italic">z&#x2081;</text>
+
+    <!-- z2: angle beta=55 deg, r2=1.25. cos55=0.574, sin55=0.819 -->
+    <!-- x=125+1.25*68*0.574=125+48.8=174, y=225-1.25*68*0.819=225-69.6=155 -->
+    <line x1="125" y1="225" x2="170" y2="158" stroke="#27ae60" stroke-width="2" marker-end="url(#r2)"/>
+    <circle cx="174" cy="155" r="3.5" fill="#27ae60"/>
+    <!-- z2 label: upper-right of point, 22px right of z1 label x -->
+    <text x="180" y="149" font-family="Georgia, serif" font-size="12" fill="#27ae60" font-style="italic">z&#x2082;</text>
+
+    <!-- z1z2: angle=77 deg, r=1.65*1.25=2.0625. cos77=0.225, sin77=0.974 -->
+    <!-- x=125+2.0625*68*0.225=125+31.6=157, y=225-2.0625*68*0.974=225-136.6=88 -->
+    <line x1="125" y1="225" x2="153" y2="91" stroke="#c0392b" stroke-width="2" marker-end="url(#r3)"/>
+    <circle cx="157" cy="88" r="3.5" fill="#c0392b"/>
+    <!-- z1z2 label: well above point, offset right -->
+    <text x="165" y="82" font-family="Georgia, serif" font-size="12" fill="#c0392b" font-style="italic">z&#x2081;z&#x2082;</text>
+
+    <!-- Angle arcs — staggered radii so labels are clearly separated vertically -->
+
+    <!-- alpha arc (22 deg), radius 34px -->
+    <!-- start (159,225), end (125+34*cos22, 225-34*sin22)=(125+31.5,225-12.7)=(157,212) -->
+    <path d="M 159,225 A 34,34 0 0,0 157,212" fill="none" stroke="#1a5276" stroke-width="1.3"/>
+    <!-- alpha label at arc midpoint 11 deg, r=45: (125+45*cos11,225-45*sin11)=(125+44.2,225-8.6)=(169,216) -->
+    <text x="166" y="218" font-family="Georgia, serif" font-size="11" fill="#1a5276" font-style="italic">&#x3B1;</text>
+
+    <!-- beta arc (55 deg), radius 50px -->
+    <!-- start (175,225), end (125+50*cos55, 225-50*sin55)=(125+28.7,225-40.96)=(154,184) -->
+    <path d="M 175,225 A 50,50 0 0,0 154,184" fill="none" stroke="#27ae60" stroke-width="1.3"/>
+    <!-- beta label at arc midpoint 27.5 deg, r=62: (125+62*cos27.5,225-62*sin27.5)=(125+55.1,225-28.6)=(180,196) -->
+    <text x="183" y="197" font-family="Georgia, serif" font-size="11" fill="#27ae60" font-style="italic">&#x3B2;</text>
+
+    <!-- alpha+beta arc (77 deg), radius 67px, dashed -->
+    <!-- start (192,225), end (125+67*cos77,225-67*sin77)=(125+15.1,225-65.3)=(140,160) -->
+    <path d="M 192,225 A 67,67 0 0,0 140,160" fill="none" stroke="#c0392b" stroke-width="1.2" stroke-dasharray="4,3"/>
+    <!-- alpha+beta label at arc midpoint 38.5 deg, r=80: (125+80*cos38.5,225-80*sin38.5)=(125+62.6,225-49.9)=(188,175) -->
+    <text x="196" y="175" font-family="Georgia, serif" font-size="11" fill="#c0392b" font-style="italic">&#x3B1;+&#x3B2;</text>
+
+    <!-- Key rule box — pushed right so it does not crowd the vectors -->
+    <rect x="310" y="75" width="162" height="122" fill="#f8f8f8" stroke="#ccc" stroke-width="0.8" rx="4"/>
+    <text x="391" y="94" text-anchor="middle" font-family="Georgia, serif" font-size="11" font-weight="bold" fill="#333">Key Rule</text>
+    <line x1="320" y1="99" x2="462" y2="99" stroke="#ddd" stroke-width="0.8"/>
+    <text x="391" y="114" text-anchor="middle" font-family="Georgia, serif" font-size="10" fill="#333">|z&#x2081;z&#x2082;| = |z&#x2081;| &#xB7; |z&#x2082;|</text>
+    <text x="391" y="129" text-anchor="middle" font-family="Georgia, serif" font-size="10" fill="#888">(moduli multiply)</text>
+    <text x="391" y="149" text-anchor="middle" font-family="Georgia, serif" font-size="10" fill="#333">arg(z&#x2081;z&#x2082;) = &#x3B1; + &#x3B2;</text>
+    <text x="391" y="164" text-anchor="middle" font-family="Georgia, serif" font-size="10" fill="#888">(arguments add)</text>
+    <text x="391" y="184" text-anchor="middle" font-family="Georgia, serif" font-size="10" fill="#888" font-style="italic">Rotation + Scaling</text>
+
+    <!-- Bottom note -->
+    <line x1="20" y1="258" x2="468" y2="258" stroke="#ddd" stroke-width="0.8"/>
+    <text x="245" y="271" text-anchor="middle" font-family="Georgia, serif" font-size="10" fill="#555">z&#x2081; = r&#x2081;e^(i&#x3B1;), z&#x2082; = r&#x2082;e^(i&#x3B2;) &#x27F9; z&#x2081;z&#x2082; = r&#x2081;r&#x2082; e^(i(&#x3B1;+&#x3B2;))</text>
+    <text x="245" y="286" text-anchor="middle" font-family="Georgia, serif" font-size="10" fill="#555">When |z&#x2082;| = 1: pure rotation by &#x3B2; with no change in length.</text>
+  </svg>} 
+  alt="Diagram showing z1 and z2 being multiplied: the resulting vector has combined angle and product of lengths" 
+  title="Multiplication as Rotation and Scaling">
+  Multiplying $z_1$ by $z_2$ rotates $z_1$ counterclockwise by $\arg(z_2)$ and scales it by $|z_2|$. When $|z_2| = 1$, this is a **pure rotation** with no change in length.
+</FigureBox>
+
+The rule for division is the natural inverse:
+
+$$\frac{z_1}{z_2} = \frac{r_1}{r_2}\,e^{i(\alpha - \beta)}$$
+
+Dividing by $z_2$ rotates **clockwise** by $\arg(z_2)$ and scales by $1/|z_2|$.
+
+**Key principle:** Multiplying any complex number by a unit complex number $e^{i\theta}$ rotates it by $\theta$ about the origin. To rotate a point $z$ about a center $c$ by angle $\theta$, compute:
+
+$$z' = e^{i\theta}(z - c) + c$$
+
+---
+
+## 4. Rotations
+
+### Rotating by $90^\circ$
+
+Multiplication by $i = e^{i\pi/2}$ rotates counterclockwise by $90^\circ$. In coordinates, $(a + bi) \cdot i = -b + ai$: the old imaginary part becomes the new real part (negated), and the old real part becomes the new imaginary part.
+
+### Rotating by $180^\circ$
+
+Multiplication by $-1 = e^{i\pi}$ maps $z \mapsto -z$, a $180^\circ$ rotation about the origin.
+
+### Rotating by an arbitrary angle $\theta$
+
+Multiply by $e^{i\theta} = \cos\theta + i\sin\theta$.
+
+**Example.** Rotate $z = 3 + i$ by $\pi/3$ about the origin.
+
+$$z' = e^{i\pi/3}(3+i) = \left(\frac{1}{2}+\frac{\sqrt{3}}{2}i\right)(3+i) = \frac{3-\sqrt{3}}{2} + \frac{3\sqrt{3}+1}{2}i$$
+
+**Shortcut.** To check that triangle $ABC$ is equilateral, verify:
+
+$$(C - A) = e^{\pm i\pi/3}(B - A)$$
+
+This converts an equilateral triangle condition into a single complex multiplication.
+
+<FigureBox image={<svg width="400" height="310" viewBox="0 0 400 310" xmlns="http://www.w3.org/2000/svg">
+    <rect width="400" height="310" fill="white"/>
+    <defs>
+      <marker id="ax" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+        <path d="M0,0 L0,6 L8,3 z" fill="#444"/>
+      </marker>
+      <marker id="ba" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+        <path d="M0,0 L0,6 L8,3 z" fill="#1a5276"/>
+      </marker>
+      <marker id="ca" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+        <path d="M0,0 L0,6 L8,3 z" fill="#c0392b"/>
+      </marker>
+    </defs>
+
+    <text x="200" y="16" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" font-weight="bold" fill="#222">Equilateral Triangle via Rotation</text>
+
+    <!-- Origin O=(85,250), scale=60px/unit -->
+    <line x1="22" y1="250" x2="370" y2="250" stroke="#444" stroke-width="1.1" marker-end="url(#ax)"/>
+    <line x1="85" y1="275" x2="85" y2="28" stroke="#444" stroke-width="1.1" marker-end="url(#ax)"/>
+    <text x="374" y="254" font-family="Georgia, serif" font-size="11" fill="#444" font-style="italic">Re</text>
+    <text x="89" y="25" font-family="Georgia, serif" font-size="11" fill="#444" font-style="italic">Im</text>
+
+    <!-- Triangle: A=1+0i -> SVG(145,250), B=3+0i -> SVG(265,250) -->
+    <!-- C-A = rotate(B-A=120,0 by 60 deg) = (60, -103.9). C = (205, 146) -->
+    <polygon points="145,250 265,250 205,146" fill="#f5f8ff" stroke="#bbb" stroke-width="1"/>
+
+    <!-- Vector B-A: A(145,250) to B(265,250) -->
+    <line x1="145" y1="250" x2="259" y2="250" stroke="#1a5276" stroke-width="2" marker-end="url(#ba)"/>
+    <!-- B-A label: centred below the vector, clear of vertex dots -->
+    <text x="205" y="265" text-anchor="middle" font-family="Georgia, serif" font-size="11" fill="#1a5276" font-style="italic">B &#x2212; A</text>
+
+    <!-- Vector C-A: A(145,250) to C(205,146) -->
+    <line x1="145" y1="250" x2="201" y2="150" stroke="#c0392b" stroke-width="2" marker-end="url(#ca)"/>
+    <!-- C-A label: offset to the LEFT of the vector, well away from arrow -->
+    <text x="128" y="192" text-anchor="middle" font-family="Georgia, serif" font-size="11" fill="#c0392b" font-style="italic">C &#x2212; A</text>
+
+    <!-- Arc for 60 deg rotation at A(145,250), radius 50px -->
+    <!-- start: 0 deg (195,250), end: 60 deg (145+50*0.5, 250-50*0.866)=(170,207) -->
+    <path d="M 195,250 A 50,50 0 0,0 170,207" fill="none" stroke="#888" stroke-width="1.3" stroke-dasharray="5,3"/>
+
+    <!-- 60 deg label: at arc midpoint 30 deg, r=62px from A -->
+    <!-- (145+62*cos30, 250-62*sin30) = (145+53.7,250-31) = (199,219) -->
+    <text x="202" y="222" font-family="Georgia, serif" font-size="11" fill="#666">60&#xB0;</text>
+
+    <!-- Rotation formula label: clearly above and right, well separated from arc label -->
+    <text x="240" y="200" font-family="Georgia, serif" font-size="12" fill="#555">&#xD7; e^(i&#x3C0;/3)</text>
+
+    <!-- Vertex dots and labels -->
+    <circle cx="145" cy="250" r="3.5" fill="#333"/>
+    <text x="137" y="268" text-anchor="middle" font-family="Georgia, serif" font-size="13" font-weight="bold" fill="#333" font-style="italic">A</text>
+
+    <circle cx="265" cy="250" r="3.5" fill="#333"/>
+    <text x="273" y="268" font-family="Georgia, serif" font-size="13" font-weight="bold" fill="#333" font-style="italic">B</text>
+
+    <circle cx="205" cy="146" r="3.5" fill="#333"/>
+    <text x="213" y="138" font-family="Georgia, serif" font-size="13" font-weight="bold" fill="#333" font-style="italic">C</text>
+
+    <!-- Bottom note -->
+    <line x1="20" y1="282" x2="380" y2="282" stroke="#ddd" stroke-width="0.8"/>
+    <text x="200" y="296" text-anchor="middle" font-family="Georgia, serif" font-size="10" fill="#333">ABC equilateral &#x27FA; C &#x2212; A = e^(&#xB1;i&#x3C0;/3)(B &#x2212; A)</text>
+  </svg>}
+   alt="Equilateral triangle on the complex plane with vertices A, B, C labeled as complex numbers" 
+   title="Rotation Characterization of Equilateral Triangles">
+  The triangle $ABC$ is equilateral if and only if $C - A = e^{i\pi/3}(B-A)$ or $C - A = e^{-i\pi/3}(B-A)$. Two orientations, one formula.
+</FigureBox>
+
+---
+
+## 5. De Moivre's Theorem
+
+**Theorem.** For any integer $n$:
+
+$$(\cos\theta + i\sin\theta)^n = \cos(n\theta) + i\sin(n\theta)$$
+
+**Proof.** Write $\cos\theta + i\sin\theta = e^{i\theta}$ via Euler's formula. The exponential law gives $(e^{i\theta})^n = e^{in\theta}$, and another application of Euler's formula yields $e^{in\theta} = \cos(n\theta) + i\sin(n\theta)$. For negative $n$, observe $(e^{i\theta})^{-1} = e^{-i\theta}$, so the same argument applies.
+
+**Trig identities from De Moivre.** Expand $(\cos\theta + i\sin\theta)^3$ via binomial theorem and match real and imaginary parts:
+
+$$\cos(3\theta) = \cos^3\theta - 3\cos\theta\sin^2\theta, \qquad \sin(3\theta) = 3\cos^2\theta\sin\theta - \sin^3\theta$$
+
+This method generates all multiple-angle formulas mechanically.
+
+<FigureBox image={<svg width="390" height="345" viewBox="0 0 390 345" xmlns="http://www.w3.org/2000/svg">
+  <rect width="390" height="345" fill="white"/>
+  <defs>
+    <marker id="ax" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#444"/>
+    </marker>
+  </defs>
+
+  <text x="195" y="15" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" font-weight="bold" fill="#222">The 6th Roots of Unity</text>
+
+  <!-- Center (195,178), radius 110px -->
+  <line x1="45" y1="178" x2="358" y2="178" stroke="#444" stroke-width="1.1" marker-end="url(#ax)"/>
+  <line x1="195" y1="310" x2="195" y2="38" stroke="#444" stroke-width="1.1" marker-end="url(#ax)"/>
+  <text x="362" y="182" font-family="Georgia, serif" font-size="11" fill="#444" font-style="italic">Re</text>
+  <text x="199" y="36" font-family="Georgia, serif" font-size="11" fill="#444" font-style="italic">Im</text>
+  <text x="189" y="192" text-anchor="end" font-family="Georgia, serif" font-size="10" fill="#888">O</text>
+
+  <!-- Unit circle -->
+  <circle cx="195" cy="178" r="110" fill="none" stroke="#bbb" stroke-width="1.2"/>
+
+  <!-- 6th roots: angle 60k deg, radius 110px -->
+  <!-- k=0:   0 deg  -> (305, 178) -->
+  <!-- k=1:  60 deg  -> cos60=0.5, sin60=0.866 -> (195+55, 178-95.3) = (250, 83) -->
+  <!-- k=2: 120 deg  -> (-0.5, 0.866) -> (195-55, 178-95.3) = (140, 83) -->
+  <!-- k=3: 180 deg  -> (85, 178) -->
+  <!-- k=4: 240 deg  -> (-0.5,-0.866) -> (140, 273) -->
+  <!-- k=5: 300 deg  -> (0.5,-0.866) -> (250, 273) -->
+
+  <!-- Hexagon -->
+  <polygon points="305,178 250,83 140,83 85,178 140,273 250,273" fill="#eef4fb" stroke="#1a5276" stroke-width="1.2"/>
+
+  <!-- Spokes from center -->
+  <line x1="195" y1="178" x2="305" y2="178" stroke="#ddd" stroke-width="0.9"/>
+  <line x1="195" y1="178" x2="250" y2="83" stroke="#ddd" stroke-width="0.9"/>
+  <line x1="195" y1="178" x2="140" y2="83" stroke="#ddd" stroke-width="0.9"/>
+  <line x1="195" y1="178" x2="85" y2="178" stroke="#ddd" stroke-width="0.9"/>
+  <line x1="195" y1="178" x2="140" y2="273" stroke="#ddd" stroke-width="0.9"/>
+  <line x1="195" y1="178" x2="250" y2="273" stroke="#ddd" stroke-width="0.9"/>
+
+  <!-- Root dots -->
+  <circle cx="305" cy="178" r="4.5" fill="#1a5276"/>
+  <circle cx="250" cy="83" r="4.5" fill="#1a5276"/>
+  <circle cx="140" cy="83" r="4.5" fill="#1a5276"/>
+  <circle cx="85" cy="178" r="4.5" fill="#1a5276"/>
+  <circle cx="140" cy="273" r="4.5" fill="#1a5276"/>
+  <circle cx="250" cy="273" r="4.5" fill="#1a5276"/>
+
+  <!-- Labels: pushed 14px outside the circle in the outward direction -->
+  <!-- k=0: push right -> (320,176) -->
+  <text x="313" y="175" font-family="Georgia, serif" font-size="12" fill="#1a5276" font-weight="bold">1</text>
+  <!-- k=1: push upper-right (60 deg dir) by 14px: (250+7,83-12) = (257,71) -->
+  <text x="258" y="71" font-family="Georgia, serif" font-size="11" fill="#1a5276" font-style="italic">e^(i&#x3C0;/3)</text>
+  <!-- k=2: push upper-left (120 deg dir): (140-7,83-12) = (133,71). text-anchor end -->
+  <text x="129" y="71" text-anchor="end" font-family="Georgia, serif" font-size="11" fill="#1a5276" font-style="italic">e^(2i&#x3C0;/3)</text>
+  <!-- k=3: push left -> (70,176) text-anchor end -->
+  <text x="77" y="176" text-anchor="end" font-family="Georgia, serif" font-size="12" fill="#1a5276" font-weight="bold">&#x2212;1</text>
+  <!-- k=4: push lower-left (240 deg dir): (140-7,273+14) = (133,287). text-anchor end -->
+  <text x="129" y="289" text-anchor="end" font-family="Georgia, serif" font-size="11" fill="#1a5276" font-style="italic">e^(4i&#x3C0;/3)</text>
+  <!-- k=5: push lower-right (300 deg dir): (250+7,273+14) = (257,287) -->
+  <text x="258" y="289" font-family="Georgia, serif" font-size="11" fill="#1a5276" font-style="italic">e^(5i&#x3C0;/3)</text>
+
+  <!-- 60 deg arc indicator at small radius 38px, from 0 to 60 deg at center -->
+  <!-- start (233,178), end (195+38*cos60, 178-38*sin60)=(195+19,178-32.9)=(214,145) -->
+  <path d="M 233,178 A 38,38 0 0,0 214,145" fill="none" stroke="#c0392b" stroke-width="1.3"/>
+  <!-- label outside the small arc, at midpoint 30 deg, r=50: (195+43.3,178-25) = (238,153) -->
+  <text x="241" y="155" font-family="Georgia, serif" font-size="10" fill="#c0392b">60&#xB0;</text>
+
+  <!-- Bottom notes -->
+  <line x1="20" y1="305" x2="370" y2="305" stroke="#ddd" stroke-width="0.8"/>
+  <text x="195" y="319" text-anchor="middle" font-family="Georgia, serif" font-size="10" fill="#333">Roots of z&#x2076; = 1: equally spaced at 60&#xB0; intervals on the unit circle</text>
+  <text x="195" y="333" text-anchor="middle" font-family="Georgia, serif" font-size="10" fill="#555">&#x3A9;&#x2096; = e^(2&#x3C0;ik/6) for k = 0,&#x2026;,5&#x2003;&#x2003;Sum of all roots = 0</text>
+</svg>}
+ alt="Sequence of unit complex numbers e^(i theta), e^(2i theta), e^(3i theta) equally spaced around the unit circle" 
+ title="Powers of a Unit Complex Number">
+  Repeated multiplication by $e^{i\theta}$ steps around the unit circle in equal angular increments. After $n$ steps, you land at $e^{in\theta}$: this is De Moivre's theorem made visual.
+</FigureBox>
+
+---
+
+## 6. De Moivre Bashing
+
+### Computing powers quickly
+
+Write the number in polar form, apply De Moivre, convert back.
+
+**Example.** Compute $(1+i)^{20}$.
+
+$$1 + i = \sqrt{2}\,e^{i\pi/4}$$
+
+$$(1+i)^{20} = \left(\sqrt{2}\right)^{20} e^{i \cdot 20\pi/4} = 2^{10} e^{5\pi i} = 1024 \cdot e^{i\pi} = -1024$$
+
+### Extracting trig identities
+
+To find $\cos^5\theta$ in terms of multiple angles, write $\cos\theta = \frac{e^{i\theta}+e^{-i\theta}}{2}$ and expand:
+
+$$\cos^5\theta = \frac{1}{32}\left(e^{5i\theta} + 5e^{3i\theta} + 10e^{i\theta} + 10e^{-i\theta} + 5e^{-3i\theta} + e^{-5i\theta}\right)$$
+
+$$= \frac{1}{16}\left(\cos 5\theta + 5\cos 3\theta + 10\cos\theta\right)$$
+
+This technique, expressing a power of cosine as a linear combination of cosines of multiples, appears frequently on the AIME.
+
+### Finding real and imaginary parts
+
+**Example.** Find $\text{Re}\left[(2+2i)^8\right]$.
+
+$(2+2i) = 2\sqrt{2}\,e^{i\pi/4}$, so $(2+2i)^8 = (2\sqrt{2})^8 e^{2\pi i} = 2^{12} = 4096$. Real part is $4096$.
+
+### Detecting roots of unity
+
+If $\omega = e^{2\pi i/n}$, then $\omega^n = 1$ and $1 + \omega + \omega^2 + \cdots + \omega^{n-1} = 0$. This identity is the key to the roots-of-unity filter technique.
+
+---
+
+## 7. Roots of Complex Numbers
+
+To solve $z^n = w$ where $w = \rho e^{i\phi}$:
+
+$$z = \rho^{1/n}\, e^{i(\phi + 2\pi k)/n}, \qquad k = 0, 1, \ldots, n-1$$
+
+There are exactly $n$ roots, evenly spaced at angles $2\pi/n$ apart on a circle of radius $\rho^{1/n}$.
+
+<FigureBox image={<svg width="440" height="355" viewBox="0 0 440 355" xmlns="http://www.w3.org/2000/svg">
+  <rect width="440" height="355" fill="white"/>
+  <defs>
+    <marker id="ax" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#444"/>
+    </marker>
+    <marker id="rv" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#1a5276"/>
+    </marker>
+  </defs>
+
+  <text x="220" y="15" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" font-weight="bold" fill="#222">Cube Roots of w = 8e^(i&#x3C0;/3)</text>
+
+  <!-- Center (195,183), radius 105px -->
+  <line x1="45" y1="183" x2="345" y2="183" stroke="#444" stroke-width="1.1" marker-end="url(#ax)"/>
+  <line x1="195" y1="308" x2="195" y2="36" stroke="#444" stroke-width="1.1" marker-end="url(#ax)"/>
+  <text x="349" y="187" font-family="Georgia, serif" font-size="11" fill="#444" font-style="italic">Re</text>
+  <text x="199" y="34" font-family="Georgia, serif" font-size="11" fill="#444" font-style="italic">Im</text>
+  <text x="189" y="197" text-anchor="end" font-family="Georgia, serif" font-size="10" fill="#888">O</text>
+
+  <!-- Root circle, radius 105px -->
+  <circle cx="195" cy="183" r="105" fill="none" stroke="#bbb" stroke-width="1.2" stroke-dasharray="5,4"/>
+
+  <!-- Cube roots of 8e^(ipi/3): arg=pi/3=60 deg, divided by 3 -> first root at 20 deg -->
+  <!-- k=0: 20 deg: cos20=0.9397, sin20=0.3420 -->
+  <!--   x = 195+105*0.9397 = 294, y = 183-105*0.3420 = 147 -->
+  <!-- k=1: 140 deg: cos140=-0.766, sin140=0.643 -->
+  <!--   x = 195-80.4 = 115, y = 183-67.5 = 116 -->
+  <!-- k=2: 260 deg: cos260=-0.1736, sin260=-0.9848 -->
+  <!--   x = 195-18.2 = 177, y = 183+103.4 = 286 -->
+
+  <!-- Spokes to roots -->
+  <line x1="195" y1="183" x2="290" y2="150" stroke="#1a5276" stroke-width="1.5" marker-end="url(#rv)"/>
+  <line x1="195" y1="183" x2="111" y2="119" stroke="#1a5276" stroke-width="1.5" marker-end="url(#rv)"/>
+  <line x1="195" y1="183" x2="173" y2="283" stroke="#1a5276" stroke-width="1.5" marker-end="url(#rv)"/>
+
+  <!-- Root dots -->
+  <circle cx="294" cy="147" r="4.5" fill="#c0392b"/>
+  <circle cx="115" cy="116" r="4.5" fill="#c0392b"/>
+  <circle cx="177" cy="286" r="4.5" fill="#c0392b"/>
+
+  <!-- z0 label: two lines, anchored upper-right of the point (294,147) -->
+  <!-- Shift 20px outward (20 deg direction: cos20=0.94, sin20=0.34) from point edge -->
+  <!-- Anchor at x=312, y=110 so both lines clear the point top (y=142.5) comfortably -->
+  <text font-family="Georgia, serif" font-size="11" fill="#c0392b" font-style="italic">
+    <tspan x="312" y="110">z&#x2080;</tspan>
+    <tspan x="312" dy="14">= 2e^(i&#x3C0;/9)</tspan>
+  </text>
+
+  <!-- z1 label: two lines, anchored upper-left of the point (115,116) -->
+  <!-- text-anchor end so text extends LEFT from anchor; both lines sit above y=111 (point top) -->
+  <!-- Anchor at x=100 keeps 15px horizontal gap from point left edge (110.5) -->
+  <text text-anchor="end" font-family="Georgia, serif" font-size="11" fill="#c0392b" font-style="italic">
+    <tspan x="100" y="83">z&#x2081;</tspan>
+    <tspan x="100" dy="14">= 2e^(7i&#x3C0;/9)</tspan>
+  </text>
+
+  <!-- z2 label: placed lower-right of point (177,286), outside the circle -->
+  <!-- text-anchor start at x=196 gives 19px gap from point right edge (181.5) -->
+  <!-- y=308 gives 17.5px gap from point bottom (290.5) -->
+  <text x="196" y="308" font-family="Georgia, serif" font-size="11" fill="#c0392b" font-style="italic">z&#x2082; = 2e^(13i&#x3C0;/9)</text>
+
+  <!-- Angle arc for first root: radius reduced to 30px so label can sit clearly outside it -->
+  <!-- start (225,183) [0 deg], end (195+30*cos20, 183-30*sin20) = (223.2, 172.7) -->
+  <path d="M 225,183 A 30,30 0 0,0 223,173" fill="none" stroke="#c0392b" stroke-width="1.3"/>
+
+  <!-- Angle label: placed 22px to the right of arc end (223,173), well clear of arc stroke -->
+  <text x="248" y="172" font-family="Georgia, serif" font-size="10" fill="#c0392b">&#x3C0;/9 (= 60&#xB0;&#xF7;3)</text>
+
+  <!-- r = 2 label: placed along the k=0 spoke, offset 14px perpendicular (upper-left side) -->
+  <!-- 65% along spoke from O(195,183) to z0(294,147): (195+0.65*99, 183+0.65*(-36)) = (259,160) -->
+  <!-- Perpendicular upper-left: (-0.342,-0.940)*14 = (-4.8,-13.2) -> anchor (254,147) -->
+  <!-- text-anchor end keeps text left of the spoke -->
+  <text x="252" y="146" text-anchor="end" font-family="Georgia, serif" font-size="10" fill="#1a5276" font-style="italic">r = 2</text>
+
+  <!-- 120 deg spacing arcs between roots at radius 62px -->
+  <!-- k=0 at 20 deg, r=62: (253,162) -->
+  <!-- k=1 at 140 deg, r=62: (148,143) -->
+  <path d="M 253,162 A 62,62 0 0,0 148,143" fill="none" stroke="#27ae60" stroke-width="1.2" stroke-dasharray="4,3"/>
+  <!-- 120 deg label: at arc midpoint 80 deg, r=76 outside circle -->
+  <!-- (195+76*cos80, 183-76*sin80) = (195+13.2, 183-74.9) = (208,108) -->
+  <text x="208" y="107" text-anchor="middle" font-family="Georgia, serif" font-size="10" fill="#27ae60">120&#xB0;</text>
+
+  <!-- k=1 at 140 deg, r=62: (148,143) -->
+  <!-- k=2 at 260 deg, r=62: (184,244) -->
+  <path d="M 148,143 A 62,62 0 0,0 184,244" fill="none" stroke="#27ae60" stroke-width="1.2" stroke-dasharray="4,3"/>
+  <!-- 120 deg label: at arc midpoint 200 deg, r=76 -->
+  <!-- (195+76*cos200, 183-76*sin200) = (195-71.4, 183+26.0) = (124,209) -->
+  <text x="119" y="210" text-anchor="end" font-family="Georgia, serif" font-size="10" fill="#27ae60">120&#xB0;</text>
+
+  <!-- Bottom summary -->
+  <line x1="20" y1="322" x2="420" y2="322" stroke="#ddd" stroke-width="0.8"/>
+  <text x="220" y="336" text-anchor="middle" font-family="Georgia, serif" font-size="10" fill="#333">Take &#x221B;8 = 2 for the radius; divide &#x3C0;/3 by 3 to get the first angle &#x3C0;/9.</text>
+  <text x="220" y="350" text-anchor="middle" font-family="Georgia, serif" font-size="10" fill="#555">Add 2&#x3C0;/3 at each step for the other two roots.</text>
+</svg>}
+ alt="The 6th roots of unity plotted as 6 equally spaced points on the unit circle" title="The nth Roots of Unity">
+  The $n$th roots of unity form a regular $n$-gon inscribed in the unit circle. Their sum is always zero. This symmetry is exploited constantly in problems.
+</FigureBox>
+
+<FigureBox image={<svg width="440" height="355" viewBox="0 0 440 355" xmlns="http://www.w3.org/2000/svg">
+    <rect width="440" height="355" fill="white"/>
+    <defs>
+      <marker id="ax" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+        <path d="M0,0 L0,6 L8,3 z" fill="#444"/>
+      </marker>
+      <marker id="rv" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+        <path d="M0,0 L0,6 L8,3 z" fill="#1a5276"/>
+      </marker>
+    </defs>
+
+    <text x="220" y="15" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" font-weight="bold" fill="#222">Cube Roots of w = 8e^(i&#x3C0;/3)</text>
+
+    <!-- Center (195,183), radius 105px -->
+    <line x1="45" y1="183" x2="345" y2="183" stroke="#444" stroke-width="1.1" marker-end="url(#ax)"/>
+    <line x1="195" y1="308" x2="195" y2="36" stroke="#444" stroke-width="1.1" marker-end="url(#ax)"/>
+    <text x="349" y="187" font-family="Georgia, serif" font-size="11" fill="#444" font-style="italic">Re</text>
+    <text x="199" y="34" font-family="Georgia, serif" font-size="11" fill="#444" font-style="italic">Im</text>
+    <text x="189" y="197" text-anchor="end" font-family="Georgia, serif" font-size="10" fill="#888">O</text>
+
+    <!-- Root circle, radius 105px -->
+    <circle cx="195" cy="183" r="105" fill="none" stroke="#bbb" stroke-width="1.2" stroke-dasharray="5,4"/>
+
+    <!-- Cube roots of 8e^(ipi/3): arg=pi/3=60 deg, divided by 3 -> first root at 20 deg -->
+    <!-- k=0: 20 deg: cos20=0.9397, sin20=0.3420 -->
+    <!--   x = 195+105*0.9397 = 294, y = 183-105*0.3420 = 147 -->
+    <!-- k=1: 140 deg: cos140=-0.766, sin140=0.643 -->
+    <!--   x = 195-80.4 = 115, y = 183-67.5 = 116 -->
+    <!-- k=2: 260 deg: cos260=-0.1736, sin260=-0.9848 -->
+    <!--   x = 195-18.2 = 177, y = 183+103.4 = 286 -->
+
+    <!-- Spokes to roots -->
+    <line x1="195" y1="183" x2="290" y2="150" stroke="#1a5276" stroke-width="1.5" marker-end="url(#rv)"/>
+    <line x1="195" y1="183" x2="111" y2="119" stroke="#1a5276" stroke-width="1.5" marker-end="url(#rv)"/>
+    <line x1="195" y1="183" x2="173" y2="283" stroke="#1a5276" stroke-width="1.5" marker-end="url(#rv)"/>
+
+    <!-- Root dots -->
+    <circle cx="294" cy="147" r="4.5" fill="#c0392b"/>
+    <circle cx="115" cy="116" r="4.5" fill="#c0392b"/>
+    <circle cx="177" cy="286" r="4.5" fill="#c0392b"/>
+
+    <!-- z0 label: two lines, anchored upper-right of the point (294,147) -->
+    <!-- Shift 20px outward (20 deg direction: cos20=0.94, sin20=0.34) from point edge -->
+    <!-- Anchor at x=312, y=110 so both lines clear the point top (y=142.5) comfortably -->
+    <text font-family="Georgia, serif" font-size="11" fill="#c0392b" font-style="italic">
+      <tspan x="312" y="110">z&#x2080;</tspan>
+      <tspan x="312" dy="14">= 2e^(i&#x3C0;/9)</tspan>
+    </text>
+
+    <!-- z1 label: two lines, anchored upper-left of the point (115,116) -->
+    <!-- text-anchor end so text extends LEFT from anchor; both lines sit above y=111 (point top) -->
+    <!-- Anchor at x=100 keeps 15px horizontal gap from point left edge (110.5) -->
+    <text text-anchor="end" font-family="Georgia, serif" font-size="11" fill="#c0392b" font-style="italic">
+      <tspan x="100" y="83">z&#x2081;</tspan>
+      <tspan x="100" dy="14">= 2e^(7i&#x3C0;/9)</tspan>
+    </text>
+
+    <!-- z2 label: placed lower-right of point (177,286), outside the circle -->
+    <!-- text-anchor start at x=196 gives 19px gap from point right edge (181.5) -->
+    <!-- y=308 gives 17.5px gap from point bottom (290.5) -->
+    <text x="196" y="308" font-family="Georgia, serif" font-size="11" fill="#c0392b" font-style="italic">z&#x2082; = 2e^(13i&#x3C0;/9)</text>
+
+    <!-- Angle arc for first root: radius reduced to 30px so label can sit clearly outside it -->
+    <!-- start (225,183) [0 deg], end (195+30*cos20, 183-30*sin20) = (223.2, 172.7) -->
+    <path d="M 225,183 A 30,30 0 0,0 223,173" fill="none" stroke="#c0392b" stroke-width="1.3"/>
+
+    <!-- Angle label: placed 22px to the right of arc end (223,173), well clear of arc stroke -->
+    <text x="248" y="172" font-family="Georgia, serif" font-size="10" fill="#c0392b">&#x3C0;/9 (= 60&#xB0;&#xF7;3)</text>
+
+    <!-- r = 2 label: placed along the k=0 spoke, offset 14px perpendicular (upper-left side) -->
+    <!-- 65% along spoke from O(195,183) to z0(294,147): (195+0.65*99, 183+0.65*(-36)) = (259,160) -->
+    <!-- Perpendicular upper-left: (-0.342,-0.940)*14 = (-4.8,-13.2) -> anchor (254,147) -->
+    <!-- text-anchor end keeps text left of the spoke -->
+    <text x="252" y="146" text-anchor="end" font-family="Georgia, serif" font-size="10" fill="#1a5276" font-style="italic">r = 2</text>
+
+    <!-- 120 deg spacing arcs between roots at radius 62px -->
+    <!-- k=0 at 20 deg, r=62: (253,162) -->
+    <!-- k=1 at 140 deg, r=62: (148,143) -->
+    <path d="M 253,162 A 62,62 0 0,0 148,143" fill="none" stroke="#27ae60" stroke-width="1.2" stroke-dasharray="4,3"/>
+    <!-- 120 deg label: at arc midpoint 80 deg, r=76 outside circle -->
+    <!-- (195+76*cos80, 183-76*sin80) = (195+13.2, 183-74.9) = (208,108) -->
+    <text x="208" y="107" text-anchor="middle" font-family="Georgia, serif" font-size="10" fill="#27ae60">120&#xB0;</text>
+
+    <!-- k=1 at 140 deg, r=62: (148,143) -->
+    <!-- k=2 at 260 deg, r=62: (184,244) -->
+    <path d="M 148,143 A 62,62 0 0,0 184,244" fill="none" stroke="#27ae60" stroke-width="1.2" stroke-dasharray="4,3"/>
+    <!-- 120 deg label: at arc midpoint 200 deg, r=76 -->
+    <!-- (195+76*cos200, 183-76*sin200) = (195-71.4, 183+26.0) = (124,209) -->
+    <text x="119" y="210" text-anchor="end" font-family="Georgia, serif" font-size="10" fill="#27ae60">120&#xB0;</text>
+
+    <!-- Bottom summary -->
+    <line x1="20" y1="322" x2="420" y2="322" stroke="#ddd" stroke-width="0.8"/>
+    <text x="220" y="336" text-anchor="middle" font-family="Georgia, serif" font-size="10" fill="#333">Take &#x221B;8 = 2 for the radius; divide &#x3C0;/3 by 3 to get the first angle &#x3C0;/9.</text>
+    <text x="220" y="350" text-anchor="middle" font-family="Georgia, serif" font-size="10" fill="#555">Add 2&#x3C0;/3 at each step for the other two roots.</text>
+  </svg>} 
+  alt="Cube roots of w = 8e^(i pi/3), shown as three equally spaced points on a circle of radius 2" title="Extracting Cube Roots Geometrically">
+  To find the cube roots of $w = 8e^{i\pi/3}$: take the cube root of the modulus to get radius $2$, divide the argument by $3$ to get the first root at angle $\pi/9$, then add $2\pi/3$ twice to get the other two. All three roots lie on a circle of radius $2$.
+</FigureBox>
+
+**Key fact.** The roots of $z^n = 1$ are $e^{2\pi i k/n}$ for $k = 0, \ldots, n-1$. These are the vertices of a regular $n$-gon centered at the origin with one vertex at $1$.
+
+---
+
+## 8. Common Olympiad Techniques
+
+<FigureBox image={<svg width="510" height="300" viewBox="0 0 510 300" xmlns="http://www.w3.org/2000/svg">
+  <rect width="510" height="300" fill="white"/>
+  <defs>
+    <marker id="arr" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#555"/>
+    </marker>
+  </defs>
+
+  <text x="255" y="16" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" font-weight="bold" fill="#222">Choosing the Right Technique</text>
+
+  <!-- Column headers -->
+  <text x="105" y="38" text-anchor="middle" font-family="Georgia, serif" font-size="11" font-weight="bold" fill="#555">Problem Type</text>
+  <text x="385" y="38" text-anchor="middle" font-family="Georgia, serif" font-size="11" font-weight="bold" fill="#555">Technique</text>
+  <line x1="20" y1="43" x2="490" y2="43" stroke="#ccc" stroke-width="0.8"/>
+
+  <!-- Row 1: Products / Powers -> Polar Form -->
+  <rect x="22" y="52" width="195" height="30" fill="#eef4fb" stroke="#a9c4e8" stroke-width="1" rx="4"/>
+  <text x="120" y="71" text-anchor="middle" font-family="Georgia, serif" font-size="11" fill="#1a5276">Products / Powers</text>
+  <line x1="217" y1="67" x2="288" y2="67" stroke="#555" stroke-width="1.2" marker-end="url(#arr)"/>
+  <rect x="293" y="52" width="195" height="30" fill="#e8f8ee" stroke="#7dba97" stroke-width="1" rx="4"/>
+  <text x="391" y="71" text-anchor="middle" font-family="Georgia, serif" font-size="11" fill="#1e8449">Polar Form</text>
+
+  <!-- Row 2: Rotations -> Multiply by e^(itheta) -->
+  <rect x="22" y="92" width="195" height="30" fill="#eef4fb" stroke="#a9c4e8" stroke-width="1" rx="4"/>
+  <text x="120" y="111" text-anchor="middle" font-family="Georgia, serif" font-size="11" fill="#1a5276">Rotations</text>
+  <line x1="217" y1="107" x2="288" y2="107" stroke="#555" stroke-width="1.2" marker-end="url(#arr)"/>
+  <rect x="293" y="92" width="195" height="30" fill="#e8f8ee" stroke="#7dba97" stroke-width="1" rx="4"/>
+  <text x="391" y="111" text-anchor="middle" font-family="Georgia, serif" font-size="11" fill="#1e8449">Multiply by e^(i&#x3B8;)</text>
+
+  <!-- Row 3: High Powers -> De Moivre -->
+  <rect x="22" y="132" width="195" height="30" fill="#eef4fb" stroke="#a9c4e8" stroke-width="1" rx="4"/>
+  <text x="120" y="151" text-anchor="middle" font-family="Georgia, serif" font-size="11" fill="#1a5276">High Powers</text>
+  <line x1="217" y1="147" x2="288" y2="147" stroke="#555" stroke-width="1.2" marker-end="url(#arr)"/>
+  <rect x="293" y="132" width="195" height="30" fill="#e8f8ee" stroke="#7dba97" stroke-width="1" rx="4"/>
+  <text x="391" y="151" text-anchor="middle" font-family="Georgia, serif" font-size="11" fill="#1e8449">De Moivre&#x2019;s Theorem</text>
+
+  <!-- Row 4: Geometry -> Arguments / Moduli -->
+  <rect x="22" y="172" width="195" height="30" fill="#eef4fb" stroke="#a9c4e8" stroke-width="1" rx="4"/>
+  <text x="120" y="191" text-anchor="middle" font-family="Georgia, serif" font-size="11" fill="#1a5276">Geometry</text>
+  <line x1="217" y1="187" x2="288" y2="187" stroke="#555" stroke-width="1.2" marker-end="url(#arr)"/>
+  <rect x="293" y="172" width="195" height="30" fill="#e8f8ee" stroke="#7dba97" stroke-width="1" rx="4"/>
+  <text x="391" y="191" text-anchor="middle" font-family="Georgia, serif" font-size="11" fill="#1e8449">Arguments / Moduli</text>
+
+  <!-- Row 5: Roots -> Polar Extraction -->
+  <rect x="22" y="212" width="195" height="30" fill="#eef4fb" stroke="#a9c4e8" stroke-width="1" rx="4"/>
+  <text x="120" y="231" text-anchor="middle" font-family="Georgia, serif" font-size="11" fill="#1a5276">Roots</text>
+  <line x1="217" y1="227" x2="288" y2="227" stroke="#555" stroke-width="1.2" marker-end="url(#arr)"/>
+  <rect x="293" y="212" width="195" height="30" fill="#e8f8ee" stroke="#7dba97" stroke-width="1" rx="4"/>
+  <text x="391" y="231" text-anchor="middle" font-family="Georgia, serif" font-size="11" fill="#1e8449">Polar Extraction</text>
+
+  <!-- Bottom reminder -->
+  <line x1="20" y1="258" x2="490" y2="258" stroke="#ddd" stroke-width="0.8"/>
+  <text x="255" y="272" text-anchor="middle" font-family="Georgia, serif" font-size="10" fill="#555">Key: moduli multiply, arguments add. Switch to rectangular only for sums and real-part extraction.</text>
+  <text x="255" y="286" text-anchor="middle" font-family="Georgia, serif" font-size="10" fill="#555">Polar form is default for anything involving angles, circles, or iterated products.</text>
+</svg>}
+  alt="Flowchart of when to use polar vs rectangular vs rotation approach for a complex number problem" title="Choosing the Right Technique">
+  The right technique depends on the structure of the problem. Multiplication, powers, and angles call for polar form. Sums and real-part extraction call for rectangular. Geometric arguments about angles and distances call for modulus-argument reasoning.
+</FigureBox>
+
+**Technique 1: Convert to polar immediately.** Any problem involving products, quotients, or powers of complex numbers should be converted to polar form before doing any algebra.
+
+**Technique 2: Rotate instead of coordinate-bashing.** When a problem asks about a geometric transformation, represent it as multiplication by $e^{i\theta}$ rather than using rotation matrices or coordinates.
+
+**Technique 3: Use unit complex numbers for angles.** If $|z| = 1$, then $z = e^{i\theta}$ for some $\theta$, and $\bar{z} = e^{-i\theta} = z^{-1}$. This simplifies conjugate expressions dramatically.
+
+**Technique 4: Exploit symmetry.** If $f(z)$ is symmetric under rotation by $2\pi/n$, the answer likely involves $n$th roots of unity. Summing over all rotations and using $\sum_{k=0}^{n-1}\omega^{jk} = 0$ for $j \not\equiv 0\pmod{n}$ filters out all but the symmetric terms.
+
+**Technique 5: Use conjugates cleverly.** $z + \bar{z} = 2\,\text{Re}(z)$ and $z\bar{z} = |z|^2$. When you see a real-part extraction in a sum, write the sum twice with $z$ and $\bar{z}$ and add.
+
+**Technique 6: Recognize regular polygons.** Points $z_0, z_0\omega, z_0\omega^2, \ldots, z_0\omega^{n-1}$ (for $\omega = e^{2\pi i/n}$) form a regular $n$-gon. Any time you see equally spaced angles, the roots of unity polynomial $z^n - c = 0$ is probably lurking.
+
+**Technique 7: Convert geometry into multiplication.** Collinearity, perpendicularity, concyclicity, and angle bisectors all have clean complex-number characterizations. Three points $A, B, C$ are collinear iff $\frac{C-A}{B-A} \in \mathbb{R}$. They are concyclic iff $\frac{(C-A)(D-B)}{(C-B)(D-A)} \in \mathbb{R}$.
+
+**Technique 8: Use arguments to prove collinearity and cyclicity.** $\arg\!\left(\frac{z_2 - z_1}{z_3 - z_1}\right) = 0$ or $\pi$ means $z_1, z_2, z_3$ are collinear. Four points are concyclic iff $\arg\!\left(\frac{z_3 - z_1}{z_3 - z_2}\right) \equiv \arg\!\left(\frac{z_4 - z_1}{z_4 - z_2}\right) \pmod{\pi}$, i.e., the inscribed angles subtended by chord $z_1 z_2$ from $z_3$ and $z_4$ agree modulo $\pi$. This is equivalent to Technique 7's cross-ratio condition.
+
+---
+
+## 9. Worked AIME-Style Problems
+
+**Problem 1.** Compute $(1 - i\sqrt{3})^{10}$.
+
+*Solution.* Note $1 - i\sqrt{3} = 2e^{-i\pi/3}$. Then $(1-i\sqrt{3})^{10} = 2^{10}e^{-10i\pi/3} = 1024\,e^{-4i\pi/3} = 1024\!\left(-\frac{1}{2} + \frac{\sqrt{3}}{2}i\right) = -512 + 512\sqrt{3}i$.
+
+**Problem 2.** Find all $z$ with $|z| = 1$ and $z^6 + z^4 + z^2 + 1 = 0$.
+
+*Solution.* Factor: $z^6+z^4+z^2+1 = (z^2+1)(z^4+1)$. Roots of $z^2 = -1$: $z = \pm i$. Roots of $z^4 = -1 = e^{i\pi}$: $z = e^{i\pi/4}, e^{3i\pi/4}, e^{5i\pi/4}, e^{7i\pi/4}$. All six roots lie on the unit circle.
+
+**Problem 3.** The vertices of a regular hexagon are the roots of $z^6 = 64$. Find the sum of the squares of the side lengths.
+
+*Solution.* The vertices are $2e^{i\pi k/3}$ for $k = 0,\ldots,5$. Compute $|1-e^{i\pi/3}|^2 = (1-1/2)^2 + (\sqrt{3}/2)^2 = 1/4 + 3/4 = 1$. So each side has length $|2||1 - e^{i\pi/3}| = 2$, and the sum of squares is $6 \cdot 4 = \boxed{24}$.
+
+**Problem 4.** Let $\omega = e^{2\pi i/7}$. Compute $|\omega + \omega^2 + \omega^4|^2$.
+
+*Solution.* Let $S = \omega + \omega^2 + \omega^4$ and $\bar{S} = \omega^6 + \omega^5 + \omega^3$. Since $1+\omega+\omega^2+\cdots+\omega^6=0$, we have $S+\bar{S}=-1$. Now compute
+
+$$
+S\bar{S}=(\omega+\omega^2+\omega^4)(\omega^6+\omega^5+\omega^3).
+$$
+
+Reducing exponents modulo $7$, this becomes
+
+$$
+(1+\omega^6+\omega^4)+(\omega+1+\omega^5)+(\omega^3+\omega^2+1)
+=3+(\omega+\omega^2+\cdots+\omega^6)=3-1=2.
+$$
+
+Therefore $|S|^2=S\bar{S}=\boxed{2}$.
+
+**Problem 5.** Find $\sum_{k=1}^{12} \cos\!\left(\frac{2\pi k}{13}\right)\cos\!\left(\frac{4\pi k}{13}\right)$.
+
+*Solution.* Use the product-to-sum identity to get $\frac{1}{2}\sum_{k=1}^{12}\cos\!\left(\frac{6\pi k}{13}\right) + \frac{1}{2}\sum_{k=1}^{12}\cos\!\left(\frac{2\pi k}{13}\right)$. Each sum equals $\text{Re}\!\left(\sum_{k=1}^{12}\omega^{3k}\right)$ or $\text{Re}\!\left(\sum_{k=1}^{12}\omega^k\right)$ for $\omega = e^{2\pi i/13}$. Since neither exponent is divisible by 13, both geometric sums equal $-1$. Answer: $-1$.
+
+---
+
+## 10. Proof Problems
+
+**Problem 1.** Let $A$, $B$, $C$ be the vertices of an equilateral triangle in the complex plane. Prove that $A^2 + B^2 + C^2 = AB + BC + CA$.
+
+*Solution.* The expression
+
+$$A^2+B^2+C^2-AB-BC-CA$$
+
+is unchanged if the same complex number is added to $A$, $B$, and $C$, because all translation terms cancel. Therefore we may translate the triangle so its centroid is at the origin, giving $A+B+C=0$. Expanding $(A+B+C)^2=0$ yields
+
+$$A^2+B^2+C^2+2(AB+BC+CA)=0.$$
+
+It remains to show $AB+BC+CA=0$.
+
+An equilateral triangle is invariant under $120^\circ$ rotation about its centroid. With the centroid at the origin and after labeling the vertices in counterclockwise order, we may write $B=\omega A$ and $C=\omega^2A$ where $\omega = e^{2\pi i/3}$. Then:
+$$AB + BC + CA = \omega A^2 + \omega^3 A^2 + \omega^2 A^2 = A^2(1 + \omega + \omega^2) = 0,$$
+since $1 + \omega + \omega^2 = 0$ for any primitive cube root of unity. Hence $A^2 + B^2 + C^2 = -2(AB+BC+CA) = 0$ as well. $\square$
+
+**Problem 2.** Show that if $|z_1| = |z_2| = |z_3| = 1$ and $z_1 + z_2 + z_3 = 0$, then $z_1, z_2, z_3$ form an equilateral triangle.
+
+*Solution.* Since $|z_k|=1$, the squared distance is $|z_j - z_k|^2 = 2 - (z_j\bar{z}_k + \bar{z}_jz_k)$. Set $a_{12} = z_1\bar{z}_2 + \bar{z}_1z_2$, $a_{13} = z_1\bar{z}_3 + \bar{z}_1z_3$, $a_{23} = z_2\bar{z}_3 + \bar{z}_2z_3$.
+
+Multiply $z_1+z_2+z_3 = 0$ by $\bar{z}_1$ to get $1 + z_2\bar{z}_1 + z_3\bar{z}_1 = 0$; adding its conjugate gives $2 + a_{12} + a_{13} = 0$. The analogous equations from multiplying by $\bar{z}_2$ and $\bar{z}_3$ yield $2 + a_{12} + a_{23} = 0$ and $2 + a_{13} + a_{23} = 0$. Solving this linear system gives $a_{12} = a_{13} = a_{23} = -1$. Therefore $|z_j - z_k|^2 = 3$ for all pairs, and the triangle is equilateral. $\square$
+
+**Problem 3.** Distinct points $P, Q, R$ lie on the unit circle. Prove that $P, Q, R$ are the vertices of an equilateral triangle if and only if $P^3 = Q^3 = R^3$.
+
+*Solution.* $(\Rightarrow)$ The circumcenter of any triangle inscribed in the unit circle is the origin. For an equilateral triangle, the circumcenter coincides with the centroid, so the centroid is at the origin. The triangle is therefore invariant under $120^\circ$ rotation about the origin, meaning $\{P,Q,R\} = \{P, e^{2\pi i/3}P, e^{4\pi i/3}P\}$. In either orientation, $Q^3 = e^{\pm 2\pi i}P^3 = P^3$ and $R^3 = e^{\pm 4\pi i}P^3 = P^3$. $(\Leftarrow)$ If $P^3 = Q^3 = R^3 = c$ with $|c|=1$, then $P$, $Q$, $R$ are three distinct cube roots of $c$. The cube roots of any $c$ on the unit circle are equally spaced at $120^\circ$, forming an equilateral triangle. $\square$
+
+---
+
+## 11. Common Mistakes
+
+**Forgetting multiple arguments.** The argument of $z$ is $\theta + 2\pi k$, not just $\theta$. When taking $n$th roots, each value of $k$ from $0$ to $n-1$ gives a distinct root. Missing any of them loses points.
+
+**Losing roots.** $z^n = w$ has exactly $n$ roots. If you find fewer, you dropped some. Always list all $n$.
+
+**Misapplying principal argument.** $\text{Arg}(z_1 z_2) = \text{Arg}(z_1) + \text{Arg}(z_2)$ only holds modulo $2\pi$; the principal argument of a product may differ from the sum of principal arguments by $\pm 2\pi$.
+
+**Confusing modulus and argument.** $|z_1 z_2| = |z_1||z_2|$ (multiply), but $\arg(z_1 z_2) = \arg(z_1) + \arg(z_2)$ (add). Swapping these is a fatal error.
+
+**Incorrect angle arithmetic.** When computing $e^{i\theta} \cdot e^{i\phi} = e^{i(\theta+\phi)}$, be careful about angle reduction modulo $2\pi$. The form $re^{i\theta}$ is not unique unless you fix a range for $\theta$.
+
+**Forgetting conjugates on the unit circle.** If $|z| = 1$, then $\bar{z} = 1/z$, not just $\overline{a+bi} = a - bi$. Using this saves enormous computation.
+
+---
+
+## 12. Practice Problems
+
+**Easy**
+
+1. Compute $(1 + i\sqrt{3})^6$.
+2. Find all complex numbers $z$ with $z^4 = -16$.
+3. If $\omega = e^{i\pi/5}$, simplify $\omega^3 \cdot \omega^7$.
+
+**Medium**
+
+4. Let $z = \frac{1+i}{1-i}$. Compute $z^{100}$.
+5. Find $\sum_{k=0}^{5}\left(\cos\frac{\pi k}{3} + i\sin\frac{\pi k}{3}\right)$.
+6. The complex number $z$ satisfies $|z|=2$ and $\arg(z) = \pi/4$. Find all $w$ with $w^3 = z$.
+7. Compute $|\,(2+2i)^{10} - (2-2i)^{10}\,|$.
+
+**Hard**
+
+8. Let $\omega = e^{2\pi i/9}$. Compute $(\omega + \omega^8)(\omega^2 + \omega^7)(\omega^3+\omega^6)(\omega^4+\omega^5)$.
+9. Prove that the product of all distances from $1$ to the other $n$th roots of unity equals $n$.
+10. Find all $z$ on the unit circle such that $z^n + \bar{z}^n$ is an integer for every positive integer $n$.
+
+---
+
+## 13. Hints
+
+1. Convert to polar form: $1 + i\sqrt{3} = 2e^{i\pi/3}$.
+2. Write $-16 = 16e^{i\pi}$ and apply the root formula.
+3. Add exponents and reduce modulo $2\pi$.
+4. First simplify $\frac{1+i}{1-i}$ by multiplying numerator and denominator by $1+i$.
+5. Recognize this as a sum of 6th roots of unity.
+6. Take the cube root of the modulus; divide the argument by $3$; add $2\pi k/3$ for $k=0,1,2$.
+7. Write both in polar form; note $2+2i = 2\sqrt{2}\,e^{i\pi/4}$.
+8. Consider the polynomial with roots $\omega^k + \omega^{9-k}$ and use Vieta's or the minimal polynomial of $2\cos(2\pi/9)$.
+9. Factor $z^n - 1 = \prod_{k=0}^{n-1}(z - \omega^k)$ and set $z = 1$ after canceling the $k=0$ factor.
+10. Write $z = e^{i\theta}$; then $z^n + \bar{z}^n = 2\cos(n\theta)$. Consider when $2\cos(n\theta) \in \mathbb{Z}$ for all $n$.
+
+---
+
+## 14. Solutions
+
+**1.** $(1+i\sqrt{3})^6 = (2e^{i\pi/3})^6 = 64e^{2\pi i} = 64$.
+
+**2.** $-16 = 16e^{i\pi}$. Roots: $2e^{i(\pi + 2\pi k)/4}$ for $k=0,1,2,3$. These are $\sqrt{2}(1+i), \sqrt{2}(-1+i), \sqrt{2}(-1-i), \sqrt{2}(1-i)$.
+
+**3.** $\omega^{3+7} = \omega^{10} = e^{i\cdot 10\pi/5} = e^{2\pi i} = 1$.
+
+**4.** $\frac{1+i}{1-i} = \frac{(1+i)^2}{2} = i$. Then $i^{100} = (i^4)^{25} = 1$.
+
+**5.** The terms are $e^{i\pi k/3}$ for $k=0,\ldots,5$, i.e., all 6th roots of unity. Their sum is $0$.
+
+**6.** $z = 2e^{i\pi/4}$, so $w = 2^{1/3}e^{i(\pi/12 + 2\pi k/3)}$ for $k=0,1,2$.
+
+**7.** $(2+2i)^{10} = (2\sqrt{2})^{10}e^{10i\pi/4} = 2^{15}e^{5i\pi/2} = 2^{15}i$. Similarly $(2-2i)^{10} = -2^{15}i$. Difference: $2^{16}i$, absolute value $\mathbf{65536}$.
+
+**8.** Since $\omega^9 = 1$, each factor satisfies $\omega^k + \omega^{9-k} = 2\cos(2\pi k/9)$. Note the third factor: $\omega^3 + \omega^6 = 2\cos(2\pi/3) = -1$. So the full product equals $2\cos(2\pi/9) \cdot 2\cos(4\pi/9) \cdot (-1) \cdot 2\cos(8\pi/9) = -8\cos(2\pi/9)\cos(4\pi/9)\cos(8\pi/9)$. The three values $2\cos(2\pi/9), 2\cos(4\pi/9), 2\cos(8\pi/9)$ are roots of $x^3 - 3x + 1 = 0$; by Vieta's formulas their product is $-1$, so $\cos(2\pi/9)\cos(4\pi/9)\cos(8\pi/9) = -1/8$. The answer is $-8 \cdot (-1/8) = \mathbf{1}$.
+
+**9.** From $z^n - 1 = \prod_{k=0}^{n-1}(z-\omega^k)$, cancel the $k=0$ factor to get $\prod_{k=1}^{n-1}(z-\omega^k) = z^{n-1}+\cdots+1$. Set $z=1$: $\prod_{k=1}^{n-1}(1-\omega^k) = n$. Taking absolute values gives the desired product of distances.
+
+**10.** Write $z=e^{i\theta}$. The condition becomes
+
+$$z^n+\bar z^n=e^{in\theta}+e^{-in\theta}=2\cos(n\theta)\in\mathbb{Z}$$
+
+for every positive integer $n$. Taking $n=1$ already forces $2\cos\theta\in\mathbb{Z}$. Since $\cos\theta\in[-1,1]$, this gives
+
+$$2\cos\theta\in\{-2,-1,0,1,2\}.$$
+
+Thus
+
+$$\theta\in\{0,\pm\pi/3,\pm\pi/2,\pm2\pi/3,\pi\}.$$
+
+These values are also sufficient. If $x=2\cos\theta$ is an integer, then the recurrence
+
+$$2\cos(n\theta)=x\cdot 2\cos((n-1)\theta)-2\cos((n-2)\theta)$$
+
+shows by induction that $2\cos(n\theta)$ is an integer for all positive integers $n$. Therefore
+
+$$z\in\{1,e^{\pm i\pi/3},\pm i,e^{\pm 2i\pi/3},-1\}.$$
+
+These are exactly the sixth roots of unity together with $\pm i$.
+
+---
+
+## 15. Summary
+
+<FigureBox image={<svg width="530" height="355" viewBox="0 0 530 355" xmlns="http://www.w3.org/2000/svg">
+  <rect width="530" height="355" fill="white"/>
+  <defs>
+    <marker id="arr" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#555"/>
+    </marker>
+    <marker id="yes" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#27ae60"/>
+    </marker>
+  </defs>
+
+  <text x="265" y="16" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" font-weight="bold" fill="#222">Polar Form and De Moivre: Decision Checklist</text>
+
+  <!-- Start node -->
+  <rect x="165" y="26" width="200" height="28" fill="#2c3e50" stroke="#2c3e50" stroke-width="1" rx="5"/>
+  <text x="265" y="44" text-anchor="middle" font-family="Georgia, serif" font-size="11" font-weight="bold" fill="white">Complex Number Problem</text>
+
+  <!-- Arrow down -->
+  <line x1="265" y1="54" x2="265" y2="70" stroke="#555" stroke-width="1.2" marker-end="url(#arr)"/>
+  <text x="270" y="66" font-family="Georgia, serif" font-size="9" fill="#888">Ask:</text>
+
+  <!-- Question nodes and answer boxes -->
+
+  <!-- Q1: Products or quotients? -->
+  <rect x="140" y="73" width="175" height="26" fill="#f0f4f8" stroke="#a9c4e8" stroke-width="1" rx="3"/>
+  <text x="227" y="90" text-anchor="middle" font-family="Georgia, serif" font-size="11" fill="#1a5276">Products or quotients?</text>
+  <!-- YES arrow right -->
+  <line x1="315" y1="86" x2="362" y2="86" stroke="#27ae60" stroke-width="1.3" marker-end="url(#yes)"/>
+  <text x="337" y="82" text-anchor="middle" font-family="Georgia, serif" font-size="9" fill="#27ae60">YES</text>
+  <rect x="365" y="73" width="150" height="26" fill="#e8f8ee" stroke="#7dba97" stroke-width="1" rx="3"/>
+  <text x="440" y="90" text-anchor="middle" font-family="Georgia, serif" font-size="10" fill="#1e8449">&#x2192; Polar Form: r&#x2081;r&#x2082; e^(i(&#x3B1;+&#x3B2;))</text>
+
+  <!-- Arrow down -->
+  <line x1="227" y1="99" x2="227" y2="114" stroke="#555" stroke-width="1.1" marker-end="url(#arr)"/>
+
+  <!-- Q2: High powers? -->
+  <rect x="140" y="117" width="175" height="26" fill="#f0f4f8" stroke="#a9c4e8" stroke-width="1" rx="3"/>
+  <text x="227" y="134" text-anchor="middle" font-family="Georgia, serif" font-size="11" fill="#1a5276">High powers (z^n)?</text>
+  <line x1="315" y1="130" x2="362" y2="130" stroke="#27ae60" stroke-width="1.3" marker-end="url(#yes)"/>
+  <text x="337" y="126" text-anchor="middle" font-family="Georgia, serif" font-size="9" fill="#27ae60">YES</text>
+  <rect x="365" y="117" width="150" height="26" fill="#e8f8ee" stroke="#7dba97" stroke-width="1" rx="3"/>
+  <text x="440" y="130" text-anchor="middle" font-family="Georgia, serif" font-size="10" fill="#1e8449">&#x2192; De Moivre: (re^(i&#x3B8;))^n</text>
+  <text x="440" y="141" text-anchor="middle" font-family="Georgia, serif" font-size="10" fill="#1e8449">= r^n e^(in&#x3B8;)</text>
+
+  <!-- Arrow down -->
+  <line x1="227" y1="143" x2="227" y2="158" stroke="#555" stroke-width="1.1" marker-end="url(#arr)"/>
+
+  <!-- Q3: Rotations? -->
+  <rect x="140" y="161" width="175" height="26" fill="#f0f4f8" stroke="#a9c4e8" stroke-width="1" rx="3"/>
+  <text x="227" y="178" text-anchor="middle" font-family="Georgia, serif" font-size="11" fill="#1a5276">Rotation by angle &#x3B8;?</text>
+  <line x1="315" y1="174" x2="362" y2="174" stroke="#27ae60" stroke-width="1.3" marker-end="url(#yes)"/>
+  <text x="337" y="170" text-anchor="middle" font-family="Georgia, serif" font-size="9" fill="#27ae60">YES</text>
+  <rect x="365" y="161" width="150" height="26" fill="#e8f8ee" stroke="#7dba97" stroke-width="1" rx="3"/>
+  <text x="440" y="174" text-anchor="middle" font-family="Georgia, serif" font-size="10" fill="#1e8449">&#x2192; Multiply by e^(i&#x3B8;)</text>
+  <text x="440" y="185" text-anchor="middle" font-family="Georgia, serif" font-size="10" fill="#1e8449">(about point c: e^(i&#x3B8;)(z&#x2212;c)+c)</text>
+
+  <!-- Arrow down -->
+  <line x1="227" y1="187" x2="227" y2="202" stroke="#555" stroke-width="1.1" marker-end="url(#arr)"/>
+
+  <!-- Q4: Roots? -->
+  <rect x="140" y="205" width="175" height="26" fill="#f0f4f8" stroke="#a9c4e8" stroke-width="1" rx="3"/>
+  <text x="227" y="222" text-anchor="middle" font-family="Georgia, serif" font-size="11" fill="#1a5276">Finding n-th roots?</text>
+  <line x1="315" y1="218" x2="362" y2="218" stroke="#27ae60" stroke-width="1.3" marker-end="url(#yes)"/>
+  <text x="337" y="214" text-anchor="middle" font-family="Georgia, serif" font-size="9" fill="#27ae60">YES</text>
+  <rect x="365" y="205" width="150" height="26" fill="#e8f8ee" stroke="#7dba97" stroke-width="1" rx="3"/>
+  <text x="440" y="218" text-anchor="middle" font-family="Georgia, serif" font-size="10" fill="#1e8449">&#x2192; Polar Extraction:</text>
+  <text x="440" y="229" text-anchor="middle" font-family="Georgia, serif" font-size="10" fill="#1e8449">&#x3C1;^(1/n) e^(i(&#x3D5;+2&#x3C0;k)/n)</text>
+
+  <!-- Arrow down -->
+  <line x1="227" y1="231" x2="227" y2="246" stroke="#555" stroke-width="1.1" marker-end="url(#arr)"/>
+
+  <!-- Q5: Geometry? -->
+  <rect x="140" y="249" width="175" height="26" fill="#f0f4f8" stroke="#a9c4e8" stroke-width="1" rx="3"/>
+  <text x="227" y="266" text-anchor="middle" font-family="Georgia, serif" font-size="11" fill="#1a5276">Geometry / angles?</text>
+  <line x1="315" y1="262" x2="362" y2="262" stroke="#27ae60" stroke-width="1.3" marker-end="url(#yes)"/>
+  <text x="337" y="258" text-anchor="middle" font-family="Georgia, serif" font-size="9" fill="#27ae60">YES</text>
+  <rect x="365" y="249" width="150" height="26" fill="#e8f8ee" stroke="#7dba97" stroke-width="1" rx="3"/>
+  <text x="440" y="262" text-anchor="middle" font-family="Georgia, serif" font-size="10" fill="#1e8449">&#x2192; Moduli and Arguments</text>
+  <text x="440" y="273" text-anchor="middle" font-family="Georgia, serif" font-size="10" fill="#1e8449">arg(z&#x2082;&#x2212;z&#x2081;) gives direction</text>
+
+  <!-- Bottom notes -->
+  <line x1="20" y1="295" x2="510" y2="295" stroke="#ddd" stroke-width="0.8"/>
+  <text x="265" y="309" text-anchor="middle" font-family="Georgia, serif" font-size="10" fill="#333">Common patterns: equilateral &#x21D4; C&#x2212;A = e^(&#xB1;i&#x3C0;/3)(B&#x2212;A)  |  square &#x21D4; C&#x2212;B = i(B&#x2212;A)</text>
+  <text x="265" y="323" text-anchor="middle" font-family="Georgia, serif" font-size="10" fill="#555">n-th roots of unity: sum = 0 for n &#x2265; 2  |  product of all distances from one root = n</text>
+  <text x="265" y="340" text-anchor="middle" font-family="Georgia, serif" font-size="10" fill="#888">If none apply: try rectangular form (sums, real-part extraction, conjugates).</text>
+</svg>}
+  alt="Decision tree checklist for polar form, De Moivre, and rotation techniques in problems" title="Polar Form and De Moivre Decision Checklist">
+  Use this checklist when encountering any complex number problem in a contest. The key question is always: does the structure of the problem favor angle addition (polar) or direct manipulation (rectangular)?
+</FigureBox>
+
+**Use polar form when:** the problem involves products, quotients, or powers of complex numbers; a geometric transformation is described; angles or rotations appear explicitly; or all given quantities lie on a circle.
+
+**Use De Moivre when:** a high power of a complex number is requested; a trigonometric identity for $\cos(n\theta)$ or $\sin(n\theta)$ is needed; or a sum of the form $\sum \cos(k\theta)$ must be computed.
+
+**Use rotations when:** the problem mentions equilateral triangles, squares, or regular polygons; a geometric locus is described as an orbit under rotation; or the phrase "rotate by angle $\theta$" appears.
+
+**Switch away from rectangular when:** you see $a^2 + b^2$ (this is $|z|^2$), or $\cos\theta + i\sin\theta$ (this is $e^{i\theta}$), or you are multiplying two complex numbers and care about the angle of the result.
+
+**Common contest patterns:**
+- Equilateral triangle: $C - A = e^{\pm i\pi/3}(B-A)$
+- Square: $C - B = i(B-A)$
+- Regular $n$-gon: vertices are $c + re^{2\pi ik/n}$
+- Roots of unity filter: $\sum_{k=0}^{n-1}\omega^{jk} = [n \mid j] \cdot n$
+- Sum of all $n$th roots: always zero for $n \geq 2$
+- Product of all distances from one root to the others: equals $n$
+
+

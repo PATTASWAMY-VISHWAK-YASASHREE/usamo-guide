@@ -31,22 +31,6 @@
       }
     },
     {
-      "uniqueId": "amc8-2016-11",
-      "name": "Problem 11 (2016 AMC 8)",
-      "url": "https://artofproblemsolving.com/wiki/index.php/2016_AMC_8_Problems/Problem_11",
-      "source": "AMC 8",
-      "difficulty": "Medium",
-      "isStarred": false,
-      "tags": [
-        "Number Theory",
-        "Digits"
-      ],
-      "statement": "Determine how many two-digit numbers satisfy the following property: When the number is added to the number obtained by reversing its digits, the sum is 132.",
-      "solutionMetadata": {
-        "kind": "none"
-      }
-    },
-    {
       "uniqueId": "amc10a-2016-14",
       "name": "Problem 14 (2016 AMC 10A)",
       "url": "https://artofproblemsolving.com/wiki/index.php?title=2016_AMC_10A_Problems/Problem_14",

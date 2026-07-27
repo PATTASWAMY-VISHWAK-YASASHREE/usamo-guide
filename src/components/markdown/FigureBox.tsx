@@ -32,7 +32,14 @@ const FigureBox: React.FC<FigureBoxProps> = ({
     <figure className={`my-8 flex justify-center px-4 ${className}`.trim()}>
       <div className="w-full max-w-3xl overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-lg shadow-gray-200/60">
         {renderedImage && (
-          <div className="border-b border-gray-200 bg-white">
+          <div
+            className={
+              typeof image === 'string'
+                ? 'border-b border-gray-200 bg-white'
+                : 'flex justify-center border-b border-gray-200 bg-white'
+            }
+            style={{ fontFamily: 'inherit' }}
+          >
             {renderedImage}
           </div>
         )}

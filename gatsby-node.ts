@@ -17,9 +17,17 @@ const SECTION_FROM_CONTENT_DIR = {
   '4_USAMO': 'usamo',
 } as const;
 
+const READ_ONLY_EXTRA_PROBLEMS =
+  process.env.GATSBY_READ_ONLY_EXTRA_PROBLEMS !== 'false';
+
 type SectionID = keyof typeof freshOrdering.SECTION_LABELS;
 
 const normalizePath = (p: string) => p.replace(/\\/g, '/');
+
+function isExtraProblemsFile(relativePath: string) {
+  const normalized = normalizePath(relativePath);
+  return /(^|\/)extra(?:_|-)?problems?\.json$/i.test(normalized);
+}
 
 function getSectionFromContentRelativePath(
   relativePath: string
@@ -170,12 +178,47 @@ exports.onCreateNode = async api => {
   const isExtraProblems =
     node.internal.mediaType === 'application/json' &&
     node.sourceInstanceName === 'content' &&
-    node.relativePath.endsWith('extraProblems.json');
+    isExtraProblemsFile(node.relativePath);
   if (
     node.internal.mediaType === 'application/json' &&
     node.sourceInstanceName === 'content' &&
     (node.relativePath.endsWith('.problems.json') || isExtraProblems)
   ) {
+    if (READ_ONLY_EXTRA_PROBLEMS && !isExtraProblems) {
+      return;
+    }
+
+    if (READ_ONLY_EXTRA_PROBLEMS && isExtraProblems) {
+      const content = await loadNodeContent(node);
+      let parsedContent;
+      try {
+        parsedContent = JSON.parse(content);
+      } catch {
+        const hint = node.absolutePath
+          ? `file ${node.absolutePath}`
+          : `in node ${node.id}`;
+        throw new Error(`Unable to parse JSON: ${hint}`);
+      }
+
+      Object.keys(parsedContent).forEach(tableId => {
+        if (tableId === 'MODULE_ID') return;
+        parsedContent[tableId].forEach((metadata: ProblemMetadata) => {
+          transformObject(
+            {
+              ...getProblemInfo(metadata, {
+                ...freshOrdering,
+                moduleIDToSectionMap: resolvedModuleIDToSectionMap,
+              }),
+              module: null,
+            },
+            createNodeId(
+              `${node.id} ${tableId} ${metadata.uniqueId} >>> ProblemInfo`
+            )
+          );
+        });
+      });
+      return;
+    }
     const content = await loadNodeContent(node);
     let parsedContent;
     try {
