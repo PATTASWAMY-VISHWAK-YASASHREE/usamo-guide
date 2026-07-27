@@ -1,6 +1,6 @@
 ---
 id: shoelace-theorem-p2
-title: Shoelace Theorem (Part 2)
+title: Shoelace Theorem II
 author: Pranav Ramesh
 description: Computing polygon areas from coordinates using the Shoelace (Surveyor's) Formula, with AMC/AIME-level applications.
 prerequisites: [coordinate-geometry-basics, line-equations]
@@ -27,8 +27,6 @@ $$
 [P] = \frac{1}{2}|(0+15+16+4+0)-(0+0+6+0+0)| = \frac{1}{2}|35-6| = \boxed{\dfrac{29}{2}}
 $$
 
----
-
 ### Worked Example 6 — Area Expressed Algebraically
 
 A triangle has vertices $(0,0)$, $(a,b)$, $(c,d)$. Show that its area is $\frac{1}{2}|ad-bc|$.
@@ -46,8 +44,6 @@ $$
 $$
 
 This is exactly $\frac{1}{2}|\det\begin{pmatrix}a&b\\c&d\end{pmatrix}|$, confirming the determinant interpretation. 
-
----
 
 ## 7. Pick's Theorem (Companion Result)
 
@@ -71,8 +67,6 @@ $$
 B = \sum_{\text{edges}} \gcd(|\Delta x|, |\Delta y|)
 $$
 
----
-
 ## 8. Common Competition Techniques
 
 ### 8.1 Subtract Areas
@@ -95,8 +89,6 @@ When vertices lie on a curve (like $y=\ln x$ or $y=x^2$), apply Shoelace with co
 
 If triangle $ABC$ has area $S$ and point $P = \alpha A + \beta B + \gamma C$ (with $\alpha+\beta+\gamma=1$) is inside it, then $[PBC] = \alpha S$, $[APC] = \beta S$, $[ABP] = \gamma S$. These are the **barycentric coordinates** of $P$ — they equal the ratio of the sub-triangle areas to the whole.
 
----
-
 ## 9. Strategy Checklist
 
 **Before applying Shoelace:**
@@ -114,8 +106,6 @@ If triangle $ABC$ has area $S$ and point $P = \alpha A + \beta B + \gamma C$ (wi
 - Cross-check with a decomposition into triangles when possible.
 - For lattice polygons, verify with Pick's theorem if $I$ and $B$ are easy to count.
 
----
-
 ## 10. Common Pitfalls
 
 - **Wrong vertex order.** Listing vertices out of rotational order (e.g., skipping across the polygon) is the most common error. Always draw the polygon first.
@@ -124,8 +114,6 @@ If triangle $ABC$ has area $S$ and point $P = \alpha A + \beta B + \gamma C$ (wi
 - **Self-intersecting polygons.** Shoelace gives a net signed area. For a self-intersecting polygon (like a star polygon), the formula does not give the total enclosed area.
 - **Confusing CW vs. CCW.** Both work — just take the absolute value. Only matters if you need the signed area.
 - **Pick's theorem on non-lattice polygons.** Pick's theorem requires all vertices to be lattice points. Shoelace has no such restriction.
-
----
 
 ## Practice Problems
 
@@ -160,8 +148,6 @@ If triangle $ABC$ has area $S$ and point $P = \alpha A + \beta B + \gamma C$ (wi
 12. **(AIME Style)** Let $P$ be the polygon with vertices at all lattice points $(x,y)$ with $|x|+|y| \leq 3$. Compute the area of $P$ using the Shoelace theorem applied to its boundary vertices listed in order.
 
 13. **(Area Ratio)** In $\triangle ABC$ with $A(0,0)$, $B(4,0)$, $C(1,3)$, cevian $AD$ is drawn where $D$ divides $BC$ in ratio $BD:DC = 2:1$. Find $[ABD]:[ADC]:[ABC]$ using Shoelace, and verify Ceva's theorem.
-
----
 
 ## Answer Key (Selected)
 

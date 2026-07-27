@@ -10,8 +10,6 @@ prerequisites: ["vieta-formulas", "number-theory-intermediate","Fermat's Infinit
 
 Vieta Jumping (also called root flipping) is an advanced technique where we perform fermats's infinite descent with the usual goal of showing there exists finite solutions to a diophantine equations however with a twist where the descent is performed on the roots of a quadriatic expression where the roots are usually the solutions to the equation. The roots are found by vieta and hence the name 'Vieta Jumping'.
 
----
-
 ## Key Idea
 First we have a diophantine equation which is **symmetric** and we want to perform the vita jump on it. Let us represent this by $f(a,b)=k$ with degree 2. Degree 1 is left out as that will result a linear diophantine equation which can be solved by standard methods. Now we can form a quadriatic equation with either $a$ or $b$ as the subject and $k$ as the value of the diophantine equation.
 
@@ -33,8 +31,6 @@ $$
 (The most popular is contradiction, which is outlined below)
 
 
----
-
 ## Steps to Reproduce
 
 Here is the standard structure of a Vieta Jumping argument (This is only for reference and not for forced memorisation):
@@ -46,8 +42,6 @@ Here is the standard structure of a Vieta Jumping argument (This is only for ref
 5. **Show $x > 0$.** Use the product formula $xa = (\text{constant})$. If $k$ is not a perfect square or if the constant is positive, show $x \neq 0$; rule out $x < 0$ separately.
 6. **Show $x < a$.** Use the assumption $a \geq b$ and the product formula: $x = \frac{b^2 - k}{a} \leq \frac{a^2 - k}{a} < a$.
 7. **Conclude.** The pair $(x, b)$ satisfies the same relation with $x + b < a + b$, contradicting minimality. Hence no such pair exists (or $k$ must equal the forced value).
-
----
 
 ## Worked Examples
 
@@ -84,8 +78,6 @@ We need to show this is less than $a$. Note $k \geq 1$, so $b^2 - k \leq b^2 - 1
 
 But then $(x, b)$ is a valid pair achieving the same $k$, with $x < a$ — contradicting the minimality of $a$. Therefore, no non-perfect-square value of $k$ is achievable, and $k$ must be a perfect square. $\blacksquare$
 
----
-
 **Example 2.** Let $a, b$ be positive integers with $ab \mid a^2 + b^2 + 1$. Show that $\dfrac{a^2 + b^2 + 1}{ab} = 3$.
 
 **Proof.** Let $k = \frac{a^2+b^2+1}{ab}$. First handle the diagonal: if $a = b$, then $a^2 \mid 2a^2 + 1$, so $a^2 \mid 1$, forcing $a = b = 1$ and $k = 3$. Now assume $a > b \geq 1$ and pick the minimal-sum pair.
@@ -111,8 +103,6 @@ $$
 
 So $(x, b)$ is a valid pair with $x < a$, contradicting minimality — unless no such pair with $a > b$ exists. The descent terminates when $a = b$, which forces $k = 3$ as shown above. Therefore $k = 3$ for all valid pairs. $\blacksquare$
 
----
-
 ## Common Pitfalls
 
 **Forgetting to prove $x > 0$.** The extremal argument only produces a contradiction if the new solution is a valid pair of positive integers. Always prove $x > 0$, or handle $x = 0$ as an explicit base case.
@@ -122,8 +112,6 @@ So $(x, b)$ is a valid pair with $x < a$, contradicting minimality — unless no
 **Not verifying the new pair satisfies the relation.** Check that $(x, b)$ (not just $(a, b)$) satisfies the original equation before claiming it's a valid smaller solution.
 
 **Negative variables.** The extremal principle requires $a + b$ to be bounded below. If the problem allows negative integers, the descent has no floor. Establish that any solution can be transformed to a positive one before applying the method.
-
----
 
 ## Practice Problems
 

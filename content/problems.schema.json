@@ -58,7 +58,7 @@
           }
         },
         "statement": {
-          "description": "Required Markdown + TeX ($...$, $$...$$) shown on the on-site problem page. All problems must include their full statement.",
+          "description": "Required Markdown + TeX ($...$, $$...$$, \\(...\\), \\[...\\]) shown on the on-site problem page. Diagrams: embed AoPS-style [asy]...[/asy] Asymptote blocks or [latex]...[/latex] blocks (tikz, tabular, etc.); compile them to SVG with `yarn compile:figures` and commit the generated files under static/generated/figures/. All problems must include their full statement.",
           "type": "string"
         },
         "author": {
@@ -104,7 +104,7 @@
               "type": "string"
             },
             "markdown": {
-              "description": "For mode \"inline\": Markdown + TeX solution body revealed in-page.",
+              "description": "For mode \"inline\": Markdown + TeX solution body revealed in-page. Supports the same [asy]/[latex] figure blocks as `statement`.",
               "type": "string"
             }
           },

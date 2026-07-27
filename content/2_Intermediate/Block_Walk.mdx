@@ -32,8 +32,6 @@ The technique converts a question about a long sequence into a question about a 
   Illustration: A row of 13 colored squares (three white, two black, one white, three black, two white, two black) separated by vertical dividers at each color change. Each maximal consecutive run of the same color is labeled as a block (Block 1, Block 2, …, Block 6). Arrows point to the five dividers and label them as boundaries. The diagram should make visually clear that the number of boundaries is always one less than the number of blocks.
 </FigureBox>
 
----
-
 ## 2. Core Idea
 
 ### Definitions
@@ -60,8 +58,6 @@ Let $B$ denote the number of blocks in a sequence. Then:
 <FigureBox image="/images/block-boundaries.png" alt="Diagram labeling blocks, boundaries, and transitions in a binary sequence" title="Blocks, boundaries, and transitions">
   Illustration: A horizontal strip representing the binary string $11000110111$. Blocks are shaded in alternating light/dark bands. Vertical tick marks at each boundary are labeled $T_1, T_2, \ldots, T_{B-1}$. The leftmost position is labeled "left endpoint" and the rightmost "right endpoint." A small table below maps: number of blocks $B = 5$, number of boundaries $= 4$, number of transitions $= 4$. This should clearly distinguish blocks (regions) from boundaries (dividers) from transitions (events).
 </FigureBox>
-
----
 
 ## 3. Simple Motivating Example
 
@@ -99,8 +95,6 @@ The block walk formulation made it immediately clear what variables to introduce
 
 > **Answer:** There are $84$ binary strings of length 8 with exactly 3 runs of 1s.
 
----
-
 ## 4. General Block Walk Principle
 
 **General Principle.** *If a problem involves a sequence where the relevant structure is determined by how many times the sequence changes type, not by the exact values, then compress the sequence into its block walk and count or reason about blocks and transitions instead.*
@@ -127,8 +121,6 @@ The block walk formulation made it immediately clear what variables to introduce
 **Parity changes.** A sequence $(a_1, \ldots, a_n)$ of integers has exactly $k$ parity changes if and only if there are exactly $k$ indices $i$ where $a_i \not\equiv a_{i+1} \pmod{2}$. Parity-change counting is a standard technique in olympiad problems about integer sequences.
 
 **Lattice paths.** A path from $(0,0)$ to $(m, n)$ using East (E) and North (N) steps can be encoded as a binary string. A block walk on this string corresponds to alternating runs of E-steps and N-steps; the number of direction changes equals $B - 1$ where $B$ is the number of runs.
-
----
 
 ## 5. Worked Example 1: Binary Strings
 
@@ -168,8 +160,6 @@ By thinking of a binary string as a sequence of $B$ blocks determined by choosin
   Illustration: A binary string of length 12, displayed as a row of squares labeled 0 or 1. Alternating runs are shaded light (0-runs) and dark (1-runs). Below the string, the 11 gaps between adjacent positions are shown as tick marks, and the gaps chosen as boundaries (for an example with 5 runs) are marked with vertical bars. A label reads: "Choosing $B-1 = 4$ boundary positions from 11 gaps gives $\binom{11}{4}$ strings with 5 runs starting with 0." A second row shows the same string starting with 1.
 </FigureBox>
 
----
-
 ## 6. Worked Example 2: Parity Changes
 
 ### Problem
@@ -197,8 +187,6 @@ This is a clean example of a block walk argument: by compressing the sequence in
 <FigureBox image="/images/parity-transition-example.png" alt="Sequence partitioned into even and odd blocks with parity transitions marked" title="Parity blocks and transitions">
   Illustration: A sequence of 10 integers, some even (shaded blue) and some odd (shaded orange), arranged in a row. Vertical dividers mark parity transitions. Below each block, the block's parity (E or O) is labeled. An arrow from the first block's parity label to the last block's parity label is annotated: "Same parity iff $B$ is odd iff $k = B - 1$ is even." A small 2-row table shows: $B = 4 \Rightarrow k = 3$ (odd) $\Rightarrow$ endpoints have different parity; $B = 5 \Rightarrow k = 4$ (even) $\Rightarrow$ endpoints have same parity.
 </FigureBox>
-
----
 
 ## 7. Worked Example 3: USAMO-Style Proof Problem
 
@@ -236,8 +224,6 @@ This is a common olympiad pattern: a condition on contiguous sums forces the blo
 <FigureBox image="/images/usamo-block-walk-proof.png" alt="Diagram illustrating why a balanced sequence must alternate" title="Block walk proof: balanced forces alternating">
   Illustration: Two side-by-side sequences of length 6. Left: a non-alternating sequence with $a_3 = a_4 = +1$ highlighted in red, with a bracket below showing $a_3 + a_4 = 2 > 1$, labeled "NOT balanced." Right: a fully alternating sequence $+1, -1, +1, -1, +1, -1$ with all adjacent pairs connected by arrows labeled "$\neq$", labeled "Balanced." Below each, the block walk is shown: the left has a block of length 2 highlighted; the right has all blocks of length 1.
 </FigureBox>
-
----
 
 ## 8. Common Patterns
 
@@ -287,8 +273,6 @@ When a sequence is modified by an operation (e.g., inserting an element, flippin
 
 Invariant arguments about $B$ modulo some number are common in olympiad problems about sequence operations.
 
----
-
 ## 9. Common Mistakes
 
 ### Mistake 1: Forgetting Endpoints
@@ -331,8 +315,6 @@ Invariant arguments about $B$ modulo some number are common in olympiad problems
 
 **Fix.** State your block definition precisely at the start of the solution and use it consistently throughout.
 
----
-
 ## 10. Practice Problems
 
 ### Easy
@@ -355,8 +337,6 @@ $$\sum_{i=1}^{j} x_i \geq 0 \quad (1 \leq j \leq 2n), \qquad \sum_{i=1}^{2n}x_i=
 
 Prove that in every good sequence, the number of $+1$-blocks equals the number of $-1$-blocks. Also prove that this common number is equal to the number of peaks of the partial-sum path, where a peak is an index $j$ such that $x_j=+1$ and $x_{j+1}=-1$.
 
----
-
 ## 11. Hints
 
 **Hint for Problem 1.** A string with exactly 4 blocks of 0s has either 3, 4, or 5 blocks of 1s depending on whether the string starts and ends with 0 or 1. Count each endpoint case separately.
@@ -368,8 +348,6 @@ Prove that in every good sequence, the number of $+1$-blocks equals the number o
 **Hint for Problem 4.** Since the string starts and ends with 1 and has exactly 4 1-blocks, it must have exactly 3 0-blocks. Write the block structure explicitly, then use stars and bars.
 
 **Hint for Problem 5.** A good sequence must start with $+1$ and end with $-1$. Then use the fact that blocks alternate. A peak occurs exactly at the end of a $+1$-block.
-
----
 
 ## 12. Solutions
 
@@ -532,8 +510,6 @@ First, the sequence must start with $+1$, because otherwise $S_1=-1<0$. It must 
 Now compress the sequence into blocks of consecutive equal signs. Since the sequence starts with a $+1$-block and ends with a $-1$-block, and since block signs alternate, the number of $+1$-blocks equals the number of $-1$-blocks.
 
 Finally, a peak of the partial-sum path occurs exactly when the path takes a $+1$ step followed immediately by a $-1$ step. In the original sequence, that is exactly a transition from a $+1$-block to the next $-1$-block. Such a transition occurs once at the end of every $+1$-block. Therefore the number of peaks equals the number of $+1$-blocks, which also equals the number of $-1$-blocks. $\blacksquare$
-
----
 
 ## 13. Summary
 

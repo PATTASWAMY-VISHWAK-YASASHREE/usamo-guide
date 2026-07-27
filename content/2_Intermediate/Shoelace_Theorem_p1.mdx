@@ -1,6 +1,6 @@
 ---
 id: shoelace-theorem-p1
-title: Shoelace Theorem (Part 1)
+title: Shoelace Theorem I
 author: Pranav Ramesh
 description: Computing polygon areas from coordinates using the Shoelace (Surveyor's) Formula, with AMC/AIME-level applications.
 prerequisites: [coordinate-geometry-basics, line-equations]
@@ -12,8 +12,6 @@ difficulty: AMC 10/12
 The **Shoelace Theorem** (also called the **Surveyor's Formula** or **Gauss's Area Formula**) gives the exact area of any polygon whose vertices are known as coordinate pairs. Unlike decomposition into triangles or the use of bounding rectangles, the Shoelace Theorem works directly and mechanically — making it one of the most powerful tools in coordinate geometry competitions.
 
 A single formula handles triangles, quadrilaterals, pentagons, and any simple (non-self-intersecting) polygon, no matter how irregular.
-
----
 
 ## 1. Statement of the Theorem
 
@@ -47,8 +45,6 @@ $$
 
 Without the absolute value, the formula gives a **signed area**: positive if vertices are listed counterclockwise, negative if clockwise. The signed area is useful in advanced settings (e.g., computing winding numbers or oriented areas in vector geometry).
 
----
-
 ## 2. Why It's Called "Shoelace"
 
 List the coordinates in two columns, then repeat the first row at the bottom:
@@ -79,8 +75,6 @@ $$
 [ABC] = \frac{1}{2} \left| \det \begin{pmatrix} x_1 - x_3 & x_2 - x_3 \\ y_1 - y_3 & y_2 - y_3 \end{pmatrix} \right|
 $$
 
----
-
 ## 3. Special Cases
 
 ### Triangle
@@ -98,8 +92,6 @@ For a quadrilateral with perpendicular diagonals: $[\text{quad}] = \frac{1}{2}d_
 ### Collinearity Test
 
 If $[ABC] = 0$, the three points are **collinear**. 
-
----
 
 ## 4. Key Properties and Insights
 
@@ -123,8 +115,6 @@ For any triangulation of the polygon (dividing it into non-overlapping triangles
 
 Shoelace works for **any simple polygon** (no self-intersections), convex or not. Self-intersecting polygons require special care (the formula gives a signed sum that can cause cancellation.)
 
----
-
 ## 5. Connection to the Determinant
 
 The Shoelace formula is deeply connected to the **$2 \times 2$ determinant**:
@@ -136,8 +126,6 @@ $$
 Each term $x_i y_{i+1} - x_{i+1} y_i$ is the determinant of the $2\times 2$ matrix formed by the $i$-th and $(i+1)$-th vertices. Geometrically, this determinant equals the **signed area of the parallelogram** spanned by the two position vectors, so half of it is the area of the triangle formed with the origin.
 
 The full Shoelace sum is therefore the signed area of the polygon as seen from the origin, computed by summing up the signed areas of the "fan" of triangles from the origin to each edge.
-
----
 
 ## 6. Worked Examples
 
@@ -158,8 +146,6 @@ $$
 
 $\boxed{\dfrac{25}{2}}$
 
----
-
 ### Worked Example 2 — Quadrilateral
 
 Find the area of the quadrilateral with vertices $A(0,0)$, $B(4,0)$, $C(5,3)$, $D(1,4)$ in that order.
@@ -179,8 +165,6 @@ $$
 $$
 
 $\boxed{\dfrac{29}{2}}$
-
----
 
 ### Worked Example 3 — Medians and Centroid (AMC Style)
 
@@ -212,8 +196,6 @@ $$
 $\boxed{1}$
 
 > **Key Insight:** The centroid divides any triangle into 6 triangles of equal area. The triangle formed by two vertices and the centroid always has area $= \frac{1}{3}[ABC]$.
-
----
 
 ### Worked Example 4 — AMC 2004 #16 (Logarithmic Quadrilateral)
 
@@ -273,8 +255,6 @@ Since $91 = 7 \times 13$, the numerator $(n+1)(n+2)$ must contain a factor of $1
 The answer is $\boxed{12}$.
 
 > **Technique Spotlight:** This problem demonstrates that Shoelace can handle points on a curve — you just treat the coordinates algebraically and simplify using logarithm rules. The key was recognizing that all the messy $\ln$ terms collapse beautifully.
-
----
 
 # Part 2:
 Due to Size constraints, this module has been split in two. Check out Part 2 for the rest of the content. 

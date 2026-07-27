@@ -1,6 +1,6 @@
 ---
 id: sequences-series-intermediate-p1
-title: Sequences and Series
+title: Sequences and Series I
 author: Mehul Biala
 description: A comprehensive deep-dive into AMC 10/12 sequence strategies, including structure recognition, advanced telescoping, fixed-point recurrences, polynomial summation, and Fibonacci identities.
 prerequisites: ["algebraic-manipulations", "polynomials-fundamentals"]
@@ -70,7 +70,6 @@ a_{n+1} - a_n = (n+1)^3 - n^3 = 3n^2 + 3n + 1
 $$
 Notice how the cubic sequence produced a quadratic difference sequence!
 
----
 ## 2. Sigma Manipulation & Power Sums
 You must be fluid in splitting sums apart using the linearity of summation. For example, $\sum_{k=1}^{n}(k^2 + 2k + 1)$ instantly becomes $\sum k^2 + 2\sum k + \sum 1$. 
 Memorize the foundational power sums:
@@ -84,8 +83,6 @@ $$
 \sum_{k=1}^{100} k(101-k)
 $$
 By recognizing that term $k=1$ equals term $k=100$, you can exploit the sequence's symmetry to halve the computation time or reduce it into paired blocks.
-
----
 
 ## 3. Geometric Series & Arithmetico-Geometric Series
 ### The Finite Geometric Series Derivation
@@ -116,8 +113,6 @@ $$
 ### The Arithmetico-Geometric Series (AGS)
 An AGS is formed by multiplying an Arithmetic Progression term-by-term with a Geometric Progression (e.g., $\sum \frac{n}{2^n}$). Never memorize the formula. Instead, apply the exact shift-and-subtract derivation used above for geometric series to eliminate the arithmetic component. 
 
----
-
 ## 4. Telescoping & Partial Fractions
 Because AMC writers love partial fractions, they deserve major attention. When you see a polynomial denominator like $\sum \frac{3}{(k+1)(k+4)}$, immediately split it: $\frac{1}{k+1} - \frac{1}{k+4}$. 
 ### How to Invent a Telescoping Series
@@ -136,8 +131,6 @@ Notice that $\frac{1}{1}$ and $\frac{1}{2}$ survive at the beginning, while $-\f
 ### Bounding and Estimation
 To estimate $\sum_{k=1}^{100} \frac{1}{k^2}$ without exact computation, bound it using a telescoping series you *can* compute: $\frac{1}{k^2} < \frac{1}{k(k-1)}$. Then telescope the larger bound to prove the original sum is strictly bounded.
 
----
-
 ## 5. Sequence Transformations
 When a recurrence looks terrifying, the trick is to transform the sequence by measuring the distance from its fixed point.
 Take $a_{n+1} = \frac{a_n + 2}{a_n + 5}$. 
@@ -145,8 +138,6 @@ Students often attack this directly and get bogged down in massive rational expr
 1. **Find the fixed point:** Set $L = \frac{L+2}{L+5} \implies L^2 + 5L = L + 2 \implies L^2 + 4L - 2 = 0$.
 2. **Measure distance from fixed point:** Let the roots be $\alpha$ and $\beta$. Transform the recurrence by evaluating $\frac{a_{n+1} - \alpha}{a_{n+1} - \beta}$. 
 3. This completely neutralizes the complex recurrence, turning it into a simple geometric progression. This is arguably more important than solving repeated characteristic roots on the AMC 12.
-
----
 
 ## 6. Limits, Fixed Points, and Equilibrium
 While AMC 10 focuses on calculating specific terms, AMC 12 is obsessed with the asymptotic behavior of recurrences. The unifying theme for all these problems is **$L = f(L)$**. If a sequence converges, its infinite tail is identical to the whole.
@@ -158,7 +149,6 @@ While AMC 10 focuses on calculating specific terms, AMC 12 is obsessed with the 
 * **Recursive Limits:** $a_{n+1} = \frac{a_n + 2}{3}$. 
   Assume convergence to $L$. Then $L = \frac{L+2}{3} \implies 3L = L + 2 \implies 2L = 2 \implies L = 1$.
 
----
 ## 7. Fibonacci & Special Sequences
 The AMC 12 loves the Fibonacci sequence ($F_n = F_{n-1} + F_{n-2}$, where $F_1=1, F_2=1$). Do not rely on computing terms manually; you must know the structural identities:
 
@@ -167,7 +157,6 @@ The AMC 12 loves the Fibonacci sequence ($F_n = F_{n-1} + F_{n-2}$, where $F_1=1
 * **Double Index Formula:** $F_{2n} = F_n L_n$ (where $L_n$ is the Lucas Number)
 * **Binet's Formula / Approximation:** $F_n = \frac{\phi^n - \psi^n}{\sqrt{5}}$. Because $\psi^n$ approaches zero rapidly, $F_n \approx \frac{\phi^n}{\sqrt{5}}$ (where $\phi = \frac{1+\sqrt{5}}{2}$).
 
----
 ## 8. Periodicity & Roots of Unity
 
 Many seemingly infinite AMC 12 problems are actually periodicity problems.

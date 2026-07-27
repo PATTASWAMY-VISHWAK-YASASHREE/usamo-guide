@@ -1,12 +1,13 @@
 {
   "MODULE_ID": "divisibility-rules",
-  "practice": [{
+  "practice": [
+    {
       "uniqueId": "amc8-2000-11",
       "name": "Problem 11 (2000 AMC 8)",
       "url": "https://artofproblemsolving.com/wiki/index.php?title=2000_AMC_8_Problems/Problem_11",
       "source": "AMC 8",
-      "difficulty": "Medium",
-      "isStarred": true,
+      "difficulty": "Easy",
+      "isStarred": false,
       "tags": [
         "Divisibility Rules"
       ],
@@ -14,5 +15,51 @@
       "solutionMetadata": {
         "kind": "none"
       }
-    }]
+    },
+    {
+      "uniqueId": "amc10b-2021-16",
+      "name": "Problem 16 (2021 AMC 10B)",
+      "url": "https://artofproblemsolving.com/wiki/index.php?title=2021_AMC_10B_Problems/Problem_16",
+      "source": "AMC 10",
+      "difficulty": "Medium",
+      "isStarred": false,
+      "tags": [
+        "Divisibility Rules"
+      ],
+      "statement": "Call a positive integer an uphill integer if every digit is strictly greater than the previous digit. For example, $1357, 89,$ and $5$ are all uphill integers, but $32, 1240,$ and $466$ are not. How many uphill integers are divisible by $15$?\n\n$\\textbf{(A)}\\ 4 \\qquad \\textbf{(B)}\\ 5 \\qquad \\textbf{(C)}\\ 6 \\qquad\\ \\textbf{(D)}\\ 7 \\qquad\\ \\textbf{(E)}\\ 8$",
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "amc8-2026-16",
+      "name": "Problem 16 (2026 AMC 8)",
+      "url": "https://artofproblemsolving.com/wiki/index.php?title=2026_AMC_8_Problems/Problem_16",
+      "source": "AMC 8",
+      "difficulty": "Medium",
+      "isStarred": false,
+      "tags": [
+        "Divisibility Rules"
+      ],
+      "statement": "Consider all positive four-digit integers consisting of only even digits. What fraction of these integers are divisible by $4$?\n\n$\\textbf{(A)}\\ frac{1}{4} \\qquad \\textbf{(B)}\\ frac{2}{5} \\qquad \\textbf{(C)}\\ frac{1}{2} \\qquad \\textbf{(D)}\\ frac{3}{5} \\qquad \\textbf{(E)}\\ frac{3}{4}$",
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "amc10b-2021-25",
+      "name": "Problem 25 (2006 AMC 10B)",
+      "url": "https://artofproblemsolving.com/wiki/index.php?title=2006_AMC_10B_Problems/Problem_25",
+      "source": "AMC 10B",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Divisibility Rules"
+      ],
+      "statement": "Mr. Jones has eight children of different ages. On a family trip his oldest child, who is $9$, spots a license plate with a $4-digit$ number in which each of two digits appears two times. \"Look, daddy!\" she exclaims. \"That number is evenly divisible by the age of each of us kids!\" \"That's right,\" replies Mr. Jones, \"and the last two digits just happen to be my age.\" Which of the following is not the age of one of Mr. Jones's children?\n\n$\\textbf{(A)}\\ 4 \\qquad \\textbf{(B)}\\ 5 \\qquad \\textbf{(C)}\\ 6 \\qquad \\textbf{(D)}\\ 7 \\qquad \\textbf{(E)}\\ 8$",
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    }
+  ]
 }

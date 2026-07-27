@@ -36,9 +36,9 @@
       }
     },
     {
-      "uniqueId": "amc8-2016-14",
-      "name": "Problem 14 (2016 AMC 8)",
-      "url": "https://artofproblemsolving.com/wiki/index.php?title=2016_AMC_8_Problems/Problem_14",
+      "uniqueId": "amc8-2016-22",
+      "name": "Problem 22 (2016 AMC 8)",
+      "url": "https://artofproblemsolving.com/wiki/index.php?title=2016_AMC_8_Problems/Problem_22",
       "source": "AMC 8",
       "difficulty": "Medium",
       "isStarred": false,
@@ -1582,9 +1582,9 @@
       }
     },
     {
-      "uniqueId": "ajhsme-1997-23",
-      "name": "Problem 23 (1997 AJHSME)",
-      "url": "https://artofproblemsolving.com/wiki/index.php?title=1997_AJHSME_Problems/Problem_23",
+      "uniqueId": "ajhsme-1997-24",
+      "name": "Problem 24 (1997 AJHSME)",
+      "url": "https://artofproblemsolving.com/wiki/index.php/1997_AJHSME_Problems/Problem_24",
       "source": "AJHSME",
       "difficulty": "Hard",
       "isStarred": false,
@@ -4937,7 +4937,7 @@
     {
       "uniqueId": "amc8-2025-10",
       "name": "Problem 10 (2025 AMC 8)",
-      "url": "https://artofproblemsolving.com/wiki/index.php?title=2025_AMC_8_Problems/Problem_6",
+      "url": "https://artofproblemsolving.com/wiki/index.php/2025_AMC_8_Problems/Problem_10",
       "source": "AMC 8",
       "difficulty": "Easy",
       "isStarred": false,

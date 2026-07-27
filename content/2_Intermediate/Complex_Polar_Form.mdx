@@ -77,8 +77,6 @@ The central insight: **multiplication in polar form is rotation and scaling.**
   A point $z = a + bi$ sits at distance $r = |z|$ from the origin. The angle from the positive real axis, measured counterclockwise, is $\theta = \arg(z)$. These two quantities, the modulus and argument, completely determine $z$.
 </FigureBox>
 
----
-
 ## 2. Polar Form
 
 For any nonzero $z = a + bi$, define:
@@ -103,8 +101,6 @@ $$z = re^{i\theta} \qquad \text{(exponential form, via Euler's formula)}$$
 | $-1 + \sqrt{3}i$ | $2$ | $2\pi/3$ | $2e^{2i\pi/3}$ |
 | $-i$ | $1$ | $-\pi/2$ | $e^{-i\pi/2}$ |
 | $-3$ | $3$ | $\pi$ | $3e^{i\pi}$ |
-
----
 
 ## 3. Geometry of Multiplication
 
@@ -211,8 +207,6 @@ Dividing by $z_2$ rotates **clockwise** by $\arg(z_2)$ and scales by $1/|z_2|$.
 
 $$z' = e^{i\theta}(z - c) + c$$
 
----
-
 ## 4. Rotations
 
 ### Rotating by $90^\circ$
@@ -302,8 +296,6 @@ This converts an equilateral triangle condition into a single complex multiplica
    title="Rotation Characterization of Equilateral Triangles">
   The triangle $ABC$ is equilateral if and only if $C - A = e^{i\pi/3}(B-A)$ or $C - A = e^{-i\pi/3}(B-A)$. Two orientations, one formula.
 </FigureBox>
-
----
 
 ## 5. De Moivre's Theorem
 
@@ -396,8 +388,6 @@ This method generates all multiple-angle formulas mechanically.
   Repeated multiplication by $e^{i\theta}$ steps around the unit circle in equal angular increments. After $n$ steps, you land at $e^{in\theta}$: this is De Moivre's theorem made visual.
 </FigureBox>
 
----
-
 ## 6. De Moivre Bashing
 
 ### Computing powers quickly
@@ -429,8 +419,6 @@ $(2+2i) = 2\sqrt{2}\,e^{i\pi/4}$, so $(2+2i)^8 = (2\sqrt{2})^8 e^{2\pi i} = 2^{1
 ### Detecting roots of unity
 
 If $\omega = e^{2\pi i/n}$, then $\omega^n = 1$ and $1 + \omega + \omega^2 + \cdots + \omega^{n-1} = 0$. This identity is the key to the roots-of-unity filter technique.
-
----
 
 ## 7. Roots of Complex Numbers
 
@@ -640,8 +628,6 @@ There are exactly $n$ roots, evenly spaced at angles $2\pi/n$ apart on a circle 
 
 **Key fact.** The roots of $z^n = 1$ are $e^{2\pi i k/n}$ for $k = 0, \ldots, n-1$. These are the vertices of a regular $n$-gon centered at the origin with one vertex at $1$.
 
----
-
 ## 8. Common Olympiad Techniques
 
 <FigureBox image={<svg width="510" height="300" viewBox="0 0 510 300" xmlns="http://www.w3.org/2000/svg">
@@ -719,8 +705,6 @@ There are exactly $n$ roots, evenly spaced at angles $2\pi/n$ apart on a circle 
 
 **Technique 8: Use arguments to prove collinearity and cyclicity.** $\arg\!\left(\frac{z_2 - z_1}{z_3 - z_1}\right) = 0$ or $\pi$ means $z_1, z_2, z_3$ are collinear. Four points are concyclic iff $\arg\!\left(\frac{z_3 - z_1}{z_3 - z_2}\right) \equiv \arg\!\left(\frac{z_4 - z_1}{z_4 - z_2}\right) \pmod{\pi}$, i.e., the inscribed angles subtended by chord $z_1 z_2$ from $z_3$ and $z_4$ agree modulo $\pi$. This is equivalent to Technique 7's cross-ratio condition.
 
----
-
 ## 9. Worked AIME-Style Problems
 
 **Problem 1.** Compute $(1 - i\sqrt{3})^{10}$.
@@ -756,8 +740,6 @@ Therefore $|S|^2=S\bar{S}=\boxed{2}$.
 
 *Solution.* Use the product-to-sum identity to get $\frac{1}{2}\sum_{k=1}^{12}\cos\!\left(\frac{6\pi k}{13}\right) + \frac{1}{2}\sum_{k=1}^{12}\cos\!\left(\frac{2\pi k}{13}\right)$. Each sum equals $\text{Re}\!\left(\sum_{k=1}^{12}\omega^{3k}\right)$ or $\text{Re}\!\left(\sum_{k=1}^{12}\omega^k\right)$ for $\omega = e^{2\pi i/13}$. Since neither exponent is divisible by 13, both geometric sums equal $-1$. Answer: $-1$.
 
----
-
 ## 10. Proof Problems
 
 **Problem 1.** Let $A$, $B$, $C$ be the vertices of an equilateral triangle in the complex plane. Prove that $A^2 + B^2 + C^2 = AB + BC + CA$.
@@ -786,8 +768,6 @@ Multiply $z_1+z_2+z_3 = 0$ by $\bar{z}_1$ to get $1 + z_2\bar{z}_1 + z_3\bar{z}_
 
 *Solution.* $(\Rightarrow)$ The circumcenter of any triangle inscribed in the unit circle is the origin. For an equilateral triangle, the circumcenter coincides with the centroid, so the centroid is at the origin. The triangle is therefore invariant under $120^\circ$ rotation about the origin, meaning $\{P,Q,R\} = \{P, e^{2\pi i/3}P, e^{4\pi i/3}P\}$. In either orientation, $Q^3 = e^{\pm 2\pi i}P^3 = P^3$ and $R^3 = e^{\pm 4\pi i}P^3 = P^3$. $(\Leftarrow)$ If $P^3 = Q^3 = R^3 = c$ with $|c|=1$, then $P$, $Q$, $R$ are three distinct cube roots of $c$. The cube roots of any $c$ on the unit circle are equally spaced at $120^\circ$, forming an equilateral triangle. $\square$
 
----
-
 ## 11. Common Mistakes
 
 **Forgetting multiple arguments.** The argument of $z$ is $\theta + 2\pi k$, not just $\theta$. When taking $n$th roots, each value of $k$ from $0$ to $n-1$ gives a distinct root. Missing any of them loses points.
@@ -801,8 +781,6 @@ Multiply $z_1+z_2+z_3 = 0$ by $\bar{z}_1$ to get $1 + z_2\bar{z}_1 + z_3\bar{z}_
 **Incorrect angle arithmetic.** When computing $e^{i\theta} \cdot e^{i\phi} = e^{i(\theta+\phi)}$, be careful about angle reduction modulo $2\pi$. The form $re^{i\theta}$ is not unique unless you fix a range for $\theta$.
 
 **Forgetting conjugates on the unit circle.** If $|z| = 1$, then $\bar{z} = 1/z$, not just $\overline{a+bi} = a - bi$. Using this saves enormous computation.
-
----
 
 ## 12. Practice Problems
 
@@ -825,8 +803,6 @@ Multiply $z_1+z_2+z_3 = 0$ by $\bar{z}_1$ to get $1 + z_2\bar{z}_1 + z_3\bar{z}_
 9. Prove that the product of all distances from $1$ to the other $n$th roots of unity equals $n$.
 10. Find all $z$ on the unit circle such that $z^n + \bar{z}^n$ is an integer for every positive integer $n$.
 
----
-
 ## 13. Hints
 
 1. Convert to polar form: $1 + i\sqrt{3} = 2e^{i\pi/3}$.
@@ -839,8 +815,6 @@ Multiply $z_1+z_2+z_3 = 0$ by $\bar{z}_1$ to get $1 + z_2\bar{z}_1 + z_3\bar{z}_
 8. Consider the polynomial with roots $\omega^k + \omega^{9-k}$ and use Vieta's or the minimal polynomial of $2\cos(2\pi/9)$.
 9. Factor $z^n - 1 = \prod_{k=0}^{n-1}(z - \omega^k)$ and set $z = 1$ after canceling the $k=0$ factor.
 10. Write $z = e^{i\theta}$; then $z^n + \bar{z}^n = 2\cos(n\theta)$. Consider when $2\cos(n\theta) \in \mathbb{Z}$ for all $n$.
-
----
 
 ## 14. Solutions
 
@@ -883,8 +857,6 @@ shows by induction that $2\cos(n\theta)$ is an integer for all positive integers
 $$z\in\{1,e^{\pm i\pi/3},\pm i,e^{\pm 2i\pi/3},-1\}.$$
 
 These are exactly the sixth roots of unity together with $\pm i$.
-
----
 
 ## 15. Summary
 

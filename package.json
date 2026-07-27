@@ -136,7 +136,8 @@
   },
   "license": "MIT",
   "scripts": {
-    "build": "node -e \"require('fs').copyFileSync('content/problems.schema.json','static/problems.schema.json')\" && gatsby build",
+    "build": "node scripts/compile-figures.mjs && node -e \"require('fs').copyFileSync('content/problems.schema.json','static/problems.schema.json')\" && gatsby build",
+    "compile:figures": "node scripts/compile-figures.mjs",
     "dev": "gatsby develop",
     "dev:nohmr": "cross-env GATSBY_DISABLE_HOT_RELOAD=1 gatsby develop",
     "dev:optimized": "yarn build:css-once && concurrently \"gatsby develop\" \"yarn build:css-watch\"",
