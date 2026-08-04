@@ -120,7 +120,6 @@ export default function IndexPage({ path }): JSX.Element {
   const sectionSubtitleClasses =
     'mx-auto max-w-3xl text-center text-lg font-medium leading-relaxed md:text-xl 2xl:text-2xl';
   const infoCardStyle: React.CSSProperties = {
-    border: '1px solid rgba(229, 194, 255, 0.12)',
     background: 'linear-gradient(180deg, rgba(54, 37, 72, 0.9) 0%, rgba(31, 22, 42, 0.94) 100%)',
     color: TEXT_PRIMARY,
   };

@@ -1,1 +1,3193 @@
-{}
+{
+  "asy-5cfde2c537f162a4.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-1983-4"
+    ],
+    "compiled": false
+  },
+  "asy-b16342ad60fbb8f0.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-1983-4"
+    ],
+    "compiled": true
+  },
+  "asy-e21aa2c7313e95b1.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-1983-4"
+    ],
+    "compiled": true
+  },
+  "asy-6f8bafe405fe5be8.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-1983-4"
+    ],
+    "compiled": true
+  },
+  "asy-163a60af7663fff6.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-1983-4"
+    ],
+    "compiled": true
+  },
+  "asy-7546a2891176781b.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-1983-4"
+    ],
+    "compiled": true
+  },
+  "asy-44cbc742f4aff32d.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-1983-11"
+    ],
+    "compiled": true
+  },
+  "asy-a28a269cbc76d232.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-1983-11"
+    ],
+    "compiled": true
+  },
+  "asy-37022b9d07ea969f.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-1983-11"
+    ],
+    "compiled": true
+  },
+  "asy-c2293d4dd6d1fad1.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-1983-12"
+    ],
+    "compiled": true
+  },
+  "asy-e81db6cf7699a266.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-1983-14"
+    ],
+    "compiled": true
+  },
+  "asy-76427845f867a09c.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-1983-14"
+    ],
+    "compiled": true
+  },
+  "asy-cbbf3092653e1a37.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-1983-14"
+    ],
+    "compiled": true
+  },
+  "asy-c22cc46c6d90b256.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-1983-14"
+    ],
+    "compiled": true
+  },
+  "asy-eb03a828f3d3bc05.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-1983-15"
+    ],
+    "compiled": true
+  },
+  "asy-54f7850c8673db87.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-1983-15"
+    ],
+    "compiled": true
+  },
+  "asy-d97d7a33b18eae18.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-1983-15"
+    ],
+    "compiled": true
+  },
+  "asy-850c3cafb1dd5b52.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-1983-15"
+    ],
+    "compiled": true
+  },
+  "asy-98010c7aecd3fc25.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-1984-3"
+    ],
+    "compiled": true
+  },
+  "asy-2d1e2b5779862e71.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-1984-9"
+    ],
+    "compiled": true
+  },
+  "asy-316fdbe1c61d86c3.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-1985-9"
+    ],
+    "compiled": true
+  },
+  "asy-087daf5ecd18e701.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-1985-9"
+    ],
+    "compiled": true
+  },
+  "asy-f759371f27eef940.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-1985-9"
+    ],
+    "compiled": true
+  },
+  "asy-796d3364984b4b75.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-1985-11"
+    ],
+    "compiled": true
+  },
+  "asy-3be7e06aead25d3d.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-1986-9",
+      "content/problemBank/AIME.problems.json#aime-1986-9"
+    ],
+    "compiled": true
+  },
+  "asy-50ee2d7f80b04b1a.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-1986-9"
+    ],
+    "compiled": true
+  },
+  "asy-d43a8879a77e67ee.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-1986-15"
+    ],
+    "compiled": true
+  },
+  "asy-a00095377a59d9b7.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-1986-15"
+    ],
+    "compiled": true
+  },
+  "asy-eb734ed653d2eac6.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-1986-15"
+    ],
+    "compiled": true
+  },
+  "asy-61f0984470efbb5c.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-1987-9"
+    ],
+    "compiled": true
+  },
+  "asy-790765ede2ee0428.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-1987-15"
+    ],
+    "compiled": true
+  },
+  "asy-e79c85f646c5c943.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-1987-15"
+    ],
+    "compiled": true
+  },
+  "asy-47b6f91407082cb5.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-1989-6"
+    ],
+    "compiled": true
+  },
+  "asy-80588053dcdbb70f.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-1989-6"
+    ],
+    "compiled": true
+  },
+  "asy-48d7e29d16dc8a12.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-1989-6"
+    ],
+    "compiled": true
+  },
+  "asy-8b017cb76e5d9197.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-1989-6"
+    ],
+    "compiled": true
+  },
+  "asy-396ccd9d3a100c9c.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-1989-6"
+    ],
+    "compiled": true
+  },
+  "asy-d538b50e43ff1505.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-1989-6"
+    ],
+    "compiled": true
+  },
+  "asy-cd2145f6e254e562.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-1989-8"
+    ],
+    "compiled": true
+  },
+  "asy-ec4744f7fda36d59.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-1989-8"
+    ],
+    "compiled": true
+  },
+  "asy-a6dc80082e55cfe4.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-1989-10"
+    ],
+    "compiled": true
+  },
+  "asy-151d5666e3ca1e3d.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-1989-10"
+    ],
+    "compiled": true
+  },
+  "asy-babc3fda84ba9dd4.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-1989-12"
+    ],
+    "compiled": true
+  },
+  "asy-828457ad071056f1.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-1989-15"
+    ],
+    "compiled": true
+  },
+  "asy-53f867a528109795.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-1989-15"
+    ],
+    "compiled": true
+  },
+  "asy-03cba7513b0cbc0a.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-1990-7"
+    ],
+    "compiled": true
+  },
+  "asy-14e312de9fd28ca3.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-1990-7"
+    ],
+    "compiled": true
+  },
+  "asy-77e403a3d0ac0fbe.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-1990-7"
+    ],
+    "compiled": true
+  },
+  "asy-bc0d16a7ba92f012.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-1990-7"
+    ],
+    "compiled": true
+  },
+  "asy-e436eef346c920ce.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-1990-7"
+    ],
+    "compiled": true
+  },
+  "asy-b6c6e86d55e006a9.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-1990-14"
+    ],
+    "compiled": true
+  },
+  "asy-1866424b5f5a2bbb.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-1990-14"
+    ],
+    "compiled": true
+  },
+  "asy-5b9a661e6b0f96f9.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-1990-14"
+    ],
+    "compiled": true
+  },
+  "asy-5fb96f68884b9fec.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-1991-2"
+    ],
+    "compiled": true
+  },
+  "asy-e3b990d58f972128.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-1991-11"
+    ],
+    "compiled": true
+  },
+  "asy-0ba523c0a12f1b50.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-1991-12"
+    ],
+    "compiled": true
+  },
+  "asy-a4ca935ee10dd090.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-1991-14"
+    ],
+    "compiled": true
+  },
+  "asy-588f85f777909f72.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-1993-13"
+    ],
+    "compiled": true
+  },
+  "asy-254f604356b578bb.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-1993-13"
+    ],
+    "compiled": true
+  },
+  "asy-1f7da6696753f33b.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-1993-13"
+    ],
+    "compiled": false
+  },
+  "asy-9f4983f945ecad8f.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-1993-15"
+    ],
+    "compiled": true
+  },
+  "asy-9a3f0d8a9dafab86.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-1994-6"
+    ],
+    "compiled": true
+  },
+  "asy-365d19d839e33631.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-1994-6"
+    ],
+    "compiled": true
+  },
+  "asy-aeb2becb790e4e42.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-1994-6"
+    ],
+    "compiled": true
+  },
+  "asy-2bad76c2e733efe4.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-1994-7"
+    ],
+    "compiled": true
+  },
+  "asy-e8ccea76b332eab9.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-1994-14"
+    ],
+    "compiled": true
+  },
+  "asy-69848b3174739839.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-1994-15"
+    ],
+    "compiled": true
+  },
+  "asy-fee6cdd8da32c164.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-1995-4"
+    ],
+    "compiled": true
+  },
+  "asy-fa9d8786a7793a77.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-1995-4"
+    ],
+    "compiled": true
+  },
+  "asy-592e13481b24f4dd.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-1995-4"
+    ],
+    "compiled": true
+  },
+  "asy-3f6d773bc9cd4b06.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-1995-9"
+    ],
+    "compiled": true
+  },
+  "asy-8dabbe4e14d2fe99.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-1995-12",
+      "content/problemBank/AIME.problems.json#aime-1995-12"
+    ],
+    "compiled": false
+  },
+  "asy-787d4eec0fbb1b80.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-1995-12"
+    ],
+    "compiled": false
+  },
+  "asy-dd9f863989e14e7d.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-1995-14"
+    ],
+    "compiled": true
+  },
+  "asy-6b3caf124ffe70d5.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-1996-4"
+    ],
+    "compiled": true
+  },
+  "asy-5153fcb198a3848a.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-1996-7"
+    ],
+    "compiled": true
+  },
+  "asy-c0f90617f18dc186.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-1996-7"
+    ],
+    "compiled": true
+  },
+  "asy-415d2145cc383429.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-1996-13"
+    ],
+    "compiled": true
+  },
+  "asy-c63b93c9a0aef2df.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-1996-15"
+    ],
+    "compiled": true
+  },
+  "asy-8f5ba1091a4169f2.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-1997-7"
+    ],
+    "compiled": true
+  },
+  "asy-549e2ae0d0f49d4f.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-1998-9"
+    ],
+    "compiled": true
+  },
+  "asy-1ba1206c3686985e.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-1998-11"
+    ],
+    "compiled": true
+  },
+  "asy-e52e3479b365dbfe.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-1998-11"
+    ],
+    "compiled": true
+  },
+  "asy-1a98cc40b6b56c4a.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-1999-4"
+    ],
+    "compiled": false
+  },
+  "asy-8edb376ad780bc52.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-1999-12"
+    ],
+    "compiled": true
+  },
+  "asy-b439c198884ea1fe.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-1999-14"
+    ],
+    "compiled": true
+  },
+  "asy-db4ecad72330bb97.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-1999-14"
+    ],
+    "compiled": true
+  },
+  "asy-c745d6784b605c9f.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-1999-15"
+    ],
+    "compiled": true
+  },
+  "asy-a1a0647b8492681d.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-1999-15"
+    ],
+    "compiled": true
+  },
+  "asy-d6902e5dc98b1eb7.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2000-2"
+    ],
+    "compiled": true
+  },
+  "asy-48ef0af0d07bd0a9.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2000-4"
+    ],
+    "compiled": true
+  },
+  "asy-0ead6fbad44d5204.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2000-13"
+    ],
+    "compiled": true
+  },
+  "asy-aff2370e84b1779c.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2000-13"
+    ],
+    "compiled": true
+  },
+  "asy-638142145acb1182.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2000-14"
+    ],
+    "compiled": true
+  },
+  "asy-d31983c651d7f3fc.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2000-14"
+    ],
+    "compiled": true
+  },
+  "asy-e088d67fd92b8b8b.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2000-14"
+    ],
+    "compiled": true
+  },
+  "asy-4c193f54e2085296.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2000-6"
+    ],
+    "compiled": true
+  },
+  "asy-3d862a49815c66ef.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2000-6"
+    ],
+    "compiled": true
+  },
+  "asy-aadf2d38292c0ce0.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2000-8"
+    ],
+    "compiled": true
+  },
+  "asy-317abace1248f1bb.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2000-11"
+    ],
+    "compiled": true
+  },
+  "asy-6822092181d0f712.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2001-4"
+    ],
+    "compiled": true
+  },
+  "asy-14bf5fb272334dcd.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2001-5"
+    ],
+    "compiled": true
+  },
+  "asy-dda6613d693361c8.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2001-7"
+    ],
+    "compiled": true
+  },
+  "asy-2ac640547d1627ea.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2001-7"
+    ],
+    "compiled": true
+  },
+  "asy-6995e40dece0bb09.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2001-7"
+    ],
+    "compiled": true
+  },
+  "asy-7be743444072e6a5.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2001-7"
+    ],
+    "compiled": true
+  },
+  "asy-8b5765ec2893d3e3.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2001-9"
+    ],
+    "compiled": true
+  },
+  "asy-86c3c019f9f3426c.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2001-12"
+    ],
+    "compiled": true
+  },
+  "asy-6484b13424c31a6d.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2001-15"
+    ],
+    "compiled": true
+  },
+  "asy-72b422d7028317c7.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2001-4"
+    ],
+    "compiled": true
+  },
+  "asy-eede2ee074f649e7.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2001-6"
+    ],
+    "compiled": true
+  },
+  "asy-f979fe422743b2ff.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2001-7"
+    ],
+    "compiled": true
+  },
+  "asy-884df1cf8692c660.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2001-7"
+    ],
+    "compiled": true
+  },
+  "asy-58db237f0cd85a29.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2001-13"
+    ],
+    "compiled": true
+  },
+  "asy-cc8ed2f1bf788e78.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2001-15"
+    ],
+    "compiled": true
+  },
+  "asy-b661fd6804e1b694.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2001-15"
+    ],
+    "compiled": true
+  },
+  "asy-b884879b69eb316d.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2002-13"
+    ],
+    "compiled": true
+  },
+  "asy-33ad4ec6fae43d37.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2002-15"
+    ],
+    "compiled": true
+  },
+  "asy-253beb777139fd13.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2002-12"
+    ],
+    "compiled": true
+  },
+  "asy-56f30c58ac44929c.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2002-13",
+      "content/problemBank/AIME.problems.json#aime-2002-13"
+    ],
+    "compiled": true
+  },
+  "asy-77312b1eccbe9526.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2002-13"
+    ],
+    "compiled": true
+  },
+  "asy-5aaebb4f3525bd53.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2002-15"
+    ],
+    "compiled": true
+  },
+  "asy-84bee8939dddd82f.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2003-5"
+    ],
+    "compiled": true
+  },
+  "asy-9be742a773d19a33.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2003-6"
+    ],
+    "compiled": true
+  },
+  "asy-eff7c36610de5299.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2003-6"
+    ],
+    "compiled": true
+  },
+  "asy-aa81088a1ee56828.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2003-6"
+    ],
+    "compiled": true
+  },
+  "asy-9c99a42655102065.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2003-7"
+    ],
+    "compiled": true
+  },
+  "asy-4a55b0441b50f06b.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2003-10",
+      "content/problemBank/AIME.problems.json#aime-2003-10"
+    ],
+    "compiled": true
+  },
+  "asy-962bbb4faee86ff2.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2003-10"
+    ],
+    "compiled": true
+  },
+  "asy-d481dfe087a1c21e.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2003-12"
+    ],
+    "compiled": true
+  },
+  "asy-69995688d3049ffa.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2003-15"
+    ],
+    "compiled": true
+  },
+  "asy-6c5e8f059add472a.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2003-6"
+    ],
+    "compiled": true
+  },
+  "asy-0b6621429a25fa13.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2003-14"
+    ],
+    "compiled": true
+  },
+  "asy-07329b6817b5740d.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2003-14",
+      "content/problemBank/AIME.problems.json#aime-2003-14"
+    ],
+    "compiled": false
+  },
+  "asy-3b3be86a826c7818.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2004-4"
+    ],
+    "compiled": true
+  },
+  "asy-9addd8447e1d344a.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2004-4"
+    ],
+    "compiled": true
+  },
+  "asy-8785a5333a0b21c8.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2004-9"
+    ],
+    "compiled": true
+  },
+  "asy-709ba4fa364bab20.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2004-9"
+    ],
+    "compiled": true
+  },
+  "asy-b0d579459cee3bc0.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2004-9"
+    ],
+    "compiled": true
+  },
+  "asy-5daca1260c240c67.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2004-9"
+    ],
+    "compiled": true
+  },
+  "asy-f92768bcbf5f6b43.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2004-14"
+    ],
+    "compiled": true
+  },
+  "asy-e98799b847f38566.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2004-14"
+    ],
+    "compiled": true
+  },
+  "asy-8e2c3e5a450a7ccb.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2004-7"
+    ],
+    "compiled": true
+  },
+  "asy-7690e44324d9febd.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2004-7"
+    ],
+    "compiled": true
+  },
+  "asy-aed3efd9a934a79c.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2004-12"
+    ],
+    "compiled": true
+  },
+  "asy-27cde1d8ae5784a3.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2004-13"
+    ],
+    "compiled": true
+  },
+  "asy-10fe79e94ff783cf.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2005-7"
+    ],
+    "compiled": true
+  },
+  "asy-e6ad4e851839980f.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2005-10"
+    ],
+    "compiled": true
+  },
+  "asy-b6de86dbb44491c9.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2005-13"
+    ],
+    "compiled": true
+  },
+  "asy-f0e9b513f84251d6.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2005-15"
+    ],
+    "compiled": true
+  },
+  "asy-0ad367381562b30b.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2005-8"
+    ],
+    "compiled": true
+  },
+  "asy-c7dba372bc9fd00e.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2005-10"
+    ],
+    "compiled": true
+  },
+  "asy-7be7b44ed7f66401.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2005-12"
+    ],
+    "compiled": true
+  },
+  "asy-9283ca622e639312.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2005-12"
+    ],
+    "compiled": true
+  },
+  "asy-eebb4b299765372c.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2005-12"
+    ],
+    "compiled": true
+  },
+  "asy-122b4b56da938af5.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2005-12"
+    ],
+    "compiled": true
+  },
+  "asy-8950934c93c5f05f.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2005-12"
+    ],
+    "compiled": true
+  },
+  "asy-31b8aa464361c09a.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2005-14",
+      "content/problemBank/AIME.problems.json#aime-2005-14"
+    ],
+    "compiled": true
+  },
+  "asy-0a26fa45c927750b.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2005-14"
+    ],
+    "compiled": true
+  },
+  "asy-7100f3d3cafcd1e3.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2005-15"
+    ],
+    "compiled": true
+  },
+  "asy-a3dd57563ca795fd.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2005-15"
+    ],
+    "compiled": false
+  },
+  "asy-cc7a7a94a3b2d187.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2006-1"
+    ],
+    "compiled": true
+  },
+  "asy-b9fc6f11d0d6fe37.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2006-7"
+    ],
+    "compiled": true
+  },
+  "asy-cfdec995e6feb158.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2006-8"
+    ],
+    "compiled": false
+  },
+  "asy-cf5e5e8d5dfa4e54.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2006-8"
+    ],
+    "compiled": true
+  },
+  "asy-c189e7b3e854989c.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2006-10"
+    ],
+    "compiled": true
+  },
+  "asy-886f5b3a41bc9310.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2006-10"
+    ],
+    "compiled": true
+  },
+  "asy-3336a6da3ad9e624.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2006-14",
+      "content/problemBank/AIME.problems.json#aime-2006-14"
+    ],
+    "compiled": true
+  },
+  "asy-cd3cf0bbba3d8aae.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2006-1"
+    ],
+    "compiled": true
+  },
+  "asy-6907e82a72016dbe.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2006-6"
+    ],
+    "compiled": true
+  },
+  "asy-7eababdad2a05800.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2006-6"
+    ],
+    "compiled": true
+  },
+  "asy-d815b2ac796483cc.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2006-8"
+    ],
+    "compiled": true
+  },
+  "asy-a4568805925401d2.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2006-12"
+    ],
+    "compiled": true
+  },
+  "asy-2d72428dcd004f36.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2007-12"
+    ],
+    "compiled": true
+  },
+  "asy-5055459019b3c959.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2007-13"
+    ],
+    "compiled": true
+  },
+  "asy-7a76be7ec38447ba.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2007-13"
+    ],
+    "compiled": false
+  },
+  "asy-7b616ba59e6fa709.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2007-13"
+    ],
+    "compiled": true
+  },
+  "asy-340d5404782cad42.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2007-3"
+    ],
+    "compiled": true
+  },
+  "asy-8085abd75baa0fd0.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2007-3"
+    ],
+    "compiled": true
+  },
+  "asy-cbe3cd10b7369549.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2007-13"
+    ],
+    "compiled": false
+  },
+  "asy-705c1b4279d0a4bc.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2007-15"
+    ],
+    "compiled": true
+  },
+  "asy-63fd4d90bed342fa.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2007-15"
+    ],
+    "compiled": true
+  },
+  "asy-3e2427e864dd360e.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2007-15"
+    ],
+    "compiled": true
+  },
+  "asy-a26c4532ac3c0b71.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2008-2"
+    ],
+    "compiled": true
+  },
+  "asy-2edfe34e9a710262.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2008-10"
+    ],
+    "compiled": true
+  },
+  "asy-55af2e1a9caa7008.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2008-13"
+    ],
+    "compiled": true
+  },
+  "asy-147742f3d7bb9e1b.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2008-13"
+    ],
+    "compiled": true
+  },
+  "asy-436a48858cb945a3.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2008-14"
+    ],
+    "compiled": true
+  },
+  "asy-4eda28543d33111b.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2008-14"
+    ],
+    "compiled": true
+  },
+  "asy-d1ebe74ac53043e4.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2008-14",
+      "content/problemBank/AIME.problems.json#aime-2008-14"
+    ],
+    "compiled": true
+  },
+  "asy-d94da90a7c71bb30.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2008-15"
+    ],
+    "compiled": true
+  },
+  "asy-06148bfb6cf17c09.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2008-15"
+    ],
+    "compiled": true
+  },
+  "asy-8822a6b27525fcba.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2008-15"
+    ],
+    "compiled": true
+  },
+  "asy-bacc3b0162b3b51c.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2008-5"
+    ],
+    "compiled": true
+  },
+  "asy-b8bb117ca63efeb9.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2008-5"
+    ],
+    "compiled": true
+  },
+  "asy-88e6d8785713cb86.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2008-10"
+    ],
+    "compiled": true
+  },
+  "asy-6d934db18de4f5e9.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2008-10"
+    ],
+    "compiled": true
+  },
+  "asy-dd6219d8171bdcb0.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2008-10"
+    ],
+    "compiled": true
+  },
+  "asy-02ebac71892f8aca.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2008-10"
+    ],
+    "compiled": true
+  },
+  "asy-ee4abff1009d8aac.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2008-11"
+    ],
+    "compiled": true
+  },
+  "asy-326d4b95065aa66f.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2008-13"
+    ],
+    "compiled": true
+  },
+  "asy-7fc37d1c54572780.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2008-13"
+    ],
+    "compiled": true
+  },
+  "asy-c87871ec4d4e1b4a.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2009-2"
+    ],
+    "compiled": false
+  },
+  "asy-048a338f88fc3d40.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2009-4"
+    ],
+    "compiled": true
+  },
+  "asy-26d418ad4d2cc572.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2009-5",
+      "content/problemBank/AIME.problems.json#aime-2009-5"
+    ],
+    "compiled": true
+  },
+  "asy-c1b1af018f94c865.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2009-12"
+    ],
+    "compiled": true
+  },
+  "asy-7221ea632e9784c4.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2009-15"
+    ],
+    "compiled": true
+  },
+  "asy-4557906c1a6d2ef0.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2009-3"
+    ],
+    "compiled": true
+  },
+  "asy-aaaa29fc4ba4c950.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2009-3"
+    ],
+    "compiled": true
+  },
+  "asy-bbb189c5a1b21688.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2009-5"
+    ],
+    "compiled": true
+  },
+  "asy-d356e8eb86799ffa.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2009-10",
+      "content/problemBank/AIME.problems.json#aime-2009-10"
+    ],
+    "compiled": true
+  },
+  "asy-d79ee94850975b2d.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2009-10"
+    ],
+    "compiled": true
+  },
+  "asy-4b235d9c39b5b0b9.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2009-15"
+    ],
+    "compiled": true
+  },
+  "asy-5f4e702e3d080767.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2010-6"
+    ],
+    "compiled": true
+  },
+  "asy-8e524bee8d4d3f21.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2010-8"
+    ],
+    "compiled": true
+  },
+  "asy-2d56a539fa436498.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2010-11"
+    ],
+    "compiled": false
+  },
+  "asy-6513a84d474b91c2.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2010-11"
+    ],
+    "compiled": true
+  },
+  "asy-006d3f03bfda3f2f.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2010-13"
+    ],
+    "compiled": true
+  },
+  "asy-308a944a37062ea3.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2010-15"
+    ],
+    "compiled": true
+  },
+  "asy-ba42dd1ce21792e7.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2010-2"
+    ],
+    "compiled": true
+  },
+  "asy-0ecb40a2dde85d2c.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2010-9"
+    ],
+    "compiled": true
+  },
+  "asy-93b601d062be3f02.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2010-14"
+    ],
+    "compiled": true
+  },
+  "asy-624157ebc3f4e69c.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2010-15"
+    ],
+    "compiled": true
+  },
+  "asy-3da454c421fbfa8c.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2011-2"
+    ],
+    "compiled": true
+  },
+  "asy-0d06d7e0c12372f0.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2011-4"
+    ],
+    "compiled": true
+  },
+  "asy-d940b7339aafde4d.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2011-8"
+    ],
+    "compiled": true
+  },
+  "asy-9e5a71b1e616459d.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2011-14"
+    ],
+    "compiled": false
+  },
+  "asy-bf80a6418843fad6.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2011-2"
+    ],
+    "compiled": true
+  },
+  "asy-89f8f6d6135cd987.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2011-4"
+    ],
+    "compiled": true
+  },
+  "asy-e4d8714876d713e2.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2012-7"
+    ],
+    "compiled": true
+  },
+  "asy-2d897fbe045cc719.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2012-8"
+    ],
+    "compiled": true
+  },
+  "asy-e876fafc1f874fc2.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2012-12"
+    ],
+    "compiled": true
+  },
+  "asy-976260626db038a1.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2012-13"
+    ],
+    "compiled": true
+  },
+  "asy-0052316416bc1a02.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2012-13"
+    ],
+    "compiled": true
+  },
+  "asy-c71d4a172810129f.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2012-13"
+    ],
+    "compiled": true
+  },
+  "asy-cf8c12a3e8177dcb.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2012-4"
+    ],
+    "compiled": true
+  },
+  "asy-8c29c6a52286d4d5.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2012-5"
+    ],
+    "compiled": true
+  },
+  "asy-8b7a9b58d1ec88d9.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2012-15"
+    ],
+    "compiled": true
+  },
+  "asy-f2bb5e2b438d10d6.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2012-15"
+    ],
+    "compiled": true
+  },
+  "asy-f684676ed37ea136.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2012-15"
+    ],
+    "compiled": true
+  },
+  "asy-d54a42f2f6e0a321.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2013-4"
+    ],
+    "compiled": true
+  },
+  "asy-de146116301dc36c.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2013-9"
+    ],
+    "compiled": true
+  },
+  "asy-14450028efb4ad08.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2013-9"
+    ],
+    "compiled": true
+  },
+  "asy-a988bcc485a59559.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2013-9"
+    ],
+    "compiled": true
+  },
+  "asy-3379524f32125cfd.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2013-5"
+    ],
+    "compiled": true
+  },
+  "asy-d251186254f11e53.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2013-8"
+    ],
+    "compiled": true
+  },
+  "asy-f9373f8aa37c5245.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2013-8"
+    ],
+    "compiled": true
+  },
+  "asy-245085563663ae1a.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2013-10",
+      "content/problemBank/AIME.problems.json#aime-2013-10"
+    ],
+    "compiled": true
+  },
+  "asy-97a0fd0581371548.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2013-13"
+    ],
+    "compiled": true
+  },
+  "asy-84aea47cdc788e41.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2013-13"
+    ],
+    "compiled": true
+  },
+  "asy-ca1763d75b6b3482.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2013-13"
+    ],
+    "compiled": true
+  },
+  "asy-64a2a1fed886644d.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2014-1"
+    ],
+    "compiled": true
+  },
+  "asy-5b8d46e9db7658cb.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2014-7"
+    ],
+    "compiled": true
+  },
+  "asy-a032f553ddf2059c.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2014-10"
+    ],
+    "compiled": true
+  },
+  "asy-6c9b667a1f245eaf.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2014-13"
+    ],
+    "compiled": true
+  },
+  "asy-51bb31c165ff4510.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2014-13"
+    ],
+    "compiled": true
+  },
+  "asy-2af074e737a7d700.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2014-13"
+    ],
+    "compiled": true
+  },
+  "asy-00bde9cbe6c81d12.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2014-15"
+    ],
+    "compiled": true
+  },
+  "asy-9b59a3051174c7ec.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2014-2"
+    ],
+    "compiled": true
+  },
+  "asy-53ba6a287d179bbb.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2014-3"
+    ],
+    "compiled": false
+  },
+  "asy-3037fe108f58029b.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2014-3"
+    ],
+    "compiled": true
+  },
+  "asy-cc9f6e37251c7033.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2014-8"
+    ],
+    "compiled": true
+  },
+  "asy-0bf7658c16d7d291.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2014-11"
+    ],
+    "compiled": true
+  },
+  "asy-ce619c5789a8602e.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2014-11"
+    ],
+    "compiled": true
+  },
+  "asy-ea1c675aa699a24c.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2014-14"
+    ],
+    "compiled": true
+  },
+  "asy-ec90faa0ce9786d2.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2014-14"
+    ],
+    "compiled": true
+  },
+  "asy-99fda59a14c756a1.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2015-4"
+    ],
+    "compiled": true
+  },
+  "asy-6524d077350d62af.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2015-6"
+    ],
+    "compiled": true
+  },
+  "asy-fe726e60d989374b.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2015-7"
+    ],
+    "compiled": true
+  },
+  "asy-58dd3f71724dfe9f.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2015-7"
+    ],
+    "compiled": true
+  },
+  "asy-d65ded01c76c316b.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2015-7"
+    ],
+    "compiled": true
+  },
+  "asy-b250af42e01b6a70.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2015-15"
+    ],
+    "compiled": true
+  },
+  "asy-6f419f278952e799.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2015-7"
+    ],
+    "compiled": true
+  },
+  "asy-7518537f5289ae23.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2015-9"
+    ],
+    "compiled": true
+  },
+  "asy-d1f862efa7ee5578.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2015-9"
+    ],
+    "compiled": true
+  },
+  "asy-4bb954aa5cc741ec.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2015-11"
+    ],
+    "compiled": true
+  },
+  "asy-8747dc77e6f7bd67.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2015-11"
+    ],
+    "compiled": true
+  },
+  "asy-3f999543495fd61e.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2015-15"
+    ],
+    "compiled": true
+  },
+  "asy-c41d9818fa3f02d3.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2015-15"
+    ],
+    "compiled": true
+  },
+  "asy-e90b7464eacfe751.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2015-15"
+    ],
+    "compiled": true
+  },
+  "asy-974ed7007b6f49ed.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2016-3"
+    ],
+    "compiled": true
+  },
+  "asy-3e7eae586d314cd9.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2016-4"
+    ],
+    "compiled": false
+  },
+  "asy-53e39182384bc347.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2016-6",
+      "content/problemBank/AIME.problems.json#aime-2016-6"
+    ],
+    "compiled": true
+  },
+  "asy-06c24c5b47ee9e7f.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2016-9"
+    ],
+    "compiled": true
+  },
+  "asy-1d72cf6b2d2457f0.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2016-9"
+    ],
+    "compiled": true
+  },
+  "asy-121ba947560a1db6.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2016-14"
+    ],
+    "compiled": true
+  },
+  "asy-01fc3f06db2c484d.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2016-15"
+    ],
+    "compiled": true
+  },
+  "asy-dfd6849b43762e2f.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2016-15"
+    ],
+    "compiled": true
+  },
+  "asy-e20ce7f5307f35cc.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2016-5"
+    ],
+    "compiled": false
+  },
+  "asy-55068a3831ae2e4a.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2016-5"
+    ],
+    "compiled": false
+  },
+  "asy-21c12b26bebb1957.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2016-7"
+    ],
+    "compiled": true
+  },
+  "asy-1a5803c63551aae3.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2016-10"
+    ],
+    "compiled": true
+  },
+  "asy-2cc6c548969ca39d.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2016-12"
+    ],
+    "compiled": true
+  },
+  "asy-1e09306baf31d09f.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2016-12"
+    ],
+    "compiled": true
+  },
+  "asy-134ba3a2b662a1ca.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2016-13"
+    ],
+    "compiled": true
+  },
+  "asy-d71173d888281c15.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2016-14"
+    ],
+    "compiled": true
+  },
+  "asy-7d622fb48b366681.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2016-14"
+    ],
+    "compiled": true
+  },
+  "asy-c7c7c484cf6e9f12.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2016-14"
+    ],
+    "compiled": true
+  },
+  "asy-4c18aeaf7a61352d.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2017-8"
+    ],
+    "compiled": true
+  },
+  "asy-a4c72ea7fa6f3b79.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2017-10"
+    ],
+    "compiled": true
+  },
+  "asy-c5574d8fde20e0eb.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2017-10"
+    ],
+    "compiled": true
+  },
+  "asy-d20903779267dd4b.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2017-10"
+    ],
+    "compiled": true
+  },
+  "asy-9046d0bbf87a0f4d.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2017-15"
+    ],
+    "compiled": true
+  },
+  "asy-5692d48efafc41fb.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2017-3"
+    ],
+    "compiled": true
+  },
+  "asy-51f704c6d4b192b2.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2017-3"
+    ],
+    "compiled": true
+  },
+  "asy-e5331b266d464e30.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2017-7"
+    ],
+    "compiled": false
+  },
+  "asy-7c3feaf9b2cced31.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2017-10"
+    ],
+    "compiled": true
+  },
+  "asy-0a5da38bd0ee3604.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2017-12"
+    ],
+    "compiled": true
+  },
+  "asy-07651c40daf6af68.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2017-12"
+    ],
+    "compiled": true
+  },
+  "asy-45c893058df16819.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2018-4"
+    ],
+    "compiled": true
+  },
+  "asy-16fd14b42cc70ad6.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2018-10"
+    ],
+    "compiled": true
+  },
+  "asy-1345ced2d674055a.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2018-5"
+    ],
+    "compiled": true
+  },
+  "asy-e18db12080b34f86.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2018-8"
+    ],
+    "compiled": true
+  },
+  "asy-4514087d189224dd.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2018-9"
+    ],
+    "compiled": true
+  },
+  "asy-46a08eaea93f2324.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2018-12"
+    ],
+    "compiled": true
+  },
+  "asy-b90c864a4d233cc0.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2018-14"
+    ],
+    "compiled": true
+  },
+  "asy-5c7e214ad6b9f069.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2019-3"
+    ],
+    "compiled": true
+  },
+  "asy-3ac39530d10bb4d4.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2019-6",
+      "content/problemBank/AIME.problems.json#aime-2019-6",
+      "content/problemBank/AIME.problems.json#aime-2019-6",
+      "content/problemBank/AIME.problems.json#aime-2019-6",
+      "content/problemBank/AIME.problems.json#aime-2019-6"
+    ],
+    "compiled": true
+  },
+  "asy-96ceab12db56f4e7.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2019-6"
+    ],
+    "compiled": true
+  },
+  "asy-a53c9b59262bf66f.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2019-11"
+    ],
+    "compiled": true
+  },
+  "asy-f0963fc3c432b98a.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2019-11"
+    ],
+    "compiled": true
+  },
+  "asy-bea48c4d62d1611a.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2019-13"
+    ],
+    "compiled": true
+  },
+  "asy-caf5cbff1f0de266.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2019-15"
+    ],
+    "compiled": true
+  },
+  "asy-41817ee14670bb58.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2019-15"
+    ],
+    "compiled": true
+  },
+  "asy-bceff26ef2f4f83b.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2019-1"
+    ],
+    "compiled": true
+  },
+  "asy-f97f5ca43d0a9a9a.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2019-1"
+    ],
+    "compiled": true
+  },
+  "asy-7bdfec1498a9e3ba.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2019-1"
+    ],
+    "compiled": false
+  },
+  "asy-527c426a2bfad04d.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2019-1"
+    ],
+    "compiled": true
+  },
+  "asy-96528e78f90b80ae.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2019-7"
+    ],
+    "compiled": true
+  },
+  "asy-be9496aef3a29aa4.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2019-7"
+    ],
+    "compiled": true
+  },
+  "asy-9e805e98b36f01af.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2019-7"
+    ],
+    "compiled": true
+  },
+  "asy-0b5fc44ab8a5d779.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2019-11"
+    ],
+    "compiled": true
+  },
+  "asy-ee838d269a762f5c.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2019-13"
+    ],
+    "compiled": true
+  },
+  "asy-f1938a7546e6565d.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2019-15"
+    ],
+    "compiled": true
+  },
+  "asy-4e4ba8b05bcfcd30.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2020-1"
+    ],
+    "compiled": true
+  },
+  "asy-6ec9ac0ae37690cf.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2020-1"
+    ],
+    "compiled": true
+  },
+  "asy-a8dbd540a39dece6.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2020-5"
+    ],
+    "compiled": true
+  },
+  "asy-ee4216aaf6d92a3a.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2020-6"
+    ],
+    "compiled": true
+  },
+  "asy-dc3642c303a6bf31.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2020-6"
+    ],
+    "compiled": true
+  },
+  "asy-31b93007de1de27c.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2020-7"
+    ],
+    "compiled": true
+  },
+  "asy-751f038eb6ad28b8.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2020-7"
+    ],
+    "compiled": true
+  },
+  "asy-2595df3494eb9d97.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2020-8"
+    ],
+    "compiled": true
+  },
+  "asy-3656b11d356c47a7.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2020-9"
+    ],
+    "compiled": true
+  },
+  "asy-0b06c52f838be9e0.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2020-13"
+    ],
+    "compiled": true
+  },
+  "asy-ade8973bb95942e3.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2020-13"
+    ],
+    "compiled": true
+  },
+  "asy-8d339af4e660e7cc.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2020-13",
+      "content/problemBank/AIME.problems.json#aime-2020-13"
+    ],
+    "compiled": true
+  },
+  "asy-6b0a51586b4ed82c.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2020-13"
+    ],
+    "compiled": true
+  },
+  "asy-bffdb71b5a9d7d83.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2020-13"
+    ],
+    "compiled": true
+  },
+  "asy-a0f102dbc63b09ce.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2020-13"
+    ],
+    "compiled": true
+  },
+  "asy-a418e17cfb71a15a.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2020-15"
+    ],
+    "compiled": true
+  },
+  "asy-1870124acae95938.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2020-15"
+    ],
+    "compiled": true
+  },
+  "asy-b0874c6b5c9b9477.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2020-15"
+    ],
+    "compiled": true
+  },
+  "asy-0a55a6924fdce772.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2020-2"
+    ],
+    "compiled": true
+  },
+  "asy-1680ff406d9e9830.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2020-4"
+    ],
+    "compiled": true
+  },
+  "asy-1f64426eab4dca66.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2020-7"
+    ],
+    "compiled": true
+  },
+  "asy-fd9be09830b5eabd.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2020-7"
+    ],
+    "compiled": false
+  },
+  "asy-a7e1213cc83fb4ab.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2020-13"
+    ],
+    "compiled": false
+  },
+  "asy-9be442f747c790ec.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2020-15"
+    ],
+    "compiled": true
+  },
+  "asy-b384115c60ab03a5.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2021-2"
+    ],
+    "compiled": true
+  },
+  "asy-d4e2e14ca1bfc791.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2021-8"
+    ],
+    "compiled": true
+  },
+  "asy-76b72db7799094cb.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2021-9"
+    ],
+    "compiled": true
+  },
+  "asy-d0af3028cd392229.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2021-9"
+    ],
+    "compiled": true
+  },
+  "asy-e304690970d015dd.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2021-9"
+    ],
+    "compiled": true
+  },
+  "asy-9f2b33d4184dade1.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2021-11"
+    ],
+    "compiled": true
+  },
+  "asy-db47e459079e9c57.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2021-11"
+    ],
+    "compiled": true
+  },
+  "asy-d96d8961f09dcf17.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2021-13"
+    ],
+    "compiled": true
+  },
+  "asy-30fb69d04eb4d1b5.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2021-13"
+    ],
+    "compiled": true
+  },
+  "asy-30f3f873f89374f6.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2021-13"
+    ],
+    "compiled": true
+  },
+  "asy-242a929ec7b499b3.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2021-2"
+    ],
+    "compiled": true
+  },
+  "asy-b8b867802f1c8cae.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2021-5"
+    ],
+    "compiled": true
+  },
+  "asy-a28474945e791cab.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2021-5"
+    ],
+    "compiled": true
+  },
+  "asy-c926213bf5afef84.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2021-5"
+    ],
+    "compiled": true
+  },
+  "asy-c5bfe602f4545dda.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2021-8"
+    ],
+    "compiled": true
+  },
+  "asy-392e970be7b0f6c9.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2021-10"
+    ],
+    "compiled": true
+  },
+  "asy-605413dd17381043.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2021-10"
+    ],
+    "compiled": true
+  },
+  "asy-bd0922c8a7eccbda.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2021-10"
+    ],
+    "compiled": true
+  },
+  "asy-3c659d440b29cb2f.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2021-10"
+    ],
+    "compiled": true
+  },
+  "asy-d2fff85c52ba1669.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2021-11"
+    ],
+    "compiled": true
+  },
+  "asy-fe980546b5dc3a22.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2021-11"
+    ],
+    "compiled": true
+  },
+  "asy-e18a349d70e05836.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2021-12"
+    ],
+    "compiled": true
+  },
+  "asy-c1cc8693bd570323.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2021-12"
+    ],
+    "compiled": true
+  },
+  "asy-cc900b7c75bf6c37.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2021-12"
+    ],
+    "compiled": true
+  },
+  "asy-2287f953337c557d.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2021-14"
+    ],
+    "compiled": true
+  },
+  "asy-5e3389a39fa30526.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2021-14"
+    ],
+    "compiled": true
+  },
+  "asy-c575ff14229bb6e4.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2022-3"
+    ],
+    "compiled": true
+  },
+  "asy-7e0ff23a7eb37bbb.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2022-3"
+    ],
+    "compiled": true
+  },
+  "asy-eece46a4d9ef45d8.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2022-3",
+      "content/problemBank/AIME.problems.json#aime-2022-3"
+    ],
+    "compiled": true
+  },
+  "asy-5db74a9339edcfa2.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2022-3"
+    ],
+    "compiled": true
+  },
+  "asy-0b20592046a5257c.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2022-3",
+      "content/problemBank/AIME.problems.json#aime-2022-3"
+    ],
+    "compiled": true
+  },
+  "asy-77a384adb79cb305.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2022-5"
+    ],
+    "compiled": true
+  },
+  "asy-fd18bc8c2ecf67ea.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2022-5"
+    ],
+    "compiled": true
+  },
+  "asy-90b967d95e629b33.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2022-5"
+    ],
+    "compiled": true
+  },
+  "asy-7f8c643cdc505ae6.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2022-8"
+    ],
+    "compiled": true
+  },
+  "asy-5c7e84cb7891f519.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2022-8"
+    ],
+    "compiled": true
+  },
+  "asy-0c532cc64210c629.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2022-8"
+    ],
+    "compiled": true
+  },
+  "asy-6cfda58b1577ee5b.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2022-8"
+    ],
+    "compiled": true
+  },
+  "asy-709bb7e40c8e3217.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2022-10"
+    ],
+    "compiled": true
+  },
+  "asy-9aec0cbedebaefc5.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2022-10"
+    ],
+    "compiled": true
+  },
+  "asy-3b120b963b18db3b.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2022-10"
+    ],
+    "compiled": true
+  },
+  "asy-6b3afee9a602179f.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2022-11"
+    ],
+    "compiled": true
+  },
+  "asy-afd7f7c809f2973a.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2022-11"
+    ],
+    "compiled": true
+  },
+  "asy-b70f6657904cabc3.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2022-3"
+    ],
+    "compiled": true
+  },
+  "asy-92fc7a0592ffe62c.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2022-7"
+    ],
+    "compiled": false
+  },
+  "asy-825331f4081e89f8.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2022-7"
+    ],
+    "compiled": false
+  },
+  "asy-118d8e84dc49e1e8.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2022-9"
+    ],
+    "compiled": true
+  },
+  "asy-e11debcc7be47f12.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2022-11"
+    ],
+    "compiled": true
+  },
+  "asy-3eceb17c1ff14299.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2022-15"
+    ],
+    "compiled": true
+  },
+  "asy-a81f430724a3658d.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2022-15"
+    ],
+    "compiled": true
+  },
+  "asy-23295db7a0868037.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2023-5",
+      "content/problemBank/AIME.problems.json#aime-2023-5"
+    ],
+    "compiled": true
+  },
+  "asy-54092b956f3c324f.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2023-5"
+    ],
+    "compiled": true
+  },
+  "asy-ffa3038cdbd30058.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2023-5"
+    ],
+    "compiled": true
+  },
+  "asy-3531511160028690.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2023-8"
+    ],
+    "compiled": true
+  },
+  "asy-2eac95f3b2f1bd2c.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2023-8"
+    ],
+    "compiled": true
+  },
+  "asy-63c469f3fbc2efed.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2023-8"
+    ],
+    "compiled": true
+  },
+  "asy-c866f9983c9fa498.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2023-8"
+    ],
+    "compiled": true
+  },
+  "asy-c47973b4643396d7.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2023-12"
+    ],
+    "compiled": true
+  },
+  "asy-2416e99c189415b6.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2023-12"
+    ],
+    "compiled": true
+  },
+  "asy-2a87f7c4af099877.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2023-12"
+    ],
+    "compiled": true
+  },
+  "asy-ccd52cffd947dcc0.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2023-13"
+    ],
+    "compiled": true
+  },
+  "asy-66bf7b45f089fa79.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2023-13"
+    ],
+    "compiled": true
+  },
+  "asy-d2a76c1289a03d3d.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2023-13"
+    ],
+    "compiled": true
+  },
+  "asy-56e2279e0751d7fd.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2023-14"
+    ],
+    "compiled": true
+  },
+  "asy-aa735a4cca71cd21.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2023-14"
+    ],
+    "compiled": true
+  },
+  "asy-68d1c5c5d8ab70d6.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2023-3"
+    ],
+    "compiled": true
+  },
+  "asy-733ba50541d8372d.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2023-3"
+    ],
+    "compiled": true
+  },
+  "asy-c8b4e01b6f438d19.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2023-6"
+    ],
+    "compiled": true
+  },
+  "asy-8b8edec0379d3399.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2023-14"
+    ],
+    "compiled": false
+  },
+  "asy-f21297f67bba7e2b.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2023-14"
+    ],
+    "compiled": true
+  },
+  "asy-d0713a3b3bd47b8c.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2023-14"
+    ],
+    "compiled": true
+  },
+  "asy-c2dbc0a572bdc1d5.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2024-5"
+    ],
+    "compiled": true
+  },
+  "asy-8c0ed88a41627271.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2024-5"
+    ],
+    "compiled": true
+  },
+  "asy-c3b8d424a4b13514.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2024-5"
+    ],
+    "compiled": true
+  },
+  "asy-cb89deed751d5d8b.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2024-5"
+    ],
+    "compiled": true
+  },
+  "asy-a616adbb857fe750.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2024-6"
+    ],
+    "compiled": true
+  },
+  "asy-e3ea97815c5bd83f.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2024-8"
+    ],
+    "compiled": true
+  },
+  "asy-eb0a64d88ba2a778.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2024-11"
+    ],
+    "compiled": true
+  },
+  "asy-704803344d925868.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2024-11"
+    ],
+    "compiled": true
+  },
+  "asy-14deeccc7a495518.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2024-11"
+    ],
+    "compiled": true
+  },
+  "asy-b275672877ea99f8.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2024-11"
+    ],
+    "compiled": true
+  },
+  "asy-16e52433746d6b78.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2024-11"
+    ],
+    "compiled": true
+  },
+  "asy-3f2f1645066558a8.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2024-11"
+    ],
+    "compiled": true
+  },
+  "asy-cbc9af9ca5b9e998.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2024-11"
+    ],
+    "compiled": true
+  },
+  "asy-4404d33e2f147c91.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2024-14"
+    ],
+    "compiled": true
+  },
+  "asy-341411cc02547e5c.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2024-8"
+    ],
+    "compiled": true
+  },
+  "asy-92732e430737618e.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2024-8"
+    ],
+    "compiled": true
+  },
+  "asy-1a045834eb12758c.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2024-8"
+    ],
+    "compiled": true
+  },
+  "asy-fbcb1976b3d6fcb3.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2024-10"
+    ],
+    "compiled": true
+  },
+  "asy-0b004b877a9a6dda.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2024-10"
+    ],
+    "compiled": true
+  },
+  "asy-3fb96ecc236959bc.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2024-10"
+    ],
+    "compiled": true
+  },
+  "asy-c2aa21ff35278795.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2024-12"
+    ],
+    "compiled": true
+  },
+  "asy-31dec8aed2f72c98.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2024-15"
+    ],
+    "compiled": true
+  },
+  "asy-e209771248be554e.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2024-15"
+    ],
+    "compiled": true
+  },
+  "asy-9c5af2d4154a6b86.svg": {
+    "type": "asy",
+    "refs": [
+      "content/problemBank/AIME.problems.json#aime-2024-15"
+    ],
+    "compiled": true
+  }
+}

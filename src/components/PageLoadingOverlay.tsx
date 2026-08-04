@@ -79,7 +79,7 @@ export default function PageLoadingOverlay({
       style={{ backgroundColor: backdrop }}
     >
       <div
-        className="rounded-full border p-3 shadow-[0_16px_40px_rgba(0,0,0,0.16)] backdrop-blur-md"
+ className="rounded-full p-3 shadow-[0_16px_40px_rgba(0,0,0,0.16)] backdrop-blur-md"
         style={{ background: shellBackground, borderColor: shellBorder }}
       >
         <LoadingSpinner className="h-6 w-6" />

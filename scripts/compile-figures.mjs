@@ -1,10 +1,11 @@
 #!/usr/bin/env node
 /**
  * Compile AoPS-style [asy]...[/asy] and [latex]...[/latex] figure blocks
- * found in content/**\/*.problems.json into SVGs under
- * static/generated/figures/, named by content hash (see
- * src/utils/problemFigures.js). Already-compiled figures are skipped, so
- * this is cheap to re-run after adding problems.
+ * found in content/**\/*.problems.json and in module content
+ * (content/**\/*.mdx, *.md) into SVGs under static/generated/figures/,
+ * named by content hash (see src/utils/problemFigures.js).
+ * Already-compiled figures are skipped, so this is cheap to re-run after
+ * adding problems or modules.
  *
  * Requirements (local only — compiled SVGs are committed, so CI/Vercel
  * never needs TeX):
@@ -52,15 +53,18 @@ ${body}
 \\end{document}
 `;
 
-function findProblemsJsonFiles(dir) {
+function findFiles(dir, matches) {
   const out = [];
   for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
     const full = path.join(dir, entry.name);
-    if (entry.isDirectory()) out.push(...findProblemsJsonFiles(full));
-    else if (entry.name.endsWith('.problems.json')) out.push(full);
+    if (entry.isDirectory()) out.push(...findFiles(full, matches));
+    else if (matches(entry.name)) out.push(full);
   }
   return out;
 }
+
+const isProblemsJson = (name) => name.endsWith('.problems.json');
+const isMarkdown = (name) => name.endsWith('.mdx') || name.endsWith('.md');
 
 /** Every markdown-bearing field of a problem object. */
 function markdownFieldsOf(problem) {
@@ -74,7 +78,17 @@ function markdownFieldsOf(problem) {
 function collectFigures() {
   /** @type {Map<string, {type: string, code: string, fileName: string, refs: string[]}>} */
   const figures = new Map();
-  for (const file of findProblemsJsonFiles(CONTENT_DIR)) {
+
+  const add = (markdown, ref) => {
+    for (const fig of extractFigureBlocks(markdown)) {
+      const existing = figures.get(fig.fileName);
+      if (existing) existing.refs.push(ref);
+      else figures.set(fig.fileName, { ...fig, refs: [ref] });
+    }
+  };
+
+  // Problem bank: figures live inside markdown-bearing fields of each problem.
+  for (const file of findFiles(CONTENT_DIR, isProblemsJson)) {
     let data;
     try {
       data = JSON.parse(fs.readFileSync(file, 'utf8'));
@@ -87,16 +101,16 @@ function collectFigures() {
       for (const problem of value) {
         if (!problem || typeof problem !== 'object') continue;
         const ref = `${path.relative(ROOT, file)}#${problem.uniqueId ?? key}`;
-        for (const md of markdownFieldsOf(problem)) {
-          for (const fig of extractFigureBlocks(md)) {
-            const existing = figures.get(fig.fileName);
-            if (existing) existing.refs.push(ref);
-            else figures.set(fig.fileName, { ...fig, refs: [ref] });
-          }
-        }
+        for (const md of markdownFieldsOf(problem)) add(md, ref);
       }
     }
   }
+
+  // Module content: figures are written inline in the MDX body.
+  for (const file of findFiles(CONTENT_DIR, isMarkdown)) {
+    add(fs.readFileSync(file, 'utf8'), path.relative(ROOT, file));
+  }
+
   return figures;
 }
 
@@ -138,16 +152,52 @@ function compileEnv() {
   };
 }
 
-async function compileAsy(fig, workDir) {
-  const src = path.join(workDir, 'fig.asy');
-  fs.writeFileSync(src, fig.code + '\n');
+/**
+ * AoPS implicitly imports olympiad/cse5 into every [asy] block, so pasted
+ * sources use `origin`, `anglemark`, `MP`, ... with no import line and fail
+ * to compile standalone. We try preludes in order rather than always
+ * prepending one, because each import also shadows names: `geometry`
+ * recovers figures using `circle`/`triangle` types, but makes `origin`
+ * ambiguous and clashes with `graph`'s xaxis/yaxis overloads. First prelude
+ * that yields an SVG wins; the empty one keeps sources that already compile
+ * standalone byte-identical to what they produced before.
+ */
+const ASY_PRELUDES = [
+  '',
+  'import olympiad;\nimport cse5;\n',
+  'import olympiad;\nimport cse5;\nimport geometry;\n',
+];
+
+async function runAsy(workDir) {
   // Note: asy appends the format extension itself, so -o must be "fig".
   await execFileAsync('asy', ['-f', 'svg', '-noView', '-o', 'fig', 'fig.asy'], {
     cwd: workDir,
     timeout: COMPILE_TIMEOUT_MS,
     env: compileEnv(),
   });
-  return path.join(workDir, 'fig.svg');
+}
+
+async function compileAsy(fig, workDir) {
+  const src = path.join(workDir, 'fig.asy');
+  const svg = path.join(workDir, 'fig.svg');
+  let firstError;
+
+  for (const prelude of ASY_PRELUDES) {
+    // asy can exit non-zero having already written a truncated SVG, and can
+    // exit zero writing none at all (a picture with nothing drawn). Clear it
+    // so each attempt is judged only on what it produces.
+    fs.rmSync(svg, { force: true });
+    fs.writeFileSync(src, prelude + fig.code + '\n');
+    try {
+      await runAsy(workDir);
+      if (fs.existsSync(svg)) return svg;
+    } catch (e) {
+      // Report the bare attempt's error: it names the actual missing symbol,
+      // whereas a prelude's error is usually a knock-on from the imports.
+      firstError ??= e;
+    }
+  }
+  throw firstError ?? new Error('compiler produced no SVG');
 }
 
 async function compileLatex(fig, workDir) {
@@ -215,7 +265,7 @@ async function main() {
   const pending = [...figures.values()].filter((f) => FORCE || !existing.has(f.fileName));
 
   console.log(
-    `Found ${figures.size} figure block(s) across the problem bank; ` +
+    `Found ${figures.size} figure block(s) across the problem bank and modules; ` +
       `${pending.length} need compiling.`
   );
 

@@ -6,7 +6,6 @@ const ForumCTA = (): JSX.Element => {
       className="mx-auto mb-6 max-w-3xl rounded-2xl shadow-lg"
       style={{
         background: 'linear-gradient(180deg, rgba(54,37,72,0.9) 0%, rgba(31,22,42,0.94) 100%)',
-        border: '1px solid rgba(229,194,255,0.12)',
       }}
     >
       <div className="px-4 py-5 text-center sm:p-6">

@@ -17,14 +17,14 @@ export type ActiveItem = {
 };
 
 const statusClasses: { [key in ActiveItemStatus]: string } = {
-  Skipped: 'bg-[#2A2547] text-[#D2D4C8] border border-[#F0C2FF33]',
-  Ignored: 'bg-[#3D3564] text-[#D2D4C8] border border-[#F0C2FF22]',
+ Skipped:'bg-[#2A2547] text-[#D2D4C8]',
+ Ignored:'bg-[#3D3564] text-[#D2D4C8]',
   Reading:
-    'bg-[#F0C2FF33] text-[#F0C2FF] border border-[#F0C2FF55]',
-  Practicing: 'bg-[#E085FF2E] text-[#F0C2FF] border border-[#E085FF55]',
+'bg-[#F0C2FF33] text-[#F0C2FF]',
+ Practicing:'bg-[#E085FF2E] text-[#F0C2FF]',
   Solving:
-    'bg-[#F0C2FF33] text-[#F0C2FF] border border-[#F0C2FF55]',
-  Reviewing: 'bg-[#FF7CC833] text-[#FFB3D9] border border-[#FF7CC855]',
+'bg-[#F0C2FF33] text-[#F0C2FF]',
+ Reviewing:'bg-[#FF7CC833] text-[#FFB3D9]',
 };
 
 export default function ActiveItems({

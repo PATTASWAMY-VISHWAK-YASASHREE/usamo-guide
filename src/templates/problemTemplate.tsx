@@ -545,7 +545,7 @@ export default function ProblemTemplate(
           <header
             className="mb-8 rounded-2xl pb-6 shadow-lg"
             style={{
-              border: '1px solid rgba(229, 194, 255, 0.12)',
+ :'1px solid rgba(229, 194, 255, 0.12)',
               background: 'linear-gradient(180deg, rgba(54, 37, 72, 0.9) 0%, rgba(31, 22, 42, 0.94) 100%)',
             }}
           >
@@ -590,9 +590,8 @@ export default function ProblemTemplate(
                 <ProblemStatusCheckbox problem={problem} size="large" />
               </ConfettiProvider>
             </div>
-            <div className="mt-5 rounded-2xl border px-4 py-4 shadow-lg"
+ <div className="mt-5 rounded-2xl px-4 py-4 shadow-lg"
               style={{
-                border: `1px solid ${BORDER_STRONG}`,
                 background: 'rgba(14, 11, 31, 0.72)',
               }}
             >
@@ -672,7 +671,6 @@ export default function ProblemTemplate(
                     key={tag}
                     className="rounded-full px-3 py-1 text-sm font-medium"
                     style={{
-                      border: `1px solid ${BORDER_STRONG}`,
                       background: 'rgba(14, 11, 31, 0.72)',
                       color: MAUVE,
                     }}
@@ -686,7 +684,7 @@ export default function ProblemTemplate(
 
           {visibleTags.length === 0 ? (
             <section className="mb-10 rounded-2xl p-5 shadow-lg" style={{
-              border: '1px solid rgba(229, 194, 255, 0.12)',
+ :'1px solid rgba(229, 194, 255, 0.12)',
               background: 'linear-gradient(180deg, rgba(54, 37, 72, 0.9) 0%, rgba(31, 22, 42, 0.94) 100%)',
             }} aria-label="Suggest tags">
               <h2 className="text-lg font-semibold" style={{ color: VANILLA }}>
@@ -907,7 +905,7 @@ export default function ProblemTemplate(
                   <div
                     className="mt-6 rounded-2xl p-4 shadow-lg"
                     style={{
-                      border: '1px solid rgba(229, 194, 255, 0.12)',
+ :'1px solid rgba(229, 194, 255, 0.12)',
                       background: 'linear-gradient(180deg, rgba(54, 37, 72, 0.9) 0%, rgba(31, 22, 42, 0.94) 100%)',
                     }}
                   >

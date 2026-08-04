@@ -173,7 +173,7 @@ export default function ContactUsPage(props: PageProps) {
               .
             </p>
           </div>
-          <div className="rounded-xl border border-[rgba(240,194,255,0.20)] bg-[rgba(18,15,36,0.75)] shadow-lg">
+ <div className="rounded-xl bg-[rgba(18,15,36,0.75)] shadow-lg">
             <form className="px-4 py-5 sm:p-6" onSubmit={handleSubmit}>
               {showSuccess && (
                 <div className="rounded-md bg-green-50 p-4 dark:bg-green-800">

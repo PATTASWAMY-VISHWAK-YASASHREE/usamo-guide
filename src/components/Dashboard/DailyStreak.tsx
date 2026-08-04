@@ -44,7 +44,6 @@ const PhotoCard = ({ text, day, tomorrowMilliseconds, hiddenOnDesktop }) => {
       <div
         className="flex flex-col overflow-hidden shadow-lg sm:rounded-2xl"
         style={{
-          border: '1px solid rgba(229, 194, 255, 0.12)',
           background: 'linear-gradient(180deg, rgba(54, 37, 72, 0.9) 0%, rgba(31, 22, 42, 0.94) 100%)',
         }}
       >
@@ -135,7 +134,6 @@ export default function DailyStreak({ streak }) {
           <div
             className="flex flex-col overflow-hidden shadow-lg sm:rounded-2xl"
             style={{
-              border: '1px solid rgba(240, 194, 255, 0.24)',
               background: 'rgba(244, 237, 234, 0.08)',
             }}
           >
@@ -190,7 +188,6 @@ export default function DailyStreak({ streak }) {
       <div
         className="overflow-hidden shadow-lg sm:rounded-2xl lg:col-span-2"
         style={{
-          border: '1px solid rgba(229, 194, 255, 0.12)',
           background: 'linear-gradient(180deg, rgba(54, 37, 72, 0.9) 0%, rgba(31, 22, 42, 0.94) 100%)',
         }}
       >

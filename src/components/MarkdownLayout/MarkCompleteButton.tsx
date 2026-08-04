@@ -146,7 +146,6 @@ const MarkCompleteButton = ({
               } absolute right-0 z-10 mt-2 w-36 rounded-xl shadow-lg focus:outline-hidden`}
               style={{
                 background: 'linear-gradient(180deg, rgba(54,37,72,0.97) 0%, rgba(31,22,42,0.99) 100%)',
-                border: '1px solid rgba(229,194,255,0.18)',
               }}
             >
               <div className="py-1">

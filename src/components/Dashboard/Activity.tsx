@@ -55,7 +55,6 @@ export function ActivityHeatmap({
       <div
         className="px-4 py-5 shadow-lg transition sm:rounded-2xl sm:p-6"
         style={{
-          border: '1px solid rgba(229, 194, 255, 0.12)',
           background: 'linear-gradient(180deg, rgba(54, 37, 72, 0.9) 0%, rgba(31, 22, 42, 0.94) 100%)',
         }}
       >

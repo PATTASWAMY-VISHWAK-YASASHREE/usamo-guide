@@ -39,7 +39,6 @@ export const Feature = ({
         className
       )}
       style={{
-        border: '1px solid rgba(229, 194, 255, 0.12)',
         background: 'linear-gradient(180deg, rgba(54, 37, 72, 0.9) 0%, rgba(31, 22, 42, 0.94) 100%)',
       }}
     >

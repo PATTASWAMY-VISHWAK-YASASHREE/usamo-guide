@@ -102,16 +102,14 @@ const ActiveCardsHome = () => {
                   key={id}
                   onClick={() => setActiveCard(id)}
                   className={classNames(
-                    'group relative cursor-pointer border p-1 transition-all duration-300',
-                    'border-x border-t',
+'group relative cursor-pointer p-1 transition-all duration-300',
                     id === 0 ? 'rounded-t-xl' : '',
-                    id === projects.length - 1 ? 'rounded-b-xl border-b' : 'border-b-0',
+ id === projects.length - 1 ?'rounded-b-xl':'',
                     activeCard === id
                       ? 'shadow-[0_0_24px_rgba(112,66,138,0.16)]'
-                      : 'hover:border-white/15'
+ :''
                   )}
                   style={{
-                    borderColor: activeCard === id ? 'rgba(229, 194, 255, 0.3)' : 'rgba(229, 194, 255, 0.12)',
                     background: activeCard === id
                       ? 'linear-gradient(180deg, rgba(60, 40, 90, 0.95) 0%, rgba(40, 25, 60, 0.97) 100%)'
                       : 'linear-gradient(180deg, rgba(54, 37, 72, 0.9) 0%, rgba(31, 22, 42, 0.94) 100%)',
@@ -162,7 +160,6 @@ const ActiveCardsHome = () => {
                     'relative h-full w-full max-w-full overflow-hidden rounded-2xl p-12 shadow-sm backdrop-blur-sm md:p-10'
                   )}
                   style={{
-                    border: '1px solid rgba(229, 194, 255, 0.12)',
                     background: 'linear-gradient(180deg, rgba(54, 37, 72, 0.9) 0%, rgba(31, 22, 42, 0.94) 100%)',
                   }}
                 >

@@ -1,6 +1,5 @@
 import { Link } from 'gatsby';
 import * as React from 'react';
-import { Component as InfiniteGrid } from '../ui/the-infinite-grid';
 
 export default function AetherFlowHero(): JSX.Element {
   const subtitles = React.useMemo(
@@ -56,12 +55,10 @@ export default function AetherFlowHero(): JSX.Element {
         }}
       />
 
-      <InfiniteGrid />
-
       {/* ── Top left info stack ── */}
       <div className="relative z-10 px-6 pt-6 md:px-10">
         <div className="inline-flex flex-col items-center gap-3">
-          <a href="https://discord.gg/WZge4DWUuy" target="_blank" rel="noopener noreferrer" className="cursor-pointer inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/[0.06] px-4 py-2 font-mono text-[11px] font-bold uppercase tracking-[0.24em] text-[#F5F0FA] backdrop-blur-md transition-colors hover:bg-white/[0.12]">
+ <a href="https://discord.gg/WZge4DWUuy"target="_blank"rel="noopener noreferrer"className="cursor-pointer inline-flex items-center gap-2 rounded-full bg-white/[0.06] px-4 py-2 font-mono text-[11px] font-bold uppercase tracking-[0.24em] text-[#F5F0FA] backdrop-blur-md transition-colors hover:bg-white/[0.12]">
             <img
               src="/images/discord.svg"
               alt=""
@@ -79,7 +76,7 @@ export default function AetherFlowHero(): JSX.Element {
 
       {/* ── Center content ── */}
       <div className="relative z-10 flex flex-1 flex-col items-center justify-center px-6 text-center">
-        <div className="mb-5 inline-flex items-center rounded-full border border-white/15 bg-white/[0.08] px-4 py-2 font-mono text-[11px] font-bold uppercase tracking-[0.28em] text-[#F5F0FA] backdrop-blur-md shadow-[0_18px_40px_rgba(0,0,0,0.22)]">
+ <div className="mb-5 inline-flex items-center rounded-full bg-white/[0.08] px-4 py-2 font-mono text-[11px] font-bold uppercase tracking-[0.28em] text-[#F5F0FA] backdrop-blur-md shadow-[0_18px_40px_rgba(0,0,0,0.22)]">
           {'Written by USA(J)MO Medalists'}
         </div>
 
@@ -137,7 +134,7 @@ export default function AetherFlowHero(): JSX.Element {
       {/* ── Bottom bar ── */}
       <div className="relative z-10 px-12 pb-12 pt-6 ml-auto flex max-w-2xl flex-col items-center gap-3 text-right">
         {/* Bottom-right: Open source */}
-        <a href="https://github.com/usamoguide/usamo-guide" target="_blank" rel="noopener noreferrer" className="cursor-pointer inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/[0.06] px-4 py-2 font-mono text-[11px] font-bold uppercase tracking-[0.24em] text-[#F5F0FA] backdrop-blur-md transition-colors hover:bg-white/[0.12]">
+ <a href="https://github.com/usamoguide/usamo-guide"target="_blank"rel="noopener noreferrer"className="cursor-pointer inline-flex items-center gap-2 rounded-full bg-white/[0.06] px-4 py-2 font-mono text-[11px] font-bold uppercase tracking-[0.24em] text-[#F5F0FA] backdrop-blur-md transition-colors hover:bg-white/[0.12]">
           <svg viewBox="0 0 16 16" className="h-4 w-4 flex-shrink-0 fill-current" aria-hidden="true">
             <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38
               0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13

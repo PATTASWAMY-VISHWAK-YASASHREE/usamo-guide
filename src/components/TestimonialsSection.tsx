@@ -167,7 +167,6 @@ const TestimonialsSection = () => {
                       ref={copyIndex === 1 && idx === 0 ? firstCardRef : undefined}
                       className="flex-shrink-0 w-[78vw] md:w-[66vw] lg:w-[640px] min-h-[180px] p-5 md:p-6 flex flex-col justify-between"
                       style={{
-                        borderBottom: '1px solid rgba(229, 194, 255, 0.12)',
                       }}
                     >
                       <p className="text-xl md:text-[1.9rem] leading-relaxed" style={{ color: TEXT_SECONDARY }}>

@@ -34,11 +34,9 @@ const heroCardClasses = 'relative overflow-hidden rounded-3xl p-8 transition-all
 const toolbarCardClasses = 'mb-5 rounded-2xl p-4 shadow-lg';
 const heroCardStyle: React.CSSProperties = {
   background: 'linear-gradient(180deg, rgba(60, 40, 82, 0.9) 0%, rgba(37, 24, 52, 0.92) 100%)',
-  border: '1px solid rgba(229, 194, 255, 0.14)',
 };
 const toolbarCardStyle: React.CSSProperties = {
   background: 'linear-gradient(180deg, rgba(54, 37, 72, 0.9) 0%, rgba(31, 22, 42, 0.94) 100%)',
-  border: '1px solid rgba(229, 194, 255, 0.12)',
 };
 
 type DataProps = {

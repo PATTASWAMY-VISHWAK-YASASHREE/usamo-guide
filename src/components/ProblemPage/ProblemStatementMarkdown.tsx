@@ -44,7 +44,7 @@ function FigureImage({
   const [failed, setFailed] = React.useState(false);
   if (!src || failed) {
     return (
-      <span className="my-2 block rounded-md border border-dashed border-gray-300 bg-gray-50 px-3 py-2 text-sm text-gray-500 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-400">
+ <span className="my-2 block rounded-md bg-gray-50 px-3 py-2 text-sm text-gray-500 dark:bg-gray-800 dark:text-gray-400">
         Figure unavailable
         {src?.startsWith(FIGURES_URL_PREFIX)
           ? ' — diagram not yet compiled (run yarn compile:figures)'

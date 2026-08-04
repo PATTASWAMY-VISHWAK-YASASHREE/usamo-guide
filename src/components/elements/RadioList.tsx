@@ -19,7 +19,7 @@ export default function RadioList({
 }) {
   return (
     <RadioGroup value={value} onChange={onChange}>
-      <div className="-space-y-px rounded-md bg-[rgba(18,15,36,0.60)] border border-[rgba(240,194,255,0.15)]">
+ <div className="-space-y-px rounded-md bg-[rgba(18,15,36,0.60)]">
         {options.map((option, idx) => (
           <RadioGroup.Option
             key={option}
