@@ -6641,7 +6641,7 @@
     {
       "uniqueId": "amc8-2025-3",
       "name": "Problem 3 (2025 AMC 8)",
-      "url": "https://artofproblemsolving.com/wiki/index.php?title=2025_AMC_8_Problems/Problem_2",
+      "url": "https://artofproblemsolving.com/wiki/index.php/2025_AMC_8_Problems/Problem_3",
       "source": "AMC 8",
       "difficulty": "Very Easy",
       "isStarred": false,
@@ -6653,13 +6653,13 @@
       "interaction": {
         "type": "mcq",
         "choices": [
-          "$8$",
-          "$9$",
-          "$10$",
-          "$11$",
-          "$12$"
+          "8",
+          "9",
+          "10",
+          "11",
+          "12"
         ],
-        "correctIndex": 1
+        "correctIndex": 2
       },
       "solutionMetadata": {
         "kind": "none"
