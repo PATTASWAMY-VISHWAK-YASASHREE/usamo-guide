@@ -265,13 +265,16 @@ export const getProblemInfo = (
   }
   let { solutionMetadata, interaction: rawInteraction, solutionReveal: rawSolutionReveal, statement, author, ...info } = metadata;
 
+  if (!info.url || typeof info.url !== 'string' || !info.url.startsWith('http')) {
+    info.url = 'https://usamoguide.com/';
+  }
+
   if (
     !info.source ||
     !info.uniqueId ||
     info.isStarred === null ||
     info.isStarred === undefined ||
-    !info.name ||
-    !info.url.startsWith('http')
+    !info.name
   ) {
     console.error("problem metadata isn't valid", metadata);
     throw new Error('Bad problem metadata');

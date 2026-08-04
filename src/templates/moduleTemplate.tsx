@@ -21,13 +21,19 @@ export default function Template(props): JSX.Element {
   const module = React.useMemo(() => graphqlToModuleInfo(xdm), [xdm]);
   const isLoaded = useIsUserDataLoaded();
   const currentUser = useCurrentUser();
-  const isDevelopmentSection = module.section === 'advanced' || module.section === 'usamo';
-  const [isAccessModalDismissed, setIsAccessModalDismissed] = React.useState(false);
+  const isDevelopmentSection =
+    module.section === 'advanced' || module.section === 'usamo';
+  const [isAccessModalDismissed, setIsAccessModalDismissed] =
+    React.useState(false);
   const [isDevModalDismissed, setIsDevModalDismissed] = React.useState(false);
   const isContentLocked = !currentUser;
   const showContentAccessModal =
-    isLoaded && !isDevelopmentSection && isContentLocked && !isAccessModalDismissed;
-  const showDevelopmentModal = isLoaded && isDevelopmentSection && !isDevModalDismissed;
+    isLoaded &&
+    !isDevelopmentSection &&
+    isContentLocked &&
+    !isAccessModalDismissed;
+  const showDevelopmentModal =
+    isLoaded && isDevelopmentSection && !isDevModalDismissed;
 
   useEffect(() => {
     // Modal dismissal should reset on page navigation/module change.
@@ -89,17 +95,20 @@ export default function Template(props): JSX.Element {
 
       <div
         data-page-tone="dark"
-        className="relative overflow-hidden bg-gradient-to-b from-[#0D0A1D] via-[#090713] to-[#05040D]"
+        className="relative overflow-hidden bg-[var(--bg-page)]"
       >
-
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_82%_16%,rgba(191,128,255,0.07),transparent_34%),radial-gradient(circle_at_18%_84%,rgba(112,66,138,0.09),transparent_34%),linear-gradient(180deg,rgba(7,6,18,0.48),rgba(8,7,18,0.82)_70%,rgba(4,3,10,0.96))]" />
-
-        <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(90deg,rgba(3,2,8,0.42),rgba(3,2,8,0.08)_22%,rgba(3,2,8,0.08)_78%,rgba(3,2,8,0.42))]" />
-
         <div className="pointer-events-none absolute inset-0">
-          <svg className="h-full w-full opacity-[0.04] dark:opacity-[0.05]" xmlns="http://www.w3.org/2000/svg">
+          <svg
+            className="h-full w-full opacity-[0.04] dark:opacity-[0.05]"
+            xmlns="http://www.w3.org/2000/svg"
+          >
             <defs>
-              <pattern id="module-grid-pattern" width="64" height="64" patternUnits="userSpaceOnUse">
+              <pattern
+                id="module-grid-pattern"
+                width="64"
+                height="64"
+                patternUnits="userSpaceOnUse"
+              >
                 <path
                   d="M 64 0 L 0 0 0 64"
                   fill="none"
@@ -116,7 +125,7 @@ export default function Template(props): JSX.Element {
         <div
           className={
             showContentAccessModal || showDevelopmentModal
-              ? 'pointer-events-none select-none blur-[4px]'
+              ? 'pointer-events-none blur-[4px] select-none'
               : ''
           }
         >
@@ -204,7 +213,6 @@ export const pageQuery = graphql`
           name
           url
           source
-          sourceDescription
           difficulty
           isStarred
           tags

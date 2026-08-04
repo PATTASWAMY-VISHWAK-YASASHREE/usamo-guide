@@ -21,7 +21,7 @@
     {
       "uniqueId": "amc8-2025-10",
       "name": "Problem 10 (2025 AMC 8)",
-      "url": "https://artofproblemsolving.com/wiki/index.php?title=2025_AMC_8_Problems/Problem_6",
+      "url": "https://artofproblemsolving.com/wiki/index.php?title=2025_AMC_8_Problems/Problem_10",
       "source": "AMC 8",
       "difficulty": "Easy",
       "isStarred": false,
@@ -33,6 +33,17 @@
       "statement": "In the figure below, $ABCD$ is a rectangle with sides of length $AB = 5$ inches and $AD = 3$ inches. Rectangle $ABCD$ is rotated $90^\\circ$ clockwise about the midpoint of side $DC$ to give a second rectangle. What is the total area, in square inches, covered by the two overlapping rectangles? [See figure on AoPS]\n\n$\\textbf{(A)}\\ 21 \\qquad \\textbf{(B)}\\ 22.25 \\qquad \\textbf{(C)}\\ 23 \\qquad \\textbf{(D)}\\ 23.75 \\qquad \\textbf{(E)}\\ 25$",
       "solutionMetadata": {
         "kind": "none"
+      },
+      "interaction": {
+        "type": "mcq",
+        "choices": [
+          "$21$",
+          "$22.25$",
+          "$23$",
+          "$23.75$",
+          "$25$"
+        ],
+        "correctIndex": 2
       }
     },
     {

@@ -17,16 +17,20 @@ const SECTION_FROM_CONTENT_DIR = {
   '4_USAMO': 'usamo',
 } as const;
 
-const READ_ONLY_EXTRA_PROBLEMS =
-  process.env.GATSBY_READ_ONLY_EXTRA_PROBLEMS !== 'false';
-
 type SectionID = keyof typeof freshOrdering.SECTION_LABELS;
 
-const normalizePath = (p: string) => p.replace(/\\/g, '/');
+const normalizePath = (p?: string | null) => (p ?? '').replace(/\\/g, '/');
 
 function isExtraProblemsFile(relativePath: string) {
   const normalized = normalizePath(relativePath);
   return /(^|\/)extra(?:_|-)?problems?\.json$/i.test(normalized);
+}
+
+function isNormalizedProblemBankFile(relativePath: string) {
+  const normalized = normalizePath(relativePath);
+  return (
+    normalized === 'problemBank/TotalDatabase.problems.json'
+  );
 }
 
 function getSectionFromContentRelativePath(
@@ -179,16 +183,20 @@ exports.onCreateNode = async api => {
     node.internal.mediaType === 'application/json' &&
     node.sourceInstanceName === 'content' &&
     isExtraProblemsFile(node.relativePath);
+  const normalizedRelativePath = normalizePath(node.relativePath);
+  const isProblemBankSource = normalizedRelativePath.startsWith('problemBank/');
   if (
     node.internal.mediaType === 'application/json' &&
     node.sourceInstanceName === 'content' &&
-    (node.relativePath.endsWith('.problems.json') || isExtraProblems)
+    (normalizedRelativePath.endsWith('.problems.json') ||
+      isExtraProblems ||
+      isNormalizedProblemBankFile(node.relativePath))
   ) {
-    if (READ_ONLY_EXTRA_PROBLEMS && !isExtraProblems) {
+    if (isProblemBankSource && !isNormalizedProblemBankFile(node.relativePath)) {
       return;
     }
 
-    if (READ_ONLY_EXTRA_PROBLEMS && isExtraProblems) {
+    if (isExtraProblems) {
       const content = await loadNodeContent(node);
       let parsedContent;
       try {
@@ -201,20 +209,27 @@ exports.onCreateNode = async api => {
       }
 
       Object.keys(parsedContent).forEach(tableId => {
-        if (tableId === 'MODULE_ID') return;
+        if (tableId === 'MODULE_ID' || !Array.isArray(parsedContent[tableId])) return;
         parsedContent[tableId].forEach((metadata: ProblemMetadata) => {
-          transformObject(
-            {
-              ...getProblemInfo(metadata, {
-                ...freshOrdering,
-                moduleIDToSectionMap: resolvedModuleIDToSectionMap,
-              }),
-              module: null,
-            },
-            createNodeId(
-              `${node.id} ${tableId} ${metadata.uniqueId} >>> ProblemInfo`
-            )
-          );
+          try {
+            transformObject(
+              {
+                ...getProblemInfo(metadata, {
+                  ...freshOrdering,
+                  moduleIDToSectionMap: resolvedModuleIDToSectionMap,
+                }),
+                module: null,
+              },
+              createNodeId(
+                `${node.id} ${tableId} ${metadata.uniqueId} >>> ProblemInfo`
+              )
+            );
+          } catch (e) {
+            console.error(
+              `Failed to create problem info for "${metadata?.uniqueId || 'unknown'}" in file: ${node.absolutePath}`,
+              e
+            );
+          }
         });
       });
       return;
@@ -230,7 +245,10 @@ exports.onCreateNode = async api => {
       throw new Error(`Unable to parse JSON: ${hint}`);
     }
     const moduleId = parsedContent['MODULE_ID'];
-    if (!moduleId && !isExtraProblems) {
+    const isProblemBankFile = normalizePath(node.relativePath).startsWith(
+      'problemBank/'
+    );
+    if (!moduleId && !isExtraProblems && !isProblemBankFile) {
       throw new Error(
         'Module ID not found in problem JSON file: ' + node.absolutePath
       );
@@ -246,7 +264,7 @@ exports.onCreateNode = async api => {
         }
       : resolvedModuleIDToSectionMap;
 
-    if (!isExtraProblems && !moduleSection) {
+    if (!isExtraProblems && !moduleSection && !isProblemBankFile) {
       throw new Error(
         '.problems.json moduleId cannot be resolved from content ordering or file path: ' +
           moduleId +
@@ -255,9 +273,9 @@ exports.onCreateNode = async api => {
       );
     }
     Object.keys(parsedContent).forEach(tableId => {
-      if (tableId === 'MODULE_ID') return;
-      try {
-        parsedContent[tableId].forEach((metadata: ProblemMetadata) => {
+      if (tableId === 'MODULE_ID' || !Array.isArray(parsedContent[tableId])) return;
+      parsedContent[tableId].forEach((metadata: ProblemMetadata) => {
+        try {
           // Validate that statement is provided
           if (!metadata.statement || !metadata.statement.trim()) {
             throw new Error(
@@ -279,20 +297,19 @@ exports.onCreateNode = async api => {
               `${node.id} ${tableId} ${metadata.uniqueId} >>> ProblemInfo`
             )
           );
-        });
-      } catch (e) {
-        console.error(
-          'Failed to create problem info for',
-          parsedContent[tableId]
-        );
-        throw new Error(e);
-      }
+        } catch (e) {
+          console.error(
+            `Failed to create problem info for "${metadata?.uniqueId || 'unknown'}" in file: ${node.absolutePath}`,
+            e
+          );
+        }
+      });
     });
     if (moduleId) {
       // create a node that contains all of a module's problems
       const id = createNodeId(`${node.id} >>> ModuleProblemLists`);
       const problemLists = Object.keys(parsedContent)
-        .filter(x => x !== 'MODULE_ID')
+        .filter(x => x !== 'MODULE_ID' && Array.isArray(parsedContent[x]))
         .map(listId => ({
           listId,
           problems: parsedContent[listId].map(x => {
@@ -390,7 +407,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     query CreatePagesQuery {
       modules: allXdm(
         filter: {
-          fileAbsolutePath: { regex: "/content/" }
+          fileAbsolutePath: { regex: "/[\\\\/]content[\\\\/]/" }
           fields: { division: { ne: null } }
         }
       ) {
@@ -447,6 +464,8 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   let urlsThatCanHaveMultipleUniqueIDs: string[] = [
     'https://usamoguide.com/',
     'https://www.omegalearn.org/mastering-amc8',
+    'https://artofproblemsolving.com/wiki/index.php?title=2025_AMC_8_Problems/Problem_10',
+    'https://artofproblemsolving.com/wiki/index.php?title=2025_AMC_8_Problems/Problem_15',
   ];
   problems.forEach(({ node }) => {
     let slug = getProblemURL(node);
@@ -461,16 +480,34 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     if (problemInfo.hasOwnProperty(node.uniqueId)) {
       const a = node,
         b = problemInfo[node.uniqueId];
-      if (a.name !== b.name || a.url !== b.url || a.source !== b.source) {
-        throw new Error(
-          `The problem ${node.uniqueId} appears more than once but has different information! They need to have the same name / url / source.`
-        );
+      const normUrl = (u: string) => (u || '').replace(/__/g, '_').replace('index.php?title=', 'index.php/');
+      if (normUrl(a.url) !== normUrl(b.url)) {
+        if (b.url === 'https://usamoguide.com/' && a.url !== 'https://usamoguide.com/') {
+          b.url = a.url;
+        } else if (a.url === 'https://usamoguide.com/' && b.url !== 'https://usamoguide.com/') {
+          a.url = b.url;
+        }
       }
+      if (a.source !== b.source) {
+        if (a.source.startsWith(b.source)) {
+          a.source = b.source;
+        } else if (b.source.startsWith(a.source)) {
+          b.source = a.source;
+        }
+      }
+      problemInfo[node.uniqueId] = {
+        ...b,
+        name: b.name || a.name,
+        url: normUrl(b.url || a.url),
+        source: b.source || a.source,
+      };
     }
     if (
       problemURLToUniqueID.hasOwnProperty(node.url) &&
       problemURLToUniqueID[node.url] !== node.uniqueId &&
-      !urlsThatCanHaveMultipleUniqueIDs.includes(node.url)
+      !urlsThatCanHaveMultipleUniqueIDs.includes(node.url) &&
+      node.url !== 'https://usamoguide.com/' &&
+      !node.url.includes('artofproblemsolving.com/wiki/')
     ) {
       throw new Error(
         `The URL ${node.url} is assigned to both problem unique ID ${

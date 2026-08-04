@@ -36,25 +36,27 @@ const ComeBackTimer = ({ tomorrowMilliseconds }) => {
 
 const PhotoCard = ({ text, day, tomorrowMilliseconds, hiddenOnDesktop }) => {
   return (
-    <div
-      className={
-        'mb-8 w-full' + (hiddenOnDesktop ? ' lg:hidden' : '')
-      }
-    >
+    <div className={'mb-8 w-full' + (hiddenOnDesktop ? ' lg:hidden' : '')}>
       <div
-        className="flex flex-col overflow-hidden shadow-lg sm:rounded-2xl"
+        className="flex flex-col overflow-hidden sm:rounded-2xl"
         style={{
-          background: 'linear-gradient(180deg, rgba(54, 37, 72, 0.9) 0%, rgba(31, 22, 42, 0.94) 100%)',
+          background: 'rgba(43, 30, 57, 0.92)',
         }}
       >
         <div className="px-4 pt-5 pb-4 sm:px-6 sm:pt-6">
-          <h3 className="text-lg leading-6 font-medium" style={{ color: '#F4EDEA' }}>
+          <h3
+            className="text-lg leading-6 font-medium"
+            style={{ color: '#F4EDEA' }}
+          >
             Day {day} Insight
           </h3>
         </div>
         <div className="relative overflow-hidden">
           {tomorrowMilliseconds >= 0 ? (
-            <div className="absolute inset-0 z-10 flex items-center justify-center p-4 text-center text-base font-medium" style={{ background: 'rgba(32, 28, 54, 0.24)', color: '#F4EDEA' }}>
+            <div
+              className="absolute inset-0 z-10 flex items-center justify-center p-4 text-center text-base font-medium"
+              style={{ background: 'rgba(32, 28, 54, 0.24)', color: '#F4EDEA' }}
+            >
               <ComeBackTimer tomorrowMilliseconds={tomorrowMilliseconds} />
             </div>
           ) : null}
@@ -132,19 +134,25 @@ export default function DailyStreak({ streak }) {
       return (
         <div className="mb-8" key={times.length}>
           <div
-            className="flex flex-col overflow-hidden shadow-lg sm:rounded-2xl"
+            className="flex flex-col overflow-hidden sm:rounded-2xl"
             style={{
               background: 'rgba(244, 237, 234, 0.08)',
             }}
           >
             <div className="px-4 py-5 sm:p-6">
               <div className="text-center">
-                <h3 className="text-lg leading-6 font-medium" style={{ color: '#F4EDEA' }}>
+                <h3
+                  className="text-lg leading-6 font-medium"
+                  style={{ color: '#F4EDEA' }}
+                >
                   You've ran out of cow photos!
                 </h3>
-                <div className="mt-3 space-y-1 text-sm leading-5" style={{ color: 'rgba(244, 237, 234, 0.72)' }}>
-                  You've unlocked all current insights. If you want to help
-                  add more, reach out via the Contact Us button.
+                <div
+                  className="mt-3 space-y-1 text-sm leading-5"
+                  style={{ color: 'rgba(244, 237, 234, 0.72)' }}
+                >
+                  You've unlocked all current insights. If you want to help add
+                  more, reach out via the Contact Us button.
                 </div>
               </div>
             </div>
@@ -186,17 +194,23 @@ export default function DailyStreak({ streak }) {
   return (
     <>
       <div
-        className="overflow-hidden shadow-lg sm:rounded-2xl lg:col-span-2"
+        className="overflow-hidden sm:rounded-2xl lg:col-span-2"
         style={{
-          background: 'linear-gradient(180deg, rgba(54, 37, 72, 0.9) 0%, rgba(31, 22, 42, 0.94) 100%)',
+          background: 'rgba(43, 30, 57, 0.92)',
         }}
       >
         <div className="px-4 py-5 sm:p-6">
           <div className="text-center">
-            <h3 className="text-lg leading-6 font-medium" style={{ color: '#F4EDEA' }}>
+            <h3
+              className="text-lg leading-6 font-medium"
+              style={{ color: '#F4EDEA' }}
+            >
               🔥 {streak} Day Streak: Keep it up!
             </h3>
-            <div className="mt-3 space-y-1 text-sm leading-5" style={{ color: 'rgba(244, 237, 234, 0.72)' }}>
+            <div
+              className="mt-3 space-y-1 text-sm leading-5"
+              style={{ color: 'rgba(244, 237, 234, 0.72)' }}
+            >
               <p>
                 You've visited this guide for {streak} consecutive day
                 {streak !== 1 && 's'}.

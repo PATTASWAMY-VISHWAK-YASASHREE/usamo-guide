@@ -15,6 +15,7 @@ const preprocessAsyBlocks = require('../mdx-plugins/preprocess-asy');
 
 module.exports = function (code) {
   const callback = this.async();
+  console.log("Compiling:", this.resourcePath);
   compile(
       {
         contents: preprocessAsyBlocks(

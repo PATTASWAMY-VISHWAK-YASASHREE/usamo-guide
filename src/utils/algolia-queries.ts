@@ -4,7 +4,7 @@ import { AlgoliaProblemInfo } from '../models/problem';
 const extractSearchableText = require('./extract-searchable-text').default;
 
 const pageQuery = `{
-  pages: allXdm(filter: {fileAbsolutePath: {regex: "/content/"}, fields: {division: {ne: null}}}) {
+  pages: allXdm(filter: {fileAbsolutePath: {regex: "/[\\\\/]content[\\\\/]/"}, fields: {division: {ne: null}}}) {
     edges {
       node {
         frontmatter {
@@ -70,7 +70,7 @@ const problemsQuery = `{
 }`;
 
 export const filesQuery = `{
-  data: allXdm(filter: {fileAbsolutePath: {regex: "/content/"}}) {
+  data: allXdm(filter: {fileAbsolutePath: {regex: "/[\\\\/]content[\\\\/]/"}}) {
     edges {
       node {
         frontmatter {

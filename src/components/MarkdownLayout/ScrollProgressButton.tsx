@@ -57,20 +57,20 @@ const ScrollProgressButton = (): JSX.Element | null => {
   return (
     <button
       onClick={scrollToTop}
-      className="fixed bottom-20 right-6 z-40 hidden lg:flex items-center justify-center w-14 h-14 rounded-full shadow-md transition-all duration-200 hover:shadow-lg"
+      className="fixed right-6 bottom-20 z-40 hidden h-14 w-14 items-center justify-center rounded-full transition-all duration-200 lg:flex"
       style={{
         opacity,
         transform: `scale(${isVisible ? 1 : 0.8})`,
         transition: 'opacity 0.3s ease-in-out, transform 0.3s ease-out',
         pointerEvents: pointerEvents as any,
-        background: 'linear-gradient(135deg, #5A2F87 0%, #C58BFF 100%)',
+        background: '#6D3B9F',
         border: '1px solid rgba(240, 194, 255, 0.34)',
       }}
       aria-label="Back to top"
       title="Back to top"
     >
       {/* Circular progress background */}
-      <svg className="absolute inset-0 w-full h-full" viewBox="0 0 56 56">
+      <svg className="absolute inset-0 h-full w-full" viewBox="0 0 56 56">
         <circle
           cx="28"
           cy="28"
@@ -98,7 +98,7 @@ const ScrollProgressButton = (): JSX.Element | null => {
 
       {/* Up arrow icon */}
       <svg
-        className="relative z-10 w-5 h-5 text-white dark:text-gray-900"
+        className="relative z-10 h-5 w-5 text-white dark:text-gray-900"
         fill="none"
         stroke="currentColor"
         viewBox="0 0 24 24"
