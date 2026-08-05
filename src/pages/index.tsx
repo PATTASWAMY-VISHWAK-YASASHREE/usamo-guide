@@ -385,11 +385,11 @@ export default function IndexPage({ path }): JSX.Element {
               Frequently asked questions
             </h2>
             <p
-              className={sectionSubtitleClasses}
+              className={classNames(sectionSubtitleClasses, 'mt-4')}
               style={{ color: TEXT_SECONDARY }}
             >
-              The essentials about how to use the Guide, get help, and
-              contribute.
+              The essentials about the competition path, how the Guide works,
+              and how to get involved.
             </p>
           </RevealSection>
           <div className="pt-10 md:pt-16">
@@ -411,18 +411,11 @@ export default function IndexPage({ path }): JSX.Element {
                         className="text-base leading-6"
                         style={{ color: TEXT_SECONDARY }}
                       >
-                        The American Mathematics Competitions (AMC) are the
-                        foundation of the U.S. math competition pipeline. The
-                        AMC 8 is a 25-question competition for middle school
-                        students, while the AMC 10/12 are 25-question contests
-                        for high school. Top scorers on the AMC 10/12 qualify
-                        for the American Invitational Mathematics Examination
-                        (AIME), a 15-question proof-based competition. The very
-                        top AIME scorers then qualify for the USA Mathematical
-                        Olympiad (USAMO) or USA Junior Mathematical Olympiad
-                        (USAJMO), representing the pinnacle of American high
-                        school mathematics. For official contest information,
-                        dates, and registration, visit the{' '}
+                        These are the three big rungs of the US math competition ladder. 
+                      AMC 8 is for middle schoolers, AMC 10/12 for high schoolers. 
+                      While both are 25-question multiple choice contests, score well enough on them and you would qualify for AIME, a much harder 15-question numerical exam.
+                      Do well on the AIME aswell and you're at the USAMO (or USAJMO) territory.
+                      This would probably be the toughest math test most high schoolers will ever take. For official dates and registration, check the{' '}
                         <a
                           href="https://www.maa.org/math-competitions"
                           target="_blank"
@@ -450,15 +443,8 @@ export default function IndexPage({ path }): JSX.Element {
                         className="text-base leading-6"
                         style={{ color: TEXT_SECONDARY }}
                       >
-                        No. The USAMO Guide is a community-curated, crowdsourced
-                        roadmap created to help learners systematically prepare
-                        for the AMC, AIME, and USAMO. It reflects common contest
-                        topics, problem-solving techniques, and curriculum
-                        design best practices—but it does not represent an
-                        official syllabus or endorsement from the MAA. The
-                        content is continuously updated based on community
-                        feedback and contributions, making it a living resource
-                        rather than a static document.
+                        Nope. USAMO Guide is built by the community, for the community. It's our best attempt at organizing what actually works for AMC/AIME/USAMO prep, not something blessed by the MAA :/
+                        Think of it as notes that are passed down and refined by people who've been through the process, constantly getting better as more people chip in.
                       </p>
                     </dd>
                   </div>
@@ -470,26 +456,21 @@ export default function IndexPage({ path }): JSX.Element {
                       className="text-lg leading-6 font-medium"
                       style={{ color: TEXT_PRIMARY }}
                     >
-                      How do I report a problem or ask a question?
+                      I found a bug / typo / confusing explanation, what do I do?
                     </dt>
                     <dd className="mt-2">
                       <p
                         className="text-base leading-6"
                         style={{ color: TEXT_SECONDARY }}
                       >
-                        We value your feedback! If you encounter any issue while
-                        using the guide—whether it's a website bug, typo, broken
-                        link, unclear explanation, or confusing problem—please
-                        let us know. Click the "Contact Us" button at the top of
-                        the page or email us at{' '}
+                        Tell us! Hit "Contact Us" at the top of the page, or email{' '}
                         <a
                           href="mailto:contact@usamoguide.com"
                           style={linkStyle}
                         >
                           contact@usamoguide.com
                         </a>
-                        . For technical contributions or bug reports, you can
-                        also open an issue on our{' '}
+                        . If you're comfortable with GitHub, you can also open an issue directly on our{' '}
                         <a
                           href="https://github.com/usamoguide/usamo-guide"
                           target="_blank"
@@ -498,7 +479,7 @@ export default function IndexPage({ path }): JSX.Element {
                         >
                           GitHub repository
                         </a>
-                        .
+                        {' '}, It's often the fastest way to get something fixed.
                       </p>
                     </dd>
                   </div>
@@ -510,22 +491,14 @@ export default function IndexPage({ path }): JSX.Element {
                       className="text-lg leading-6 font-medium"
                       style={{ color: TEXT_PRIMARY }}
                     >
-                      I'm looking for classes, club curriculum, or live
-                      instruction...
+                      I want live classes or one-on-one tutoring...
                     </dt>
                     <dd className="mt-2">
                       <p
                         className="text-base leading-6"
                         style={{ color: TEXT_SECONDARY }}
                       >
-                        USAMO Guide provides structured self-paced learning
-                        material. For live instruction, check out Art of Problem
-                        Solving (AoPS) online classes, which offer comprehensive
-                        courses taught by experienced competition coaches. You
-                        can also join USAMO Guide study groups to learn
-                        alongside peers with structured accountability, or
-                        participate in our weekly mock contests to practice
-                        under realistic competition conditions.
+                        That's not really what we do.. We're a self-paced resource. For live instruction, AoPS runs solid online classes. If you still want structure and other people around, join one of our study groups or hop into a weekly mock contest for practice under real conditions.
                       </p>
                     </dd>
                   </div>
@@ -539,22 +512,14 @@ export default function IndexPage({ path }): JSX.Element {
                       className="text-lg leading-6 font-medium"
                       style={{ color: TEXT_PRIMARY }}
                     >
-                      Is this guide only for USAMO qualifiers?
+                      Do I need to already be good at math / qualified for USAMO to use this?
                     </dt>
                     <dd className="mt-2">
                       <p
                         className="text-base leading-6"
                         style={{ color: TEXT_SECONDARY }}
                       >
-                        Absolutely not! USAMO Guide is designed for the entire
-                        journey from AMC 8 through USAMO/USAJMO. Whether you're
-                        a middle schooler preparing for your first AMC 8, a high
-                        schooler working toward AIME qualification, or an
-                        advanced student aiming for USAMO, this guide has
-                        structured content at the right difficulty level for
-                        you. Each section starts with foundational concepts and
-                        progressively builds to olympiad-level problem-solving,
-                        so you can learn at your own pace.
+                        Not even close. Start on day one of AMC 8 prep or show up already grinding toward USAMO, either way, there's a place for you here. The material ramps from the basics up to olympiad-level, so you can jump in wherever you actually are.
                       </p>
                     </dd>
                   </div>
@@ -566,28 +531,23 @@ export default function IndexPage({ path }): JSX.Element {
                       className="text-lg leading-6 font-medium"
                       style={{ color: TEXT_PRIMARY }}
                     >
-                      How can I get help?
+                      Where can I get help when I'm stuck?
                     </dt>
                     <dd className="mt-2">
                       <p
                         className="text-base leading-6"
                         style={{ color: TEXT_SECONDARY }}
                       >
-                        We have multiple ways to help! If you get stuck on a
-                        problem or concept, ask questions in our{' '}
+                        Our{' '}
                         <a
                           href="https://discord.gg/X2zx6u53XH"
                           target="_blank"
                           rel="noreferrer"
                           style={linkStyle}
                         >
-                          Discord community
+                          Discord
                         </a>{' '}
-                        where community members and mentors actively engage. You
-                        can also join a study group to learn with peers, connect
-                        with a mentor for personalized guidance, or reach out
-                        via the Contact Us button for specific questions about
-                        the guide itself.
+                        is the best place. People are usually around to help with a specific problem or concept. Beyond that, you can join a study group, get paired with a mentor, or just email us if it's a question about the guide itself.
                       </p>
                     </dd>
                   </div>
@@ -606,23 +566,16 @@ export default function IndexPage({ path }): JSX.Element {
                         className="text-base leading-6"
                         style={{ color: TEXT_SECONDARY }}
                       >
-                        Contributions are essential to making USAMO Guide better
-                        for everyone! You can contribute in many ways: suggest
-                        edits to explanations, add new problems, fix typos,
-                        improve visualizations, or help with code improvements.
-                        Visit our{' '}
+                        Please do. Fix a typo, rewrite a confusing explanation, add a problem, improve a diagram, clean up some code - it all helps. Head to our{' '}
                         <a
                           href="https://github.com/usamoguide/usamo-guide"
                           target="_blank"
                           rel="noreferrer"
                           style={linkStyle}
                         >
-                          GitHub repository
+                          GitHub
                         </a>{' '}
-                        to find detailed contribution guidelines, view open
-                        issues, and submit pull requests. All contributions are
-                        appreciated and help build a stronger resource for the
-                        community!
+                        for contribution guidelines and open issues.
                       </p>
                     </dd>
                   </div>
@@ -641,22 +594,8 @@ export default function IndexPage({ path }): JSX.Element {
                         className="text-base leading-6"
                         style={{ color: TEXT_SECONDARY }}
                       >
-                        Yes! USAMO Guide is fully open source. The entire
-                        codebase, content, and infrastructure are freely
-                        available on our{' '}
-                        <a
-                          href="https://github.com/usamoguide/usamo-guide"
-                          target="_blank"
-                          rel="noreferrer"
-                          style={linkStyle}
-                        >
-                          GitHub Repository
-                        </a>
-                        . This means you can fork it, use it for your own
-                        projects, contribute improvements, or learn from how
-                        it's built. We believe in transparency and community
-                        collaboration, so everything is open for inspection and
-                        contribution.
+                        Yes, all of it! Fork it, build on it, poke around and see how it works. Nothing's hidden. 
+                        (Attribution required + Commerical use not allowed.)
                       </p>
                     </dd>
                   </div>
