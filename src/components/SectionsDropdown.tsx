@@ -25,7 +25,7 @@ export default function SectionsDropdown({
               )}
             >
               <span>
-                {currentSection ? SECTION_LABELS[currentSection] : 'Sections'}
+                {currentSection ? SECTION_LABELS[currentSection] : 'Tracks'}
               </span>
               <ChevronDownIcon
                 className={`${

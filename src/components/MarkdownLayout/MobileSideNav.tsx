@@ -43,7 +43,7 @@ export default function MobileSideNav() {
             leaveFrom="translate-x-0"
             leaveTo="-translate-x-full"
           >
-            <div className="dark:bg-dark-surface relative flex w-full max-w-xs flex-1 flex-col bg-white">
+            <div className="relative flex w-full max-w-xs flex-1 flex-col bg-[#0e0c18] dark:bg-[#0e0c18]">
               <div className="absolute top-0 right-0 -mr-14 p-1">
                 <button
                   className="flex h-12 w-12 items-center justify-center rounded-full focus:bg-gray-600 focus:outline-hidden"

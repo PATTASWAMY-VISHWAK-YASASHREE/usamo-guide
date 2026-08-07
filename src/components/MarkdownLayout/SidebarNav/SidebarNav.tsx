@@ -57,7 +57,7 @@ export const SidebarNav = () => {
   }, [activeSection, sidebarLinks]);
 
   return (
-    <nav className="dark:bg-dark-surface flex h-0 grow flex-col bg-white">
+    <nav className="flex h-0 grow flex-col bg-[#0e0c18] dark:bg-[#0e0c18]">
       <div className="shrink-0 border-b border-gray-200 dark:border-gray-800">
         <div className="my-4 flex justify-center">
           <SectionsDropdown

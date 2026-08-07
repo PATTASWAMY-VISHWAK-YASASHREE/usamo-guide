@@ -20,7 +20,7 @@
 
 
 @theme {
-  --color-dark-surface: #201C36; /* palette base */
+  --color-dark-surface: #101010; /* updated surface base */
   /* replace white-based emphasis with cream-based emphasis */
   --color-dark-high-emphasis: rgba(244, 237, 234, 0.90);
   --color-dark-med-emphasis: rgba(244, 237, 234, 0.68);

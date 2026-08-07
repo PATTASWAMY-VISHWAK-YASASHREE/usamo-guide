@@ -1,8 +1,9 @@
 import { useLocation } from '@gatsbyjs/reach-router';
 import classNames from 'classnames';
+import { ChevronDownIcon, ChevronRightIcon } from '@heroicons/react/solid';
 import { Link, navigate } from 'gatsby';
 import * as React from 'react';
-import ActiveCardsHome from '../components/activeCardsHome';
+import { Github, Instagram, Twitter } from 'lucide-react';
 import AetherFlowHero from '../components/Index/AetherFlowHero';
 import { Feature } from '../components/Index/Feature';
 import { ProblemsetsFeature } from '../components/Index/features/ProblemsetsFeature';
@@ -38,8 +39,37 @@ const MAUVE = '#F0C2FF';
 const TEXT_PRIMARY = VANILLA;
 const TEXT_SECONDARY = 'rgba(244, 237, 234, 0.78)';
 const TEXT_MUTED = 'rgba(244, 237, 234, 0.62)';
+const FAQ_CARD_STYLE: React.CSSProperties = {
+  background: 'rgba(43, 30, 57, 0.92)',
+  color: TEXT_PRIMARY,
+};
+const footerSocialLinks = [
+  {
+    label: 'Instagram',
+    href: 'https://instagram.com/usamoguide',
+    icon: Instagram,
+  },
+  {
+    label: 'Twitter',
+    href: 'https://twitter.com/usamoguide',
+    icon: Twitter,
+  },
+  {
+    label: 'GitHub',
+    href: 'https://github.com/usamoguide/usamo-guide',
+    icon: Github,
+  },
+] as const;
 
 const containerClasses = 'max-w-(--breakpoint-xl) mx-auto px-4 sm:px-6 lg:px-8';
+
+const builderProfiles = [
+  { name: 'Pranav Ramesh', role: 'Founder & CEO', imageSrc: '' },
+  { name: 'Lauren Pybus', role: 'VP, Growth & Development', imageSrc: '' },
+  { name: 'Raelene Thomas', role: 'VP, Finance & Operations', imageSrc: '' },
+  { name: 'Mitchell Fawcett', role: 'VP, Strategy', imageSrc: '' },
+  { name: 'Jieun Segal', role: 'VP, Sales & Marketing', imageSrc: '' }
+];
 
 function RevealSection({
   children,
@@ -66,10 +96,66 @@ function RevealSection({
   );
 }
 
+function FaqCard({
+  id,
+  question,
+  isOpen,
+  onToggle,
+  children,
+}: {
+  id: string;
+  question: string;
+  isOpen: boolean;
+  onToggle: () => void;
+  children: React.ReactNode;
+}) {
+  return (
+    <div className="rounded-2xl p-6 text-left" style={FAQ_CARD_STYLE}>
+      <div className="flex items-start justify-between gap-4">
+        <dt
+          className="text-lg leading-6 font-medium"
+          style={{ color: TEXT_PRIMARY }}
+        >
+          {question}
+        </dt>
+        <button
+          type="button"
+          aria-expanded={isOpen}
+          aria-controls={`${id}-content`}
+          onClick={onToggle}
+          className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full text-[#F0C2FF] transition hover:bg-white/5 hover:text-[#F4EDEA] focus:outline-none focus:ring-2 focus:ring-[#F0C2FF]/60"
+        >
+          {isOpen ? (
+            <ChevronDownIcon className="h-5 w-5" />
+          ) : (
+            <ChevronRightIcon className="h-5 w-5" />
+          )}
+          <span className="sr-only">{isOpen ? 'Close answer' : 'Open answer'}</span>
+        </button>
+      </div>
+      {isOpen && (
+        <dd id={`${id}-content`} className="mt-2 pr-10">
+          {children}
+        </dd>
+      )}
+    </div>
+  );
+}
+
 export default function IndexPage({ path }): JSX.Element {
   const currentUser = useCurrentUser();
   const loading = useIsUserDataLoaded();
   const location = useLocation();
+  const [openFaqs, setOpenFaqs] = React.useState<Record<string, boolean>>({
+    amc: true,
+    syllabus: true,
+    bug: true,
+    tutoring: true,
+    qualify: true,
+    help: true,
+    contribute: true,
+    source: true,
+  });
 
   React.useEffect(() => {
     try {
@@ -94,20 +180,38 @@ export default function IndexPage({ path }): JSX.Element {
     };
   }, []);
 
+  const toggleFaq = (id: string) => {
+    setOpenFaqs(prev => ({
+      ...prev,
+      [id]: !prev[id],
+    }));
+  };
+
   const linkStyle: React.CSSProperties = {
     color: MAUVE,
     textDecoration: 'none',
     fontWeight: 700,
   };
 
+  const footerLinkStyle: React.CSSProperties = {
+    color: 'rgba(244, 237, 234, 0.84)',
+    textDecoration: 'none',
+    fontWeight: 500,
+  };
+
+  const footerButtonStyle: React.CSSProperties = {
+    border: '1px solid rgba(240, 194, 255, 0.34)',
+    background: '#EFE3FF',
+    boxShadow: 'none',
+    '--pme-color': '#2C1842',
+    '--pme-hover-color': '#201C36',
+    '--pme-wipe-bg': '#F0C2FF',
+  } as React.CSSProperties;
+
   const sectionHeadingClasses =
     'mx-auto flex max-w-4xl flex-col items-center text-center text-4xl font-bold tracking-tight md:text-5xl 2xl:text-6xl';
   const sectionSubtitleClasses =
     'mx-auto max-w-3xl text-center text-lg font-medium leading-relaxed md:text-xl 2xl:text-2xl';
-  const infoCardStyle: React.CSSProperties = {
-    background: 'rgba(43, 30, 57, 0.92)',
-    color: TEXT_PRIMARY,
-  };
 
   return (
     <Layout>
@@ -277,7 +381,7 @@ export default function IndexPage({ path }): JSX.Element {
           <div className="h-16 md:h-20 2xl:h-36"></div>
         </div>
       </div>
-      <ActiveCardsHome />
+      
       {/* Section divider */}
       <div
         className="pointer-events-none mx-auto w-2/3"
@@ -315,17 +419,17 @@ export default function IndexPage({ path }): JSX.Element {
           <div className="h-16 md:h-24"></div>
           <div className={containerClasses}>
             <RevealSection>
-              <div className="grid items-center gap-10 lg:grid-cols-12">
-                <div className="lg:col-span-7">
+              <div className="mx-auto flex max-w-6xl flex-col items-center gap-12 text-center">
+                <div className="max-w-4xl">
                   <h2
-                    className="max-w-3xl text-left text-3xl font-bold tracking-tight md:text-4xl 2xl:text-5xl"
+                    className="text-center text-3xl font-bold tracking-tight md:text-4xl 2xl:text-5xl"
                     style={{ color: TEXT_PRIMARY }}
                   >
                     Contribute to the Community.
                   </h2>
                   <div className="h-5"></div>
                   <p
-                    className="max-w-2xl text-left text-lg leading-relaxed md:text-xl"
+                    className="mx-auto max-w-2xl text-center text-lg leading-relaxed md:text-xl"
                     style={{ color: TEXT_SECONDARY }}
                   >
                     USAMO Guide is a student-run community dedicated to olympiad
@@ -333,32 +437,73 @@ export default function IndexPage({ path }): JSX.Element {
                     and grow as a mentor alongside fellow contest enthusiasts.
                   </p>
                   <div className="h-7 md:h-9"></div>
-                  <a
-                    href="https://docs.google.com/document/d/1AUNOq6OlVcSZN_gUPfvyhimlh9hA4GNvNaLdzyflX_8/edit?usp=sharing"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="purple-motion-effect inline-flex items-center justify-center rounded-full px-7 py-3 font-mono text-base leading-tight font-bold"
-                    style={
-                      {
-                        border: '1px solid rgba(240, 194, 255, 0.34)',
-                        background: '#6D3B9F',
-                        '--pme-color': '#F4EDEA',
-                        '--pme-hover-color': '#201C36',
-                        '--pme-wipe-bg': '#F0C2FF',
-                      } as React.CSSProperties
-                    }
-                  >
-                    Get Involved
-                  </a>
+                  <div className="flex justify-center">
+                    <a
+                      href="https://docs.google.com/document/d/1AUNOq6OlVcSZN_gUPfvyhimlh9hA4GNvNaLdzyflX_8/edit?usp=sharing"
+                      target="_blank"
+                      rel="noreferrer"
+                      className="purple-motion-effect inline-flex items-center justify-center rounded-full px-7 py-3 font-mono text-base leading-tight font-bold"
+                      style={
+                        {
+                          border: '1px solid rgba(240, 194, 255, 0.34)',
+                          background: '#6D3B9F',
+                          '--pme-color': '#F4EDEA',
+                          '--pme-hover-color': '#201C36',
+                          '--pme-wipe-bg': '#F0C2FF',
+                        } as React.CSSProperties
+                      }
+                    >
+                      Get Involved
+                    </a>
+                  </div>
                 </div>
-                <div className="lg:col-span-5">
-                  <div className="ui-card-dark overflow-hidden rounded-2xl">
-                    <img
-                      src="/images/builders.png"
-                      alt="USAMO Guide team collaboration"
-                      className="w-full object-cover object-center"
-                      loading="lazy"
-                    />
+
+                <div className="w-full max-w-5xl">
+                  <div className="grid grid-cols-2 justify-items-center gap-x-6 gap-y-8 sm:grid-cols-3 md:grid-cols-5 md:gap-x-8 md:gap-y-10">
+                    {builderProfiles.map((builder) => (
+                      <div
+                        key={builder.name}
+                        className="flex flex-col items-center text-center"
+                      >
+                        <div className="flex h-24 w-24 items-center justify-center overflow-hidden rounded-full border border-white/10 bg-[#DAD7E2] shadow-[0_10px_30px_rgba(0,0,0,0.18)] md:h-28 md:w-28">
+                          {builder.imageSrc ? (
+                            <img
+                              src={builder.imageSrc}
+                              alt={builder.name}
+                              className="h-full w-full object-cover object-center"
+                              loading="lazy"
+                            />
+                          ) : (
+                            <div
+                              className="flex h-full w-full items-center justify-center bg-gradient-to-br from-[#F4EDEA] via-[#D9D2E8] to-[#B89BCF]"
+                              aria-hidden="true"
+                            >
+                              <span className="font-mono text-2xl font-bold tracking-tight text-[#4A345B] md:text-3xl">
+                                {builder.name
+                                  .split(' ')
+                                  .map((part) => part[0])
+                                  .slice(0, 2)
+                                  .join('')}
+                              </span>
+                            </div>
+                          )}
+                        </div>
+                        <div className="mt-3 max-w-[11rem]">
+                          <p
+                            className="text-sm font-semibold md:text-base"
+                            style={{ color: TEXT_PRIMARY }}
+                          >
+                            {builder.name}
+                          </p>
+                          <p
+                            className="mt-1 text-xs leading-5 md:text-sm"
+                            style={{ color: TEXT_MUTED }}
+                          >
+                            {builder.role}
+                          </p>
+                        </div>
+                      </div>
+                    ))}
                   </div>
                 </div>
                 <div className="h-16 md:h-24"></div>
@@ -367,7 +512,6 @@ export default function IndexPage({ path }): JSX.Element {
           </div>
         </div>
       </div>
-
       {/* Begin FAQ */}
       <div
         className="relative transition-colors duration-500"
@@ -396,17 +540,12 @@ export default function IndexPage({ path }): JSX.Element {
             <RevealSection delay={100}>
               <dl className="mx-auto grid max-w-6xl gap-8 text-center md:grid-cols-2 md:gap-8">
                 <div>
-                  <div
-                    className="rounded-2xl p-6 text-left"
-                    style={infoCardStyle}
+                  <FaqCard
+                    id="amc"
+                    question="What are AMC, AIME, and USAMO?"
+                    isOpen={openFaqs.amc}
+                    onToggle={() => toggleFaq('amc')}
                   >
-                    <dt
-                      className="text-lg leading-6 font-medium"
-                      style={{ color: TEXT_PRIMARY }}
-                    >
-                      What are AMC, AIME, and USAMO?
-                    </dt>
-                    <dd className="mt-2">
                       <p
                         className="text-base leading-6"
                         style={{ color: TEXT_SECONDARY }}
@@ -426,19 +565,14 @@ export default function IndexPage({ path }): JSX.Element {
                         </a>
                         .
                       </p>
-                    </dd>
-                  </div>
-                  <div
-                    className="mt-6 rounded-2xl p-6 text-left"
-                    style={infoCardStyle}
-                  >
-                    <dt
-                      className="text-lg leading-6 font-medium"
-                      style={{ color: TEXT_PRIMARY }}
+                  </FaqCard>
+                  <div className="mt-6">
+                    <FaqCard
+                      id="syllabus"
+                      question="Is this an official syllabus?"
+                      isOpen={openFaqs.syllabus}
+                      onToggle={() => toggleFaq('syllabus')}
                     >
-                      Is this an official syllabus?
-                    </dt>
-                    <dd className="mt-2">
                       <p
                         className="text-base leading-6"
                         style={{ color: TEXT_SECONDARY }}
@@ -446,19 +580,15 @@ export default function IndexPage({ path }): JSX.Element {
                         Nope. USAMO Guide is built by the community, for the community. It's our best attempt at organizing what actually works for AMC/AIME/USAMO prep, not something blessed by the MAA :/
                         Think of it as notes that are passed down and refined by people who've been through the process, constantly getting better as more people chip in.
                       </p>
-                    </dd>
+                    </FaqCard>
                   </div>
-                  <div
-                    className="mt-6 rounded-2xl p-6 text-left"
-                    style={infoCardStyle}
-                  >
-                    <dt
-                      className="text-lg leading-6 font-medium"
-                      style={{ color: TEXT_PRIMARY }}
+                  <div className="mt-6">
+                    <FaqCard
+                      id="bug"
+                      question="I found a bug / typo / confusing explanation, what do I do?"
+                      isOpen={openFaqs.bug}
+                      onToggle={() => toggleFaq('bug')}
                     >
-                      I found a bug / typo / confusing explanation, what do I do?
-                    </dt>
-                    <dd className="mt-2">
                       <p
                         className="text-base leading-6"
                         style={{ color: TEXT_SECONDARY }}
@@ -481,59 +611,45 @@ export default function IndexPage({ path }): JSX.Element {
                         </a>
                         {' '}, It's often the fastest way to get something fixed.
                       </p>
-                    </dd>
+                    </FaqCard>
                   </div>
-                  <div
-                    className="mt-6 rounded-2xl p-6 text-left"
-                    style={infoCardStyle}
-                  >
-                    <dt
-                      className="text-lg leading-6 font-medium"
-                      style={{ color: TEXT_PRIMARY }}
+                  <div className="mt-6">
+                    <FaqCard
+                      id="tutoring"
+                      question="I want live classes or one-on-one tutoring..."
+                      isOpen={openFaqs.tutoring}
+                      onToggle={() => toggleFaq('tutoring')}
                     >
-                      I want live classes or one-on-one tutoring...
-                    </dt>
-                    <dd className="mt-2">
                       <p
                         className="text-base leading-6"
                         style={{ color: TEXT_SECONDARY }}
                       >
                         That's not really what we do.. We're a self-paced resource. For live instruction, AoPS runs solid online classes. If you still want structure and other people around, join one of our study groups or hop into a weekly mock contest for practice under real conditions.
                       </p>
-                    </dd>
+                    </FaqCard>
                   </div>
                 </div>
                 <div className="mt-6 md:mt-0">
-                  <div
-                    className="rounded-2xl p-6 text-left"
-                    style={infoCardStyle}
+                  <FaqCard
+                    id="qualify"
+                    question="Do I need to already be good at math / qualified for USAMO to use this?"
+                    isOpen={openFaqs.qualify}
+                    onToggle={() => toggleFaq('qualify')}
                   >
-                    <dt
-                      className="text-lg leading-6 font-medium"
-                      style={{ color: TEXT_PRIMARY }}
-                    >
-                      Do I need to already be good at math / qualified for USAMO to use this?
-                    </dt>
-                    <dd className="mt-2">
                       <p
                         className="text-base leading-6"
                         style={{ color: TEXT_SECONDARY }}
                       >
                         Not even close. Start on day one of AMC 8 prep or show up already grinding toward USAMO, either way, there's a place for you here. The material ramps from the basics up to olympiad-level, so you can jump in wherever you actually are.
                       </p>
-                    </dd>
-                  </div>
-                  <div
-                    className="mt-6 rounded-2xl p-6 text-left"
-                    style={infoCardStyle}
-                  >
-                    <dt
-                      className="text-lg leading-6 font-medium"
-                      style={{ color: TEXT_PRIMARY }}
+                  </FaqCard>
+                  <div className="mt-6">
+                    <FaqCard
+                      id="help"
+                      question="Where can I get help when I'm stuck?"
+                      isOpen={openFaqs.help}
+                      onToggle={() => toggleFaq('help')}
                     >
-                      Where can I get help when I'm stuck?
-                    </dt>
-                    <dd className="mt-2">
                       <p
                         className="text-base leading-6"
                         style={{ color: TEXT_SECONDARY }}
@@ -549,19 +665,15 @@ export default function IndexPage({ path }): JSX.Element {
                         </a>{' '}
                         is the best place. People are usually around to help with a specific problem or concept. Beyond that, you can join a study group, get paired with a mentor, or just email us if it's a question about the guide itself.
                       </p>
-                    </dd>
+                    </FaqCard>
                   </div>
-                  <div
-                    className="mt-6 rounded-2xl p-6 text-left"
-                    style={infoCardStyle}
-                  >
-                    <dt
-                      className="text-lg leading-6 font-medium"
-                      style={{ color: TEXT_PRIMARY }}
+                  <div className="mt-6">
+                    <FaqCard
+                      id="contribute"
+                      question="How can I contribute?"
+                      isOpen={openFaqs.contribute}
+                      onToggle={() => toggleFaq('contribute')}
                     >
-                      How can I contribute?
-                    </dt>
-                    <dd className="mt-2">
                       <p
                         className="text-base leading-6"
                         style={{ color: TEXT_SECONDARY }}
@@ -577,19 +689,15 @@ export default function IndexPage({ path }): JSX.Element {
                         </a>{' '}
                         for contribution guidelines and open issues.
                       </p>
-                    </dd>
+                    </FaqCard>
                   </div>
-                  <div
-                    className="mt-6 rounded-2xl p-6 text-left"
-                    style={infoCardStyle}
-                  >
-                    <dt
-                      className="text-lg leading-6 font-medium"
-                      style={{ color: TEXT_PRIMARY }}
+                  <div className="mt-6">
+                    <FaqCard
+                      id="source"
+                      question="Is this open source?"
+                      isOpen={openFaqs.source}
+                      onToggle={() => toggleFaq('source')}
                     >
-                      Is this open source?
-                    </dt>
-                    <dd className="mt-2">
                       <p
                         className="text-base leading-6"
                         style={{ color: TEXT_SECONDARY }}
@@ -597,7 +705,7 @@ export default function IndexPage({ path }): JSX.Element {
                         Yes, all of it! Fork it, build on it, poke around and see how it works. Nothing's hidden. 
                         (Attribution required + Commerical use not allowed.)
                       </p>
-                    </dd>
+                    </FaqCard>
                   </div>
                 </div>
               </dl>
@@ -606,32 +714,193 @@ export default function IndexPage({ path }): JSX.Element {
         </div>
       </div>
       {/*End FAQ*/}
+      <footer className="relative bg-[#0F1020] text-[#F4EDEA] overflow-hidden">
+        <div className="relative mx-auto max-w-7xl px-6 pt-16 pb-10 lg:px-10 lg:pt-20">
+          <div className="grid gap-12 lg:grid-cols-[minmax(0,1.35fr)_repeat(3,minmax(0,0.75fr))] lg:gap-16">
+            <div className="max-w-xl">
+              <div className="flex items-center gap-3">
+                <img
+                  src="/images/Test_logo.png"
+                  alt="USAMO Guide"
+                  className="h-11 w-11 shrink-0 object-cover"
+                />
+                <span className="text-xl font-semibold tracking-tight text-[#F4EDEA]">
+                  USAMO Guide
+                </span>
+              </div>
 
-      {/* Footer: dark bg + vanilla text */}
-      <div style={{ background: PAGE_BG }}>
-        <div className="mx-auto max-w-(--breakpoint-xl) px-4 py-12">
-          <p
-            className="text-center text-base leading-6"
-            style={{ color: TEXT_MUTED }}
-          >
-            &copy; {new Date().getFullYear()} USAMO Guide.
-            <br />
-            No part of this website may be reproduced or commercialized in any
-            manner without prior written permission.{' '}
-            <Link to="https://usamoguide.com/license.txt" style={linkStyle}>
-              License
-            </Link>
-            {' | '}
-            <Link to="/privacy-policy" style={linkStyle}>
-              Privacy Policy
-            </Link>
-            {' | '}
-            <Link to="/terms-of-service" style={linkStyle}>
-              Terms of Service
-            </Link>
-          </p>
+              <h2 className="mt-6 max-w-md text-4xl font-semibold tracking-tight text-[#F4EDEA] sm:text-5xl">
+                Your math contest second home
+              </h2>
+
+              <p className="mt-5 max-w-lg text-lg leading-8 text-[#B8B4C5]">
+                USAMO Guide brings lessons, resources, problem sets, and
+                community support into one place for AMC, AIME, and Olympiad
+                prep.
+              </p>
+
+              <Link
+                to="/foundations"
+                className="purple-motion-effect mt-8 inline-flex items-center justify-center rounded-full px-6 py-3 font-mono text-lg leading-tight font-bold md:px-8 md:py-3"
+                style={footerButtonStyle}
+              >
+                Browse topics
+              </Link>
+            </div>
+
+            <div>
+              <h3 className="text-lg font-semibold text-[#F4EDEA]">Menu</h3>
+              <ul className="mt-5 space-y-4 text-base text-[#B8B4C5]">
+                <li>
+                  <Link to="/" style={footerLinkStyle}>
+                    Home
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/foundations" style={footerLinkStyle}>
+                    Learn Foundations
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/problems" style={footerLinkStyle}>
+                    Problem Sets
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/dashboard" style={footerLinkStyle}>
+                    Progress Dashboard
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/other-useful-resources" style={footerLinkStyle}>
+                    Resources
+                  </Link>
+                </li>
+              </ul>
+            </div>
+
+            <div>
+              <h3 className="text-lg font-semibold text-[#F4EDEA]">Community</h3>
+              <ul className="mt-5 space-y-4 text-base text-[#B8B4C5]">
+                <li>
+                  <Link to="/contact-us" style={footerLinkStyle}>
+                    Contact Us
+                  </Link>
+                </li>
+                <li>
+                  <a
+                    href="https://discord.gg/X2zx6u53XH"
+                    target="_blank"
+                    rel="noreferrer"
+                    style={footerLinkStyle}
+                  >
+                    Discord Community
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="https://github.com/usamoguide/usamo-guide"
+                    target="_blank"
+                    rel="noreferrer"
+                    style={footerLinkStyle}
+                  >
+                    GitHub Repository
+                  </a>
+                </li>
+                <li>
+                  <Link to="/privacy-policy" style={footerLinkStyle}>
+                    Privacy Policy
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/terms-of-service" style={footerLinkStyle}>
+                    Terms of Service
+                  </Link>
+                </li>
+              </ul>
+            </div>
+
+            <div>
+              <h3 className="text-lg font-semibold text-[#F4EDEA]">Support</h3>
+              <ul className="mt-5 space-y-4 text-base text-[#B8B4C5]">
+                <li>
+                  <Link to="/contact-us" style={footerLinkStyle}>
+                    Contact Support
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/privacy-policy" style={footerLinkStyle}>
+                    Privacy Policy
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/terms-of-service" style={footerLinkStyle}>
+                    Terms of Service
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/dashboard" style={footerLinkStyle}>
+                    Dashboard
+                  </Link>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div className="mt-10 flex flex-wrap items-center justify-end gap-4 text-sm text-[#8E8AA1]">
+            <span>&copy; {new Date().getFullYear()} USAMO Guide - All rights reserved</span>
+            <div className="flex items-center gap-2">
+              {footerSocialLinks.map(({ label, href, icon: Icon }) => (
+                <a
+                  key={label}
+                  href={href}
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label={label}
+                  title={label}
+                  className="inline-flex h-8 w-8 items-center justify-center rounded-full border border-white/15 text-[#F4EDEA] transition hover:-translate-y-0.5 hover:border-[#F0C2FF]/60 hover:bg-white/5 hover:text-[#F0C2FF]"
+                >
+                  <Icon className="h-4 w-4" strokeWidth={1.9} />
+                </a>
+              ))}
+            </div>
+          </div>
         </div>
+
+        {/* Full-bleed wordmark, with tree canopy behind it and grass overlapping in front */}
+      <div className="pointer-events-none mt-4 w-screen relative left-1/2 -translate-x-1/2 overflow-hidden">
+        <img
+          src="https://www.callbaba.com/landing/img/tree-canopy-pink.png"
+          alt=""
+          className="absolute right-0 top-1/2 -translate-y-1/2 z-0 h-[clamp(8rem,22vw,22rem)] w-auto select-none object-contain"
+        />
+
+        <svg
+          viewBox="0 0 1200 140"
+          preserveAspectRatio="xMidYMax meet"
+          className="relative z-10 w-full h-[clamp(5.5rem,18vw,18rem)] block"
+        >
+          <text
+            x="50%"
+            y="132"
+            textAnchor="middle"
+            fontSize="140"
+            fontWeight="600"
+            letterSpacing="-8"
+            fill="#F7F4EC"
+            fontFamily="inherit"
+          >
+            USAMO Guide
+          </text>
+        </svg>
+
+        <img
+          src="https://www.callbaba.com/landing/img/ground-grass-wide.png"
+          alt=""
+          className="relative z-20 w-full h-auto select-none block mt-[clamp(-4rem,-8vw,-1.5rem)]"
+        />
       </div>
+      </footer>
     </Layout>
   );
 }

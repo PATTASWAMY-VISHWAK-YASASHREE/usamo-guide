@@ -6,7 +6,7 @@ import {
 } from '@headlessui/react';
 import { XIcon } from '@heroicons/react/solid';
 import React from 'react';
-import { getOAuthRedirectTo } from '../lib/oauthRedirect';
+import { signInWithOAuthProvider } from '../lib/authActions';
 import { supabase } from '../lib/supabaseClient';
 import { LoadingSpinner } from './elements/LoadingSpinner';
 
@@ -28,11 +28,7 @@ export const SignInModal: React.FC<SignInModalProps> = ({
   const handleSignInWithGoogle = () => {
     setIsSigningIn(true);
     setError(null);
-    supabase.auth
-      .signInWithOAuth({
-        provider: 'google',
-        options: { redirectTo: getOAuthRedirectTo() },
-      })
+    signInWithOAuthProvider('google')
       .then(({ error }) => {
         if (error) {
           setError(error);
@@ -46,11 +42,7 @@ export const SignInModal: React.FC<SignInModalProps> = ({
   const handleSignInWithGithub = () => {
     setIsSigningIn(true);
     setError(null);
-    supabase.auth
-      .signInWithOAuth({
-        provider: 'github',
-        options: { redirectTo: getOAuthRedirectTo() },
-      })
+    signInWithOAuthProvider('github')
       .then(({ error }) => {
         if (error) {
           setError(error);

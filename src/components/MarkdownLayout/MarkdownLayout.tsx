@@ -21,7 +21,6 @@ import MobileSideNav from './MobileSideNav';
 import ModuleHeaders from './ModuleHeaders/ModuleHeaders';
 import ModuleProgressUpdateBanner from './ModuleProgressUpdateBanner';
 import NavBar from './NavBar';
-import NotSignedInWarning from './NotSignedInWarning';
 import ScrollProgressButton from './ScrollProgressButton';
 import LinksToEdit from './TableOfContents/LinksToEdit';
 import TableOfContentsBlock from './TableOfContents/TableOfContentsBlock';
@@ -119,7 +118,9 @@ export default function MarkdownLayout({
       moduleProgress !== 'Complete' &&
       (progress === 'Practicing' || progress === 'Complete')
     ) {
-      showConfetti!();
+      if (showConfetti) {
+        showConfetti();
+      }
     }
   };
 
@@ -138,8 +139,8 @@ export default function MarkdownLayout({
   let activeIDs: string[] = [];
   if (markdownData instanceof ModuleInfo) {
     activeIDs.push(markdownData.id);
-  } else {
-    activeIDs = solutionLayoutContext!.modulesThatHaveProblem.map(x => x.id);
+  } else if (solutionLayoutContext) {
+    activeIDs = solutionLayoutContext.modulesThatHaveProblem.map(x => x.id);
   }
 
   const layoutTree = (
@@ -164,8 +165,6 @@ export default function MarkdownLayout({
           <MobileAppBar />
 
           <ContentContainer>
-            <NotSignedInWarning />
-
             <ModuleHeaders moduleLinks={moduleLinks} />
 
             <TableOfContentsBlock tableOfContents={tableOfContents} />

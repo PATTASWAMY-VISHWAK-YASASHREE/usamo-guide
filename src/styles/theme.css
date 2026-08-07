@@ -105,9 +105,9 @@
   html.dark {
     /* Single source of truth for every page background. Pages must not
        hardcode their own base color -- use var(--bg-page). */
-    --bg-page: #0a0818;
-    --bg-surface: #2a2547;
-    --bg-surface-alt: #3d3564;
+    --bg-page: #01000c;
+    --bg-surface: #101010;
+    --bg-surface-alt: #15131f;
     --bg-muted: #2e294e;
 
     --text-primary: #f4edea; /* cream (NOT white) */
@@ -140,7 +140,7 @@
     --banner-glow-to: #f0c2ff;
 
     --sidebar-active-bg: rgba(240, 194, 255, 0.1);
-    --sidebar-hover-bg: rgba(240, 194, 255, 0.07);
+    --sidebar-hover-bg: oklch(0.51 0.1 295.72 / 0.22);
 
     --code-block-bg-light: #2a2547;
     --code-block-bg-dark: #2a2547;
@@ -158,9 +158,9 @@
     --code-snip-text-dark: #f0c2ff;
     --code-snip-text-dark-hover: #ffb3d9;
 
-    --select-bg: #2a2547;
+    --select-bg: #101010;
     --select-border: rgba(210, 212, 200, 0.3);
-    --select-menu-bg: #2a2547;
+    --select-menu-bg: #050212;
     --select-text: #f4edea;
     --select-option-hover: rgba(240, 194, 255, 0.12);
     --select-option-selected: rgba(240, 194, 255, 0.18);
