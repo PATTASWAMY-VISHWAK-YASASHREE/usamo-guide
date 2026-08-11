@@ -56,32 +56,11 @@ export default function TopNavigationBar({
       iconSrc: '/images/otherresourcesicon.jpg',
     },
     {
-      name: 'AoPS Community',
-      description: 'Math contest discussions and Q&A on Art of Problem Solving.',
-      href: 'https://artofproblemsolving.com/community',
-      icon: ChatAlt2Icon,
-      iconSrc: '/images/aops_comm.jpg',
-    },
-    {
-      name: 'AoPS Wiki',
-      description: 'Official statements and solutions for AMC/AIME/USAMO.',
-      href: 'https://artofproblemsolving.com/wiki/index.php/Main_Page',
-      icon: TerminalIcon,
-      iconSrc: '/images/maacomp.jpg',
-    },
-    {
       name: 'USAMO Contests',
       description:
         'Live contests, archives, and contest-specific features on our contests platform.',
       href: contestsUrl,
       icon: ChartBarIcon,
-      iconSrc: '/images/Contestsicon.jpg',
-    },
-    {
-      name: 'MAA Competitions',
-      description: 'Official contest pages and information for AMC/AIME/USAMO.',
-      href: 'https://www.maa.org/math-competitions',
-      icon: AcademicCapIcon,
       iconSrc: '/images/Contestsicon.jpg',
     },
     {

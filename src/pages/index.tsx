@@ -65,10 +65,7 @@ const containerClasses = 'max-w-(--breakpoint-xl) mx-auto px-4 sm:px-6 lg:px-8';
 
 const builderProfiles = [
   { name: 'Pranav Ramesh', role: 'Founder & CEO', imageSrc: '' },
-  { name: 'Lauren Pybus', role: 'VP, Growth & Development', imageSrc: '' },
-  { name: 'Raelene Thomas', role: 'VP, Finance & Operations', imageSrc: '' },
-  { name: 'Mitchell Fawcett', role: 'VP, Strategy', imageSrc: '' },
-  { name: 'Jieun Segal', role: 'VP, Sales & Marketing', imageSrc: '' }
+  { name: 'Spursh Deshpande', role: 'CTO', imageSrc: '' }
 ];
 
 function RevealSection({
