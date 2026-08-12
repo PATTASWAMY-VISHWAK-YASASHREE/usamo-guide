@@ -14,7 +14,7 @@ export default function ModuleProgressUpdateBanner() {
 
   if (markdownData instanceof ModuleInfo) {
     return (
-      <h3 className="dark:text-dark-high-emphasis mb-8 flex items-center justify-center border-t border-b border-gray-200 py-8 text-center text-lg leading-6 font-medium text-gray-900 dark:border-gray-800">
+      <h3 className="mb-8 flex items-center justify-center border-t border-b py-8 text-center text-lg leading-6 font-medium" style={{ borderColor: 'var(--border)', color: 'var(--text-primary)' }}>
         <span>
           <TextTooltip content="You can use this as a way to track your progress throughout this guide.">
             Module Progress

@@ -546,7 +546,7 @@ export default function ProblemTemplate(
           <header
             className="mb-8 rounded-2xl pb-6"
             style={{
-              background: 'rgba(43, 30, 57, 0.92)',
+              background: 'var(--card-bg)',
             }}
           >
             <div className="px-5 pt-5 sm:px-6 sm:pt-6">
@@ -594,7 +594,7 @@ export default function ProblemTemplate(
               <div
                 className="mt-5 rounded-2xl px-4 py-4"
                 style={{
-                  background: 'rgba(14, 11, 31, 0.72)',
+                  background: 'var(--card-bg)',
                 }}
               >
                 <div className="flex flex-wrap items-center gap-3">
@@ -707,7 +707,7 @@ export default function ProblemTemplate(
             <section
               className="mb-10 rounded-2xl p-5"
               style={{
-                background: 'rgba(43, 30, 57, 0.92)',
+                background: 'var(--card-bg)',
               }}
               aria-label="Suggest tags"
             >
@@ -848,7 +848,7 @@ export default function ProblemTemplate(
                       className="flex cursor-pointer items-start gap-2 rounded-2xl px-3 py-2"
                       style={{
                         border: '1px solid rgba(229, 194, 255, 0.12)',
-                        background: 'rgba(43, 30, 57, 0.92)',
+                        background: 'var(--card-bg)',
                       }}
                     >
                       <input
@@ -941,7 +941,7 @@ export default function ProblemTemplate(
                   <div
                     className="mt-6 rounded-2xl p-4"
                     style={{
-                      background: 'rgba(43, 30, 57, 0.92)',
+                      background: 'var(--card-bg)',
                     }}
                   >
                     <ProblemStatementMarkdown>

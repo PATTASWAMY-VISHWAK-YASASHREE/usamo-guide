@@ -145,7 +145,7 @@ const MarkCompleteButton = ({
                   : 'origin-top-right'
               } absolute right-0 z-10 mt-2 w-36 rounded-xl focus:outline-hidden`}
               style={{
-                background: 'rgba(43, 30, 57, 0.98)',
+                background: 'var(--modal-bg)',
               }}
             >
               <div className="py-1">

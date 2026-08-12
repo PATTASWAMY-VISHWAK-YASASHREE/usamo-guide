@@ -32,8 +32,8 @@
     /* accent system */
     --focus: #e085ff;
     --accent: #3d3564; /* readable on cream */
-    --accent-strong: #201c36;
-    --accent-glow: rgba(224, 133, 255, 0.42);
+    --accent-strong: #1c1e36;
+    --accent-glow: rgba(170, 133, 255, 0.42);
 
     /* pinkish accent helpers */
     --pink: #ff7cc8;
@@ -43,7 +43,7 @@
     --accent-soft: rgba(240, 194, 255, 0.22);
     --accent-soft-strong: rgba(240, 194, 255, 0.34);
 
-    --accent-fill: #3d3564;
+    --accent-fill: #363564;
     --hero-glow: none;
 
     --banner-bg: var(--bg-surface-alt);
@@ -94,6 +94,15 @@
     --disabled-text: rgba(32, 28, 54, 0.45);
 
     --shadow: none;
+
+    --card-bg: rgba(191, 181, 215, 0.45);
+    /* Solid background for modals/dropdowns — never translucent */
+    --modal-bg: #e8e1f0;
+    --modal-btn-bg: #6d3b9f;
+    --modal-btn-text: #f4edea;
+    --modal-btn-alt-bg: #efe3ff;
+    --modal-btn-alt-text: #2c1842;
+    --modal-btn-border: rgba(240, 194, 255, 0.34);
   }
 
   body {
@@ -179,5 +188,17 @@
     --disabled-text: rgba(244, 237, 234, 0.45);
 
     --shadow: none;
+
+    --card-bg: rgba(45,53,85,0.45);
+    /* Solid background for modals/dropdowns — never translucent */
+    --modal-bg: #0b0919;
+    --modal-btn-bg: #6d3b9f;
+    --modal-btn-text: #f4edea;
+    --modal-btn-alt-bg: #efe3ff;
+    --modal-btn-alt-text: #2c1842;
+    --modal-btn-border: rgba(240, 194, 255, 0.34);
+    /*     --card-bg: rgba(72, 45, 85, 0.45);
+    --modal-bg: rgb(66, 45, 85); */
+
   }
 }

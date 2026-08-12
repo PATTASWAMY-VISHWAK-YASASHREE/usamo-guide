@@ -5,6 +5,7 @@ import {
   DialogTitle,
 } from '@headlessui/react';
 import { XIcon } from '@heroicons/react/solid';
+import { Eye, EyeOff } from 'lucide-react';
 import React from 'react';
 import { signInWithOAuthProvider } from '../lib/authActions';
 import { supabase } from '../lib/supabaseClient';
@@ -32,6 +33,7 @@ export const ContentAccessModal: React.FC<ContentAccessModalProps> = ({
   const [email, setEmail] = React.useState('');
   const [password, setPassword] = React.useState('');
   const [isSigningUp, setIsSigningUp] = React.useState(false);
+  const [showPassword, setShowPassword] = React.useState(false);
 
   const handleSignInWithGoogle = () => {
     setIsSigningIn(true);
@@ -106,7 +108,7 @@ export const ContentAccessModal: React.FC<ContentAccessModalProps> = ({
         <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
           <DialogPanel
             transition
-            className="relative transform overflow-hidden rounded-xl bg-[#120F24] px-4 pt-5 pb-4 text-left transition-all data-[closed]:translate-y-4 data-[closed]:opacity-0 data-[enter]:duration-300 data-[enter]:ease-out data-[leave]:duration-200 data-[leave]:ease-in sm:my-8 sm:w-full sm:max-w-lg sm:p-6 data-[closed]:sm:translate-y-0 data-[closed]:sm:scale-95"
+            className="relative transform overflow-hidden rounded-xl bg-[var(--modal-bg)] px-4 pt-5 pb-4 text-left transition-all data-[closed]:translate-y-4 data-[closed]:opacity-0 data-[enter]:duration-300 data-[enter]:ease-out data-[leave]:duration-200 data-[leave]:ease-in sm:my-8 sm:w-full sm:max-w-lg sm:p-6 data-[closed]:sm:translate-y-0 data-[closed]:sm:scale-95"
           >
             <div className="absolute top-0 right-0 hidden pt-4 pr-4 sm:block">
               <button
@@ -123,7 +125,7 @@ export const ContentAccessModal: React.FC<ContentAccessModalProps> = ({
               <div>
                 <DialogTitle
                   as="h3"
-                  className="text-lg leading-6 font-medium text-[#F4EDEA]"
+                  className="text-xl leading-7 font-bold text-[#F4EDEA]"
                 >
                   {mode === 'development'
                     ? 'Under Development'
@@ -161,10 +163,15 @@ export const ContentAccessModal: React.FC<ContentAccessModalProps> = ({
               </div>
             ) : (
               <div className="mt-5 sm:mt-6">
-                <div className="flex flex-col space-y-2 sm:flex-row sm:items-center sm:space-y-0 sm:space-x-4">
+                <div className="flex flex-col items-center justify-center space-y-2 sm:flex-row sm:items-center sm:justify-center sm:space-y-0 sm:space-x-4">
                   <button
                     type="button"
-                    className="inline-flex items-center rounded-lg border border-[rgba(240,194,255,0.25)] bg-[rgba(112,66,138,0.20)] px-4 py-2 pl-3 text-sm font-medium text-[#F4EDEA] transition-colors hover:bg-[rgba(112,66,138,0.35)] disabled:opacity-50"
+                    className="inline-flex items-center rounded-full px-4 py-2 pl-3 font-mono text-sm leading-tight font-bold focus:outline-hidden transition-opacity hover:opacity-90 disabled:opacity-50"
+                    style={{
+                      border: '1px solid rgba(240, 194, 255, 0.34)',
+                      background: '#6D3B9F',
+                      color: '#F4EDEA',
+                    }}
                     onClick={handleSignInWithGoogle}
                     disabled={isSigningIn}
                   >
@@ -199,7 +206,12 @@ export const ContentAccessModal: React.FC<ContentAccessModalProps> = ({
                   </button>
                   <button
                     type="button"
-                    className="inline-flex items-center rounded-lg border border-[rgba(240,194,255,0.25)] bg-[rgba(112,66,138,0.20)] px-4 py-2 pl-3 text-sm font-medium text-[#F4EDEA] transition-colors hover:bg-[rgba(112,66,138,0.35)] disabled:opacity-50"
+                    className="inline-flex items-center rounded-full px-4 py-2 pl-3 font-mono text-sm leading-tight font-bold focus:outline-hidden transition-opacity hover:opacity-90 disabled:opacity-50"
+                    style={{
+                      border: '1px solid rgba(240, 194, 255, 0.34)',
+                      background: '#6D3B9F',
+                      color: '#F4EDEA',
+                    }}
                     onClick={handleSignInWithGithub}
                     disabled={isSigningIn}
                   >
@@ -230,7 +242,14 @@ export const ContentAccessModal: React.FC<ContentAccessModalProps> = ({
                   </button>
                   {isSigningIn && <LoadingSpinner />}
                 </div>
-                <div className="mt-4 space-y-3">
+                <div className="my-5 flex items-center gap-3">
+                  <div className="h-px flex-1 bg-[var(--modal-btn-border)]" />
+                  <span className="text-xs font-medium text-[rgba(244,237,234,0.55)]">
+                    or
+                  </span>
+                  <div className="h-px flex-1 bg-[var(--modal-btn-border)]" />
+                </div>
+                <div className="space-y-3">
                   <div>
                     <label className="block text-sm font-medium text-[rgba(244,237,234,0.78)]">
                       Email
@@ -240,20 +259,36 @@ export const ContentAccessModal: React.FC<ContentAccessModalProps> = ({
                       value={email}
                       onChange={e => setEmail(e.target.value)}
                       className="mt-1 w-full rounded-md border border-[rgba(240,194,255,0.25)] bg-[rgba(10,8,24,0.60)] px-3 py-2 text-sm text-[#F4EDEA] placeholder-[rgba(244,237,234,0.35)] focus:border-[#70428A] focus:ring-1 focus:ring-[#70428A] focus:outline-none"
-                      placeholder="you@example.com"
+                      placeholder="Eg: mathnerdforlife@gmail.com"
                     />
                   </div>
                   <div>
                     <label className="block text-sm font-medium text-[rgba(244,237,234,0.78)]">
                       Password
                     </label>
-                    <input
-                      type="password"
-                      value={password}
-                      onChange={e => setPassword(e.target.value)}
-                      className="mt-1 w-full rounded-md border border-[rgba(240,194,255,0.25)] bg-[rgba(10,8,24,0.60)] px-3 py-2 text-sm text-[#F4EDEA] placeholder-[rgba(244,237,234,0.35)] focus:border-[#70428A] focus:ring-1 focus:ring-[#70428A] focus:outline-none"
-                      placeholder="••••••••"
-                    />
+                    <div className="relative">
+                      <input
+                        type={showPassword ? 'text' : 'password'}
+                        value={password}
+                        onChange={e => setPassword(e.target.value)}
+                        className="mt-1 w-full rounded-md border border-[rgba(240,194,255,0.25)] bg-[rgba(10,8,24,0.60)] px-3 py-2 pr-11 text-sm text-[#F4EDEA] placeholder-[rgba(244,237,234,0.35)] focus:border-[#70428A] focus:ring-1 focus:ring-[#70428A] focus:outline-none"
+                        placeholder="••••••••"
+                      />
+                      <button
+                        type="button"
+                        onClick={() => setShowPassword(prev => !prev)}
+                        aria-label={
+                          showPassword ? 'Hide password' : 'Show password'
+                        }
+                        className="absolute inset-y-0 right-0 flex w-11 items-center justify-center text-[rgba(244,237,234,0.5)] transition-colors hover:text-[#F0C2FF] focus:outline-none"
+                      >
+                        {showPassword ? (
+                          <EyeOff className="size-5" />
+                        ) : (
+                          <Eye className="size-5" />
+                        )}
+                      </button>
+                    </div>
                   </div>
                   <div className="flex flex-wrap gap-3">
                     <button

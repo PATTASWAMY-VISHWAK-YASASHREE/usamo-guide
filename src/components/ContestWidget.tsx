@@ -4,7 +4,7 @@ const ContestWidget = () => (
   <div
     className="animate-in zoom-in-95 rounded-2xl p-6"
     style={{
-      background: 'rgba(43, 30, 57, 0.92)',
+      background: 'var(--card-bg)',
     }}
   >
     <img

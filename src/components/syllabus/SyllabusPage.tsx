@@ -19,6 +19,9 @@ import Layout from '../layout';
 import SEO from '../seo';
 import TopNavigationBar from '../TopNavigationBar/TopNavigationBar';
 import ModuleLink from './ModuleLink';
+import { useLastViewedModule } from '../../context/UserDataContext/properties/simpleProperties';
+import { useUserProgressOnModules } from '../../context/UserDataContext/properties/userProgress';
+
 
 /* All sections share the one page background; see --bg-page in src/styles/theme.css. */
 const HeroAccentColor: { [key in SectionID]: string } = {
@@ -103,6 +106,28 @@ export default function SyllabusPage({
   ];
   const problemsProgressInfo = useProblemsProgressInfo(problemIDs);
 
+  // Determine if the user has started any module in this division
+  const userProgressOnModules = useUserProgressOnModules();
+  const hasStarted = moduleIDs.some(
+    id =>
+      userProgressOnModules[id] &&
+      userProgressOnModules[id] !== 'Not Started'
+  );
+
+  // Build per-module URLs for this division: /{division}/{id}
+  const firstModuleURL = moduleIDs.length > 0 ? `/${division}/${moduleIDs[0]}` : '/dashboard';
+
+  // Last viewed module URL — only use it if it belongs to this division
+  const lastViewedModuleID = useLastViewedModule();
+  const lastViewedModuleURL =
+    lastViewedModuleID && moduleIDs.includes(lastViewedModuleID)
+      ? `/${division}/${lastViewedModuleID}`
+      : null;
+
+  // The button destination: prefer last-viewed in this division, else first module
+  const continueLearningURL = lastViewedModuleURL || firstModuleURL;
+
+
   const useProgressBarForCategory = (category: (typeof section)[0]) => {
     const categoryModuleIDs = category.items
       .filter((x): x is NonNullable<typeof x> => Boolean(x))
@@ -176,7 +201,7 @@ export default function SyllabusPage({
               </p>
 
               {(division === 'advanced' || division === 'usamo') && (
-                <div className="mx-auto mb-8 max-w-4xl rounded-2xl bg-[#171228]/76 px-6 py-4 text-center">
+                <div className="mx-auto mb-8 max-w-4xl rounded-2xl bg-[var(--card-bg)] px-6 py-4 text-center">
                   <p className="text-sm font-semibold text-[#F0C2FF] sm:text-base">
                     This section is currently under development. The content you
                     see here is filler for now.
@@ -186,7 +211,7 @@ export default function SyllabusPage({
 
               <div className="mb-8 flex flex-wrap items-center justify-center gap-4">
                 <Link
-                  to="/dashboard"
+                  to={continueLearningURL}
                   className="purple-motion-effect inline-flex items-center justify-center rounded-full px-6 py-3 font-mono text-lg leading-tight font-bold md:px-8 md:py-3"
                   style={
                     {
@@ -199,7 +224,7 @@ export default function SyllabusPage({
                     } as React.CSSProperties
                   }
                 >
-                  Continue Learning &gt;
+                  {hasStarted ? 'Continue Learning >' : 'Start Learning >'}
                 </Link>
                 <a
                   href="https://discord.gg/WZge4DWUuy"
@@ -221,34 +246,36 @@ export default function SyllabusPage({
                 </a>
               </div>
 
-              <div className="mx-auto grid max-w-2xl gap-8 lg:max-w-full lg:grid-cols-2">
-                <div className="rounded-xl bg-[#171228]/68 backdrop-blur sm:rounded-2xl">
-                  <div className="px-4 py-5 sm:p-6">
-                    <h3 className="text-lg leading-6 font-semibold text-[#F4EDEA]">
-                      Modules Progress
-                    </h3>
-                    <div className="mt-6">
-                      <DashboardProgress
-                        {...moduleProgressInfo}
-                        total={moduleIDs.length}
-                      />
+              {hasStarted && (
+                <div className="mx-auto grid max-w-2xl gap-8 lg:max-w-full lg:grid-cols-2">
+                  <div className="rounded-xl bg-[var(--card-bg)] backdrop-blur sm:rounded-2xl">
+                    <div className="px-4 py-5 sm:p-6">
+                      <h3 className="text-lg leading-6 font-semibold text-[#F4EDEA]">
+                        Modules Progress
+                      </h3>
+                      <div className="mt-6">
+                        <DashboardProgress
+                          {...moduleProgressInfo}
+                          total={moduleIDs.length}
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div className="rounded-xl bg-[var(--card-bg)] backdrop-blur sm:rounded-2xl">
+                    <div className="px-4 py-5 sm:p-6">
+                      <h3 className="text-lg leading-6 font-semibold text-[#F4EDEA]">
+                        Problems Progress
+                      </h3>
+                      <div className="mt-6">
+                        <DashboardProgress
+                          {...problemsProgressInfo}
+                          total={problemIDs.length}
+                        />
+                      </div>
                     </div>
                   </div>
                 </div>
-                <div className="rounded-xl bg-[#171228]/68 backdrop-blur sm:rounded-2xl">
-                  <div className="px-4 py-5 sm:p-6">
-                    <h3 className="text-lg leading-6 font-semibold text-[#F4EDEA]">
-                      Problems Progress
-                    </h3>
-                    <div className="mt-6">
-                      <DashboardProgress
-                        {...problemsProgressInfo}
-                        total={problemIDs.length}
-                      />
-                    </div>
-                  </div>
-                </div>
-              </div>
+              )}
             </div>
           </div>
 
@@ -256,7 +283,7 @@ export default function SyllabusPage({
             {section.map(category => (
               <div
                 key={category.name}
-                className="group/category flex flex-col rounded-2xl bg-[#171228]/58 p-4 transition md:flex-row"
+                className="group/category flex flex-col rounded-2xl bg-[var(--card-bg)] p-4 transition md:flex-row"
               >
                 <div className="flex flex-1 flex-col items-center justify-center pr-0 text-center md:pr-12">
                   <h2 className="py-3 text-2xl leading-tight font-bold tracking-tight text-[#F4EDEA] transition group-hover/category:text-[#F0C2FF] md:text-3xl">

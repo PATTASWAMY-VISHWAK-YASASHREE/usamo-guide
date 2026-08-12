@@ -34,10 +34,10 @@ const heroCardClasses =
   'relative overflow-hidden rounded-3xl p-8 transition-all duration-500';
 const toolbarCardClasses = 'mb-5 rounded-2xl p-4';
 const heroCardStyle: React.CSSProperties = {
-  background: 'rgba(48, 32, 67, 0.91)',
+  background: 'var(--card-bg)',
 };
 const toolbarCardStyle: React.CSSProperties = {
-  background: 'rgba(43, 30, 57, 0.92)',
+  background: 'var(--card-bg)',
 };
 
 type DataProps = {

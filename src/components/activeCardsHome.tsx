@@ -113,10 +113,7 @@ const ActiveCardsHome = () => {
                   activeCard === id ? '' : ''
                 )}
                 style={{
-                  background:
-                    activeCard === id
-                      ? 'rgba(50, 32, 75, 0.96)'
-                      : 'rgba(43, 30, 57, 0.92)',
+                  background: 'var(--card-bg)',
                 }}
               >
                 {activeCard === id && (
@@ -173,7 +170,7 @@ const ActiveCardsHome = () => {
                   'relative h-full w-full max-w-full overflow-hidden rounded-2xl p-12 backdrop-blur-sm md:p-10'
                 )}
                 style={{
-                  background: 'rgba(43, 30, 57, 0.92)',
+                  background: 'var(--card-bg)',
                 }}
               >
                 <div className="relative z-10 max-w-2xl">

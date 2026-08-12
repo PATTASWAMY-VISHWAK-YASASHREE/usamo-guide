@@ -50,7 +50,7 @@ export default function AetherFlowHero(): JSX.Element {
         className="pointer-events-none absolute inset-0 z-0 scale-105 blur-[10px]"
         style={{
           backgroundImage:
-            "url('https://i.pinimg.com/736x/b4/d7/31/b4d7313c871ef0e4b2a56b0bc1cd2c6c.jpg')",
+            "url('images/bg6.jpg')",
           backgroundSize: 'cover',
           backgroundPosition: 'center',
         }}

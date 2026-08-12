@@ -120,7 +120,6 @@ export default function SettingsPage(props) {
                   <div className="space-y-10">
                     {tab === 'general' && (
                       <>
-                        <DarkMode />
                         <General />
                       </>
                     )}

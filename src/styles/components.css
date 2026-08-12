@@ -48,13 +48,9 @@
     z-index: 1;
   }
 
-  /* Cards: remove white-based translucency, use palette mixes */
+  /* Cards */
   .ui-card {
-    background-color: color-mix(
-      in srgb,
-      var(--bg-surface-alt),
-      transparent 55%
-    );
+    background-color: var(--card-bg);
     color: var(--text-primary);
     border-radius: 0.75rem;
     backdrop-filter: blur(16px);
@@ -66,11 +62,6 @@
     &:hover {
       transform: translateY(-2px);
     }
-  }
-
-  .dark .ui-card,
-  html.dark .ui-card {
-    background-color: color-mix(in srgb, var(--bg-surface), transparent 35%);
   }
 
   .ui-surface {
@@ -293,7 +284,7 @@
 
   .problem-card {
     position: relative;
-    background: var(--bg-surface);
+    background: var(--card-bg);
     backdrop-filter: blur(18px) saturate(150%);
     -webkit-backdrop-filter: blur(18px) saturate(150%);
     transition: transform 0.2s ease;
@@ -301,10 +292,6 @@
 
   .problem-card:hover {
     transform: translateY(-2px);
-  }
-
-  html.dark .problem-card {
-    background: var(--bg-surface);
   }
 
   .problem-tag-pill {

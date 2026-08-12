@@ -40,7 +40,7 @@ const TEXT_PRIMARY = VANILLA;
 const TEXT_SECONDARY = 'rgba(244, 237, 234, 0.78)';
 const TEXT_MUTED = 'rgba(244, 237, 234, 0.62)';
 const FAQ_CARD_STYLE: React.CSSProperties = {
-  background: 'rgba(43, 30, 57, 0.92)',
+  background: 'var(--card-bg)',
   color: TEXT_PRIMARY,
 };
 const footerSocialLinks = [
@@ -64,8 +64,10 @@ const footerSocialLinks = [
 const containerClasses = 'max-w-(--breakpoint-xl) mx-auto px-4 sm:px-6 lg:px-8';
 
 const builderProfiles = [
-  { name: 'Pranav Ramesh', role: 'Founder & CEO', imageSrc: '' },
-  { name: 'Spursh Deshpande', role: 'CTO', imageSrc: '' }
+  { name: 'Pranav Ramesh', role: 'Founder & CEO', imageSrc: 'images/Founder_Pranav.jpg' },
+  { name: 'Spursh Deshpande', role: 'CTO', imageSrc: 'images/CTO.jpeg' },
+  { name: 'Siddhant Arora', role: 'COO', imageSrc: 'images/COO.png' },
+  { name: 'Daniel Liao', role: 'CMO', imageSrc: 'images/CMO.jpeg' },
 ];
 
 function RevealSection({
@@ -456,7 +458,7 @@ export default function IndexPage({ path }): JSX.Element {
                 </div>
 
                 <div className="w-full max-w-5xl">
-                  <div className="grid grid-cols-2 justify-items-center gap-x-6 gap-y-8 sm:grid-cols-3 md:grid-cols-5 md:gap-x-8 md:gap-y-10">
+                  <div className="grid grid-cols-2 justify-items-center gap-x-6 gap-y-8 sm:grid-cols-2 md:grid-cols-4 md:gap-x-8 md:gap-y-10">
                     {builderProfiles.map((builder) => (
                       <div
                         key={builder.name}
@@ -867,7 +869,7 @@ export default function IndexPage({ path }): JSX.Element {
         {/* Full-bleed wordmark, with tree canopy behind it and grass overlapping in front */}
       <div className="pointer-events-none mt-4 w-screen relative left-1/2 -translate-x-1/2 overflow-hidden">
         <img
-          src="https://www.callbaba.com/landing/img/tree-canopy-pink.png"
+          src="images/tree-canopy-pink.png"
           alt=""
           className="absolute right-0 top-1/2 -translate-y-1/2 z-0 h-[clamp(8rem,22vw,22rem)] w-auto select-none object-contain"
         />
@@ -892,7 +894,7 @@ export default function IndexPage({ path }): JSX.Element {
         </svg>
 
         <img
-          src="https://www.callbaba.com/landing/img/ground-grass-wide.png"
+          src="images/ground-grass-wide.png"
           alt=""
           className="relative z-20 w-full h-auto select-none block mt-[clamp(-4rem,-8vw,-1.5rem)]"
         />

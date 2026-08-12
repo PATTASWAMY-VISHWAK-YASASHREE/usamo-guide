@@ -9,7 +9,7 @@ export default function WelcomeBackBanner({
     <div
       className="w-full lg:rounded-2xl"
       style={{
-        background: 'rgba(43, 30, 57, 0.92)',
+        background: 'var(--card-bg)',
       }}
     >
       <Link

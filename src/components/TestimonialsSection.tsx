@@ -168,8 +168,8 @@ const TestimonialsSection = () => {
                       ref={
                         copyIndex === 1 && idx === 0 ? firstCardRef : undefined
                       }
-                      className="flex min-h-[180px] w-[78vw] flex-shrink-0 flex-col justify-between p-5 md:w-[66vw] md:p-6 lg:w-[640px]"
-                      style={{}}
+                      className="flex min-h-[180px] w-[78vw] flex-shrink-0 flex-col justify-between rounded-2xl p-5 md:w-[66vw] md:p-6 lg:w-[640px]"
+                      style={{ background: 'var(--card-bg)' }}
                     >
                       <p
                         className="text-xl leading-relaxed md:text-[1.9rem]"
