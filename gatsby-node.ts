@@ -382,11 +382,6 @@ exports.onCreateNode = async api => {
   }
 };
 
-exports.onCreateWebpackConfig = ({ actions }) => {
-  actions.setWebpackConfig({
-    cache: false,
-  });
-};
 
 exports.createPages = async ({ graphql, actions, reporter }) => {
   const { createPage, createRedirect } = actions;
@@ -600,6 +595,7 @@ exports.createSchemaCustomization = ({ actions }) => {
 };
 exports.onCreateWebpackConfig = ({ actions, stage, loaders, plugins }) => {
   actions.setWebpackConfig({
+    cache: false,
     resolve: {
       alias: {
         path: path.resolve('path-browserify'),
